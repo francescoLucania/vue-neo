@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+.add-n-feedback-form {
+    &__row {
+        &:not(:last-child) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+        }
+    }
+
+    &__photo {
+
+    }
+
+    &__photo-line {
+        position: relative;
+        display: none;
+        flex-wrap: wrap;
+        margin-bottom: -1 * map_get($mq-container-indents, 'sx') / 4;
+
+        &.is-upload {
+            display: flex;
+        }
+    }
+
+    &__add-photo-action {
+        margin-top: map_get($mq-container-indents, 'sx') / 4;
+
+        > .button {
+            width: 100%;
+
+            @include mq(sx) {
+                width: 43rem;
+            }
+        }
+    }
+
+
+    .dz-preview,
+    .dz-image {
+        @include size(4.6rem, 3.5rem);
+        @include interact(opacity, 1, 'hover .add-n-feedback-form__image-delete');
+
+        position: relative;
+        margin-bottom: map_get($mq-container-indents, 'sx') / 8;
+
+        @include mq(sx) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+        }
+
+        @include mq(md) {
+            @include size(7.6rem, 5.7rem);
+        }
+
+        &:not(:last-child) {
+            margin-right: map_get($mq-container-indents, 'sx') / 8;
+
+            @include mq(sx) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+
+        img {
+            @include size(100%);
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+    }
+
+    &__image-delete {
+        @include size(2rem);
+        @include interact(fill, $brand-turquoise, 'hover .icon');
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(50%, -50%);
+        z-index: 99;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .4rem;
+        border-radius: 50%;
+        background: $color-base;
+        opacity: 0;
+
+        > .icon {
+            @include size(1rem);
+
+            fill: #fff;
+        }
+    }
+}
+
+.dz-remove {
+    display: none !important;
+}
+
+
+.add-images__dropzone-previews,
+.chat-message-form__upload-container {
+    .dz-details,
+    .dz-progress,
+    .dz-error-message,
+    .dz-success-mark,
+    .dz-error-mark {
+        display: none !important;
+    }
+}
+

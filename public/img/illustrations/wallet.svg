@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="68px" height="80px" viewBox="0 0 68 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Illustration/ Credit/ Wallet</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="11.-Credit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="11.1.1-Credit-Promo-1440" transform="translate(-1028.000000, -580.000000)">
+            <g id="Group-49" transform="translate(914.000000, 544.000000)">
+                <g id="Group-45" transform="translate(64.000000, 0.000000)">
+                    <g id="Illustration/-Credit/-Wallet" transform="translate(50.000000, 36.000000)">
+                        <g>
+                            <rect id="Rectangle-11" fill="#136A5E" x="0" y="26" width="64" height="48" rx="8"></rect>
+                            <circle id="Oval-6" fill="#FFBB03" cx="28.5" cy="27.5" r="9.5"></circle>
+                            <rect id="Rectangle-11" fill="#02C5AB" x="0" y="32" width="64" height="48" rx="8"></rect>
+                            <path d="M50,48 L66,48 C67.1045695,48 68,48.8954305 68,50 L68,62 C68,63.1045695 67.1045695,64 66,64 L50,64 C45.581722,64 42,60.418278 42,56 L42,56 C42,51.581722 45.581722,48 50,48 Z" id="Rectangle-12" fill="#2898BC"></path>
+                            <circle id="Oval-5" fill="#FFFFFF" cx="51" cy="56" r="4"></circle>
+                            <circle id="Oval-6" fill="#FFBB03" cx="44.5" cy="9.5" r="9.5"></circle>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

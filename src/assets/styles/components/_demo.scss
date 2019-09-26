@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+.demo {
+
+    ul {
+        &:not([class]) {
+            margin-top: map_get($mq-container-indents, 'sx') / 4;;
+            list-style-type: circle;
+
+            &:not(:last-child) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+            }
+        }
+    }
+
+    &__grid {
+        display: flex;
+
+        &--base {
+
+            .demo__grid-col {
+                &:nth-child(1) {
+                    background: $color-base;
+                }
+
+                &:nth-child(2) {
+                    background: $color-light;
+                }
+
+                &:nth-child(3) {
+                    background: $color-lighter;
+                }
+
+                &:nth-child(4) {
+                    background: $color-lightest;
+                }
+
+                &:nth-child(5) {
+                    background: $color-lightest-minimal;
+                }
+            }
+        }
+
+        &--brand {
+
+            .demo__grid-col {
+
+                &:nth-child(1) {
+                    background: $brand-grapefruit;
+                }
+
+                &:nth-child(2) {
+                    background: $brand-reddish;
+                }
+
+                &:nth-child(3) {
+                    background: $brand-turquoise;
+                }
+
+                &:nth-child(4) {
+                    background: $brand-blue-green;
+                }
+
+                &:nth-child(5) {
+                    background: $brand-duck-egg-blue;
+                }
+
+                &:nth-child(6) {
+                    background: $brand-bluish;
+                }
+
+                &:nth-child(7) {
+                    background: $color-amber;
+                }
+            }
+        }
+    }
+
+    &__grid-col {
+
+        @include mq(md) {
+            @include size(10rem);
+        }
+    }
+}
+
+
+.test-grid {
+    display: flex;
+    justify-content: center;
+
+    &__col {
+        @include col-size(8/12);
+
+        &::after {
+            display: block;
+            content: "test";
+            border: 1px solid;
+        }
+    }
+}
+
+.test-grid-mx {
+    @include grid;
+
+    justify-content: center;
+
+    &__col {
+        @include grid-col;
+        @include col-size(8/12);
+
+        &::after {
+            display: block;
+            content: "test";
+            border: 1px solid;
+        }
+    }
+}

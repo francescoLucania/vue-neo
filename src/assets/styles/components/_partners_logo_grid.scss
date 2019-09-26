@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.partners-logo-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-bottom: -1 * map_get($mq-indents, 'sm') / 3;
+
+    &:not(:first-child) {
+        margin-top: map-get($mq-container-indents, 'sx') / 2;
+    }
+
+    > li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 1px;
+        margin-bottom: map_get($mq-indents, 'sm') / 3;
+
+        &:not(:first-child) {
+            margin-left: 2rem;
+
+            @include mq(sx) {
+                margin-left: 4rem;
+            }
+        }
+
+        &:last-child {
+            @include mq(sm) {
+                //width: 100%;
+            }
+        }
+
+        > img {
+            max-width: 120px;
+            height: auto;
+            vertical-align: top;
+            filter: grayscale(1);
+        }
+    }
+}

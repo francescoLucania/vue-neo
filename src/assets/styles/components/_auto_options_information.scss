@@ -1,0 +1,340 @@
+@charset "UTF-8";
+
+.auto-options-grid {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: -1 * map_get($mq-indents, 'sm') / 3;
+
+    &[data-justify-center] {
+        justify-content: center;
+    }
+
+    .auto-options-item {
+        margin-bottom: map_get($mq-indents, 'sm') / 3;
+    }
+
+    &[data-column] {
+        flex-direction: column;
+        align-items: flex-start;
+
+        > li {
+
+        }
+    }
+
+    &[data-desktop] {
+        display: none;
+
+        @include mq(sx) {
+            display: flex;
+        }
+    }
+
+    &[data-mobile] {
+        display: none;
+
+        @include mq(sm) {
+            display: flex;
+            margin-bottom: 0;
+        }
+
+        > span {
+            @include text-minimal;
+
+            display: block;
+            color: $color-light;
+
+            &:not(:last-child) {
+                margin-right: .4rem;
+            }
+        }
+    }
+
+    &[data-mobile-flex-start] {
+        @include mq-custom(max, 912px) {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+
+            .auto-options-item {
+                > .icon,
+                > i {
+                    display: none;
+
+                    + span {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.auto-options-item {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    font-weight: 400;
+
+    &:not(:last-child) {
+        margin-right: .4rem;
+    }
+
+    &.is-md {
+        display: none !important;
+
+        @include mq(md) {
+            display: inline-flex !important;
+        }
+    }
+
+    > .icon,
+    > span {
+        display: block;
+    }
+
+    > .icon,
+    > i {
+        + span {
+            margin-left: .8rem;
+        }
+    }
+
+    > i {
+        &[data-size='xl'] {
+            @include size(2.4rem);
+
+            min-width: 2.4rem;
+        }
+
+        &[data-size='md'] {
+            @include size(1.6rem);
+
+            min-width: 1.6rem;
+        }
+
+        &[data-size='sm'] {
+            @include size(1.3rem);
+
+            min-width: 1.3rem;
+        }
+
+        &[data-counter] {
+            @include size(2rem !important);
+
+            position: relative;
+            border-radius: 50%;
+            border: 1px solid $color-lightest;
+            background-color: #fff;
+            color: $color-lighter;
+            font-style: normal;
+            //display: none;
+
+            &::after {
+                @include font(1rem, .9rem);
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-weight: 400;
+                content: attr(data-counter);
+            }
+        }
+    }
+
+    > .icon {
+        @include size(1.3rem, 1.2rem);
+
+        //transform: translateY(-.2rem);
+        fill: $color-light;
+
+        &[data-clocks] {
+            @include size(1.4rem);
+
+            position: relative;
+            top: 1px;
+        }
+    }
+
+    > span {
+        @include text-small(400);
+
+        line-height: 1;
+
+        color: $color-light;
+    }
+
+    &[data-color] {
+        > i {
+            border-radius: 50%;
+        }
+    }
+
+    &[data-font-size="xl"] {
+        > span {
+            @include text-base(300);
+        }
+
+        > i {
+            &:not([data-counter]),
+            &:not([data-size]) {
+                @include size(1.6rem);
+
+                min-width: 1.6rem;
+            }
+        }
+    }
+
+    &[data-bottom-gutter-16] {
+        &:not(:last-child) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+        }
+    }
+
+    &[data-download] {
+        > span {
+            @include text-base;
+        }
+    }
+
+    &--old-type {
+        &:first-child {
+            display: inline-flex;
+            justify-content: center;
+
+            > .icon {
+                height: 1.8rem;
+            }
+        }
+
+        &:not(:last-child) {
+            @include mq(md) {
+                margin-right: map_get($mq-container-indents, 'sx') / 2;
+            }
+        }
+
+        > .icon {
+            @include size(2.4rem);
+
+            fill: #999;
+        }
+    }
+}
+
+.auto-options-item-tag {
+    @include text-small(400);
+
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+
+    &:not(.popup-tooltip-button) {
+        cursor: default;
+    }
+
+    > .icon {
+        @include size(1.2rem);
+
+        display: block;
+        margin-right: .8rem;
+    }
+
+    &[data-border-min-radius],
+    &[data-in-stock]  {
+
+    }
+
+    &[data-border-min-radius],
+    &[data-in-stock],
+    &[data-status] {
+
+        line-height: 1;
+        padding: .4rem .6rem;
+        border-radius: $border-radius-min;
+        border: 1px solid $brand-greyish;
+        background: #fff;
+
+        > .icon {
+            @include size(1.2rem);
+
+            display: block;
+            margin-right: .8rem;
+        }
+
+        > span {
+            white-space: nowrap;
+        }
+    }
+
+    &[data-status] {
+        @include ellipsis;
+
+        white-space: nowrap;
+        padding: .4rem .8rem .3rem;
+        max-width: 100%;
+        border-color: transparent;
+        color: #fff;
+    }
+
+    &[data-status="new"] {
+        background: $brand-bluish;
+    }
+
+    &[data-status="sale"] {
+        background: $brand-grapefruit;
+    }
+
+    &[data-type='image-badge'] {
+        padding: 0;
+        border: 0;
+        background: transparent;
+
+        > img {
+            width: auto;
+            max-height: 2.3rem;
+        }
+    }
+}
+
+.sale-badge,
+.credit-badge {
+    &[data-font-size="base"] {
+        font-size: 1.6rem;
+    }
+}
+
+.sale-badge {
+    @include ellipsis(100%, inline-block);
+
+    font-size: 1.6rem;
+    line-height: 1.5;
+    padding: 0 .8rem;
+    border-radius: $border-radius-min;
+    background: $brand-grapefruit;
+    font-weight: 400;
+    color: #fff;
+
+    &[data-font-size="base"] {
+        font-size: 1.6rem;
+        line-height: 1.5;
+    }
+}
+
+.credit-badge {
+    @include ellipsis(100%, inline-block);
+
+    padding: .1rem .8rem;
+    border: 1px solid $brand-greyish;
+    border-radius: $border-radius-min;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.25;
+    color: $color-base;
+
+    &[data-font-size="base"] {
+        font-size: 1.6rem;
+        line-height: 1.25;
+    }
+}

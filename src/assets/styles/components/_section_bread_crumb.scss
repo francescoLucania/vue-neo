@@ -1,0 +1,253 @@
+@charset "UTF-8";
+
+.section-bread-crumb {
+    &--sm-gutter-mod {
+        @include mq(sm) {
+            margin: 0 -1 * map_get($mq-indents, 'sm') -40px;
+            padding: calc(#{map_get($mq-container-indents, 'sx') / 4} - 1px) map_get($mq-indents, 'sm') 0;
+            border-top: 1px solid $color-lightest;
+        }
+    }
+
+    &__list {
+        margin-bottom: -1 * map_get($mq-indents, 'sm');
+
+        @include mq(sx) {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: -1 * map_get($mq-indents, 'sm') / 3;
+        }
+
+        .mod_touchevents & {
+            @include mq(sx) {
+                display: block;
+            }
+        }
+
+        &--sx-center {
+            @include mq(md) {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 63.2rem;
+            }
+
+            @include mq(sx) {
+                justify-content: center;
+            }
+
+            @include mq(lg) {
+                max-width: 91.2rem;
+            }
+        }
+    }
+
+    &__list-item {
+        line-height: 1;
+
+        @include mq(sm) {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: map_get($mq-indents, 'sm');
+
+            > div {
+                &:first-child {
+                    flex-grow: 1;
+                }
+            }
+        }
+
+        .mod_touchevents & {
+            @include mq(sx) {
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: map_get($mq-indents, 'sm');
+
+                > div {
+                    &:first-child {
+                        flex-grow: 1;
+                    }
+                }
+            }
+        }
+
+        @include mq(sx) {
+            margin-bottom: map_get($mq-indents, 'sm') / 3;
+        }
+
+        &:not(:last-child) {
+            @include mq(sx) {
+                display: flex;
+
+                &::after {
+                    width: map_get($mq-indents, 'sm');
+                    text-align: center;
+                    color: #999999;
+                    content: "/";
+                }
+            }
+
+            .mod_touchevents & {
+                @include mq(sx) {
+                    &::after {
+                        content: none;
+                    }
+                }
+            }
+        }
+
+        > span {
+            line-height: 1;
+            font-weight: 400;
+            color: $color-lighter;
+            pointer-events: none;
+        }
+
+        .tooltip {
+            bottom: 0;
+            max-width: 100%;
+
+            @include mq(sx) {
+                bottom: .8rem;
+                width: 100%;
+            }
+
+            @include mq(md) {
+                max-width: 76rem;
+            }
+        }
+    }
+
+    &__list-item-link,
+    &__list-item-touch-menu-link {
+        &.tooltip-link {
+            @include interact(text-decoration, underline);
+
+            &::after {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                display: block;
+                pointer-events: none;
+                border-top: 6px solid $color-base;
+                border-right: 5px solid transparent;
+                border-left: 5px solid transparent;
+                transition: $transition-duration-base;
+                content: "";
+            }
+
+            @for $i from 1 through 10 {
+
+                &:nth-child(#{$i}) {
+                    z-index: 10 - $i;
+                }
+            }
+        }
+    }
+
+    &__list-item-link {
+        position: relative;
+        display: block;
+        white-space: nowrap;
+
+        .mod_no-touchevents & {
+            &:hover {
+                &::after {
+                    transform: translateY(-50%) rotate(180deg);
+                }
+            }
+        }
+
+        &.tooltip-link {
+
+            @include mq(sx) {
+                padding-right: 2rem;
+            }
+
+            &::after {
+                @include mq(sm) {
+                    display: none;
+                }
+
+                .mod_touchevents & {
+                    display: none;
+                }
+
+                @include mq(sx) {
+                    right: 0;
+                }
+            }
+        }
+
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+
+    &__list-item-touch-menu-link {
+
+        &.tooltip-link {
+            @include size(2.4rem);
+
+            position: relative;
+            display: block;
+            margin-right: -.6rem;
+            min-height: 2.4rem;
+            font-size: 0;
+
+            @include mq(sx) {
+                display: none;
+                margin-right: 1.3rem;
+            }
+
+            .mod_touchevents & {
+                @include mq(sx) {
+                    display: block;
+                }
+            }
+
+            &::after {
+                top: 50%;
+                left: 50%;
+                right: auto;
+                transform: translate(-50%, -50%);
+            }
+
+            &.is-active {
+                &::after {
+                    transform: translate(-50%, -50%) rotate(180deg);
+                }
+            }
+
+            .mod_touchevents {
+                display: block;
+            }
+            .mod_no-touchevents {
+                display: none;
+            }
+
+            &:focus {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__next-button-block {
+        display: flex;
+        justify-content: center;
+        margin: map_get($mq-container-indents, sx) / 4 -1 * map_get($mq-indents, 'sm') -1 * (map_get($mq-container-indents, sx) / 8);
+        padding: calc(#{map_get($mq-container-indents, 'sx') / 4} - 1px) map_get($mq-indents, 'sm');
+        border-top: 1px solid $color-lightest-minimal;
+
+        @include mq(sx) {
+            margin: map_get($mq-container-indents, sx) / 2 0 -1 * (map_get($mq-container-indents, sx) / 2);
+            padding: calc(#{map_get($mq-container-indents, 'sx') / 4} - 1px) 0;
+        }
+
+        > a {
+            white-space: nowrap;
+        }
+    }
+}

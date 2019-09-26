@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.choice-auto {
+    background-image: linear-gradient(to bottom, #f2f2f2, rgba(255, 255, 255, 0));
+
+    &__image-box {
+        margin-bottom: map-get($mq-indents, 'sx');
+
+        @include mq(sx) {
+            margin-bottom: map-get($mq-container-indents, 'sx') / 2;;
+        }
+
+        > img {
+            display: block;
+            margin: 0 auto;
+            vertical-align: top;
+        }
+    }
+
+    &__title {
+        @include header-h2;
+
+        text-align: center;
+    }
+
+    &__description {
+        margin-top: map-get($mq-container-indents, 'sx') / 4;
+        text-align: center;
+    }
+
+    .credit-button-grid {
+        margin-top: map-get($mq-container-indents, 'sx') / 4;
+
+        @include mq(sx) {
+            margin-top: map-get($mq-indents, 'sx');
+        }
+    }
+}

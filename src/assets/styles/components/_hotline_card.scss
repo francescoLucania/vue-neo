@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+@keyframes hotline-card-fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(-50%, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+@keyframes hotline-card-fadeInUp-md {
+    from {
+        opacity: 0;
+        transform: translate3d(-50%, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(-50%, -1.6rem, 0);
+    }
+}
+
+.hotline-card {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    z-index: 9998;
+    display: none;
+    padding: map_get($mq-container-indents, 'sx') / 4;
+    width: 100%;
+    border-radius: $border-radius-min;
+    background: rgba($color-base, .9);
+    color: #fff;
+    animation: hotline-card-fadeInUp $transition-duration-base-min linear 0ms 1 alternate forwards;
+
+    @include mq(sx) {
+        transform: translate3d(-50%, 100%, 0);
+        width: 63.2rem;
+        animation: hotline-card-fadeInUp-md $transition-duration-base-min linear 0ms 1 alternate forwards;
+    }
+
+    &.is-open {
+        display: block;
+
+        @include mq(sx) {
+            bottom: 0;
+        }
+    }
+
+    &__grid {
+        @include mq(sx) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+        }
+    }
+
+    &__title {
+        @include ellipsis(100%, block);
+        @include text-base(400);
+
+        white-space: nowrap;
+
+        @include mq(sm) {
+            text-align: center;
+        }
+    }
+
+    &__actions {
+        @include mq(sm) {
+            margin-top: map_get($mq-container-indents, 'sx') / 4;
+        }
+
+        @include mq(sx) {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-left: map_get($mq-container-indents, 'sx') / 2;
+        }
+
+        .contacts-link {
+            display: none;
+
+            @include mq(sx) {
+                display: block;
+            }
+        }
+    }
+
+    &__action-button {
+        @include mq(sx) {
+            margin-left: map_get($mq-container-indents, 'sx') / 2;
+        }
+
+        > .button {
+            min-width: 17.2rem!important;
+            width: 100%;
+
+            @include mq(sx) {
+                width: auto;
+            }
+        }
+    }
+}

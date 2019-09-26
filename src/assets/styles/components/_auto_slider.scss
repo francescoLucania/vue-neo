@@ -1,0 +1,261 @@
+@charset "UTF-8";
+
+.auto-slider {
+    overflow: hidden;
+
+    @include mq(sx) {
+        margin-top: -9rem;
+        padding: 0 map-get($mq-container-indents, 'sx');
+    }
+
+    @include mq(md) {
+        margin-bottom: -2rem;
+    }
+
+    @include mq-custom(min, 2100px) {
+        padding-left: map-get($mq-container-indents, 'sx') / 2 + map-get($mq-container-indents, 'sx');
+        padding-right: map-get($mq-container-indents, 'sx') / 2 + map-get($mq-container-indents, 'sx');
+    }
+
+    &--min-top-gutter {
+        @include mq(sx) {
+            margin-top: -9rem;
+        }
+
+        @include mq(md) {
+            margin-top: -9rem;
+        }
+    }
+
+    &__container {
+        position: relative;
+    }
+
+    &__grid {
+        display: flex;
+        transition: opacity $transition-duration-base-min;
+
+        &.slick-slider {
+            position: static;
+            display: block;
+        }
+
+        @include mq(sx) {
+            @include grid;
+
+            align-items: stretch;
+            padding-top: 6.6rem;
+            padding-bottom: 2.4rem;
+
+            .slick-slider & {
+                justify-content: center;
+            }
+        }
+
+
+        &.is-visible {
+            .slick-slide {
+                opacity: 1 !important;
+            }
+        }
+
+        &.slick-initialized {
+            @include mq(sx) {
+                padding-top: 4.4rem;
+                padding-bottom: 2.4rem;
+            }
+        }
+    }
+
+    &__grid-col {
+        @include mq(sx) {
+            @include grid-col;
+            @include col-size(1/2);
+
+            //flex-basis: 100%;
+            display: flex !important; // overrides js
+            flex-direction: column;
+            border-radius: $border-radius-min;
+            max-width: 100%;
+            transition: background-color $transition-duration-base-min;
+
+            .mod_flexboxtweener & {
+                flex-grow: 1;
+                flex-shrink: 0;
+                flex-basis: auto;
+            }
+
+            .slick-slider & {
+                display: flex;
+                flex-direction: column;
+            }
+
+            @include mq(md) {
+                padding-top: 2.4rem;
+                padding-bottom: 2.4rem;
+            }
+
+            @include mq(lg) {
+                .mod_no-flexboxtweener {
+                    display: flex !important; //slick overrides
+                    flex-direction: column;
+                }
+            }
+
+            > .car-model-item {
+                flex-basis: 100%;
+                max-width: 100%;
+
+                img {
+                    max-width: 32.4rem;
+                }
+            }
+        }
+
+        .mod_no-touchevents & {
+            @include mq(md) {
+                padding: map-get($mq-indents, 'sm');
+            }
+        }
+
+        @include mq(lg) {
+            @include col-size(1/4);
+        }
+
+        @include mq-custom(min, 1600px) {
+            @include col-size(1/4);
+        }
+
+        @include mq-custom(min, 1600px) {
+            @include col-size(1/5);
+        }
+
+        @include mq-custom(min, 2100px) {
+            width: 16.66%;
+        }
+
+
+        .slick-initialized & {
+            @include interact(background-color, transparent);
+
+            padding: 0;
+
+            @include mq(sx) {
+                @include interact(background-color, transparent);
+
+                padding: 0;
+            }
+
+            @include mq(md) {
+                @include interact(background-color, transparent);
+
+                padding: 0;
+            }
+        }
+    }
+
+    // overrides
+    .slick-slider {
+        -webkit-user-select: text;
+        -khtml-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+    }
+
+    .slick-list,
+    .slick-track {
+        min-width: 100%;
+    }
+
+    .slick-list {
+        overflow: visible;
+    }
+
+    .slick-track {
+        display: flex !important; // override js
+        justify-content: center !important; // override js
+        align-items: stretch;
+
+        @include mq(sx) {
+            padding: 4.4rem 0 2.4rem;
+            margin-bottom: -2.4rem;
+        }
+    }
+
+    .slick-slide,
+    .slick-slide > div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .slick-slide {
+        display: flex;
+        flex-direction: column;
+        float: none;
+        height: auto;
+        outline: none;
+        opacity: 0;
+        transition: background-color $transition-duration-base-min;
+
+        @include mq(sm) {
+            margin: 0 map_get($mq-indents, 'sm');
+        }
+
+        @include mq(sx) {
+            padding: 0 2.4rem;
+            border-radius: $border-radius-min;
+        }
+
+        &.slick-active {
+            opacity: 1;
+        }
+
+        > div {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 100%;
+
+            .mod_flexboxtweener & {
+                flex-grow: 1;
+                flex-shrink: 0;
+                flex-basis: auto;
+            }
+
+            img {
+                vertical-align: top;
+            }
+        }
+
+        .car-model-item {
+            flex-basis: 100%;
+
+            .mod_flexboxtweener & {
+                flex-shrink: 0;
+                flex-basis: auto;
+            }
+        }
+    }
+
+    .slick-prev {
+        left: calc(-1 * #{map-get($mq-container-indents, 'sx')});
+
+        @include mq-custom(min, 2100px) {
+            left: -1 * (map-get($mq-container-indents, 'sx') + map-get($mq-container-indents, 'sx') / 2);
+        }
+    }
+
+    .slick-next {
+        right: calc(-1 * #{map-get($mq-container-indents, 'sx')});
+
+        @include mq-custom(min, 2100px) {
+            right: -1 * (map-get($mq-container-indents, 'sx') + map-get($mq-container-indents, 'sx') / 2);
+        }
+    }
+
+    .slick-dots {
+        @include mq(sx) {
+            display: none !important;
+        }
+    }
+}

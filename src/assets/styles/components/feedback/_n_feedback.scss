@@ -1,0 +1,939 @@
+@charset "UTF-8";
+
+@keyframes rotate-spinner {
+    from {
+        transform: translateX(-50%) rotate(0);
+    }
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+@keyframes feedback-load {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.n-feedback {
+    padding: map_get($mq-indents, 'sm') 0 map_get($mq-container-indents, 'sx') / 2;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.11);
+    background-color: #ffffff;
+
+    @include mq(sx) {
+        padding: map_get($mq-container-indents, 'sx') / 2 0 map_get($mq-container-indents, 'sx') / 2;
+    }
+
+    &__navigate {
+        margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+
+        @include mq(sx) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+        }
+    }
+
+    &__grid {
+        @include mq(lg) {
+            @include grid(x, flex-start, stretch);
+        }
+    }
+
+    &__action-col {
+        display: none;
+
+        @include mq(lg) {
+            @include grid-col-mx(1/4);
+
+            display: block;
+            padding-left: map_get($mq-grid-gutters, 'sx');
+            padding-right: map_get($mq-grid-gutters, 'sx');
+        }
+    }
+
+    &__action-sticky-block {
+        @include mq(lg) {
+            position: sticky;
+            top: map_get($mq-container-indents, 'sx') / 2;
+        }
+    }
+
+    &__content-col {
+        position: relative;
+        min-height: 100vh;
+
+        @include mq(lg) {
+            @include grid-col-mx(3/4);
+            padding-left: map_get($mq-grid-gutters, 'sx');
+            padding-right: map_get($mq-grid-gutters, 'sx');
+        }
+
+        &.is-load {
+            &::after {
+                display: none;
+            }
+        }
+
+        &--form {
+            &::after {
+                @include size(7.2rem);
+
+                top: 16.4rem;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                animation: rotate-spinner 1s linear infinite;
+                background: {
+                    position: 50%;
+                    size: contain;
+                    repeat: no-repeat;
+                    color: transparent;
+                    image: url('../img/spinner.png');
+                };
+                content: "";
+
+                @include mq(sx) {
+                    @include size(9.2rem);
+
+                    top: 12.2rem;
+                }
+
+                @include mq(md) {
+                    @include size(12.8rem);
+
+                    top: 19.2rem;
+                }
+            }
+        }
+    }
+
+    // header all feedback page
+    &__header {
+        margin: map_get($mq-container-indents, 'sx') / 4 0;
+
+        @include mq(sx) {
+            margin: map_get($mq-container-indents, 'sx') 0 map_get($mq-container-indents, 'sx') / 2;
+        }
+    }
+
+    &__header-title {
+        @include header-h1-lg;
+
+        @include mq(sx) {
+            @include header-h1;
+        }
+    }
+
+    &__header-description {
+        &:not(:first-child) {
+            margin-top: map_get($mq-indents, 'sm') / 3;
+
+            @include mq(sx) {
+                margin-top: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+    }
+
+    &__filter-grid {
+        @include mq(sx) {
+            @include grid;
+        }
+
+        &:not(:first-child) {
+            margin-top: map_get($mq-container-indents, 'sx') / 4;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+
+            @include mq(sm) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+    }
+
+    &__filter-grid-col {
+
+        @include mq(sm) {
+            &:not(:last-child) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+
+        @include mq(sx) {
+            @include grid-col-mx(1/3);
+        }
+    }
+
+    &__sm-add-action-button {
+        display: none;
+
+        @include mq(sm) {
+            display: block;
+            margin: 0 -1 * map_get($mq-indents, 'sm');
+            padding: calc(#{map_get($mq-indents, 'sx') / 2} - 1px) map_get($mq-container-indents, 'sx') / 4;
+            border-top: 1px solid $color-lightest-secondary;
+            border-bottom: 1px solid $color-lightest-secondary;
+        }
+
+        + .model-n-feedback-list {
+            @include mq(sm) {
+                margin-top: map_get($mq-container-indents, 'sx') / 2;
+            }
+        }
+    }
+
+    &__content-box {
+        opacity: 0;
+        transition: opacity $transition-duration-base-min;
+
+        .is-load & {
+            animation: feedback-load .1s linear .5s 1 alternate forwards;
+        }
+
+        .model-accordion {
+            + .n-feedback__content-item {
+                border-top-color: transparent;
+            }
+        }
+    }
+
+    &__image-container {
+        position: relative;
+        min-width: 100%;
+        padding-bottom: 61.75%;
+
+        @include mq(sm) {
+            margin-left: -1 * map_get($mq-container-indents, 'sm');
+            margin-right: -1 * map_get($mq-container-indents, 'sm');
+        }
+    }
+
+    &__image-box,
+    &__gellery-link {
+        @include size(100%);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &__gellery-link {
+        opacity: 0;
+    }
+
+    &__image-box {
+        display: block;
+
+        &.lazy-background {
+            background: {
+                position: 50%;
+                size: contain;
+                repeat: no-repeat;
+            };
+
+            .mod_intersectionobserver & {
+                background-image: none !important; // override inline styles
+            }
+
+            .mod_no-intersectionobserver &,
+            .mod_flexboxtweener & {
+                &::before {
+                    display: none;
+                }
+            }
+
+            &::before {
+                @include size(8rem, 3.4rem);
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: {
+                    position: 50%;
+                    size: contain;
+                    repeat: no-repeat;
+                    image: url(../img/loader.svg);
+                };
+                content: "";
+                transition: opacity $transition-duration-base-min;
+
+                @include mq(md) {
+                    @include size(14rem, 6rem);
+                }
+
+                @include mq(lg) {
+                    @include size(60rem, 25.7rem);
+                }
+
+
+            }
+
+            &::after {
+                @include size(100%);
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.3);
+                content: "";
+            }
+
+            > a {
+                @include size(100%);
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block !important;
+                width: 100%;
+            }
+
+            &[data-image-type="carcass"] {
+                display: flex !important;
+                justify-content: center;
+                align-items: center;
+                padding: map_get($mq-container-indents, 'sx') / 8;
+
+                @include mq(sx) {
+                    padding: map_get($mq-container-indents, 'sx') / 4;
+                }
+
+                background-color: $color-lightest-minimal;
+                background-image: none !important;
+
+                > img {
+                    height: auto;
+                    vertical-align: top;
+
+                    @include mq(sx) {
+                        max-width: 100%;
+                    }
+                }
+            }
+
+            &[data-image-type="photo"] {
+                > a > img,
+                > img {
+                    .mod_object-fit & {
+                        @include size(100%);
+
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        object-fit: cover;
+                        vertical-align: top;
+                        transition: opacity $transition-duration-base-min;
+                    }
+
+                    .mod_flexboxtweener,
+                    .mod_no-object-fit & {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+
+        &.is-visible {
+            .mod_object-fit & {
+                background-image: none !important;
+            }
+
+            &::before {
+                opacity: 0;
+            }
+
+            > a > img,
+            > img {
+                opacity: 1;
+            }
+        }
+
+        > a {
+            display: block !important;
+            width: 100%;
+        }
+
+        > a > img,
+        > img {
+            opacity: 0;
+        }
+    }
+
+    &__image-information-block {
+        @include size(100%);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: map_get($mq-container-indents, 'sx') / 2;
+        color: #fff;
+        z-index: 99;
+
+        @include mq(sm) {
+            display: none;
+        }
+    }
+
+    &__image-nav {
+        display: flex;
+        justify-content: center;
+
+        &:not(:first-child) {
+            margin-top: map_get($mq-container-indents, 'sx') / 2;
+        }
+
+        > li {
+            @include size(4.8rem, 3.6rem);
+
+            position: relative;
+            border-radius: $border-radius-min;
+            overflow: hidden;
+
+            &:not(:last-child) {
+                margin-right: 1px;
+            }
+
+            > a {
+                @include size(100%);
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+
+                &[data-number] {
+                    .mod_touchevents & {
+                        &:hover {
+                            &::after,
+                            &::before {
+                                opacity: 1;
+                            }
+                        }
+                    }
+
+                    &::after {
+                        @include text-small(400);
+
+                        background: none;
+                        color: #fff;
+                        content: attr(data-number);
+                    }
+                }
+
+                > img {
+                    @include size(100%);
+
+                    object-fit: cover;
+                }
+
+                &::after,
+                &::before {
+                    position: absolute;
+                    opacity: 0;
+                    content: "";
+                }
+
+                &::before {
+                    @include size(100%);
+
+                    top: 0;
+                    left: 0;
+                    background-color: rgba(0, 0, 0, 0.6);
+                }
+
+                &::after {
+                    @include size(1.88rem);
+
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: {
+                        position: 50% 50%;
+                        size: contain;
+                        image: url(../img/icons/magnifier.svg);
+                    };
+                }
+
+                .mod_no-touchevents & {
+                    &:hover {
+                        &::after,
+                        &::before {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        &--crop-type {
+            > li {
+                @include size(auto, calc(3.6rem + .8rem));
+
+                border: 1px solid $color-lightest-minimal;
+
+                > a {
+                    @include size(auto, 100%);
+
+                    padding: .4rem;
+                    position: static;
+                    display: block;
+
+                    > img {
+                        width: auto;
+                        height: 100%;
+                        vertical-align: top;
+                    }
+                }
+            }
+
+            canvas {
+                display: none !important;
+            }
+        }
+    }
+
+    &__crop-type-original-big-image,
+    &__image-nav-crop-type-original-image {
+        display: none;
+    }
+
+    &__title {
+        @include header-h1-lg;
+
+        margin-bottom: map_get($mq-indents, 'sm') / 3;
+
+        @include mq(sx) {
+            @include header-h1;
+
+            margin-bottom: map_get($mq-container-indents, 'sx');
+        }
+    }
+
+    &__image-information-title {
+        @include header-h1;
+
+        margin-bottom: map_get($mq-indents, 'sm');
+    }
+
+    &__options {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: -1 * map_get($mq-container-indents, 'sx') / 8;
+
+        > li {
+            display: block;
+            margin-bottom: map_get($mq-container-indents, 'sx') / 8;
+            padding: calc(.6rem - 1px) calc(.8rem - 1px);
+            border-radius: $border-radius-min;
+            border: solid 1px #fff;
+            line-height: 1.25;
+            font-weight: 400;
+
+            &:not(:last-child) {
+                margin-right: map_get($mq-container-indents, 'sx') / 8;
+            }
+
+            > span {
+                position: relative;
+
+                &:not(:last-child) {
+                    padding-right: 1.2rem;
+
+                    &::after {
+                        @include size(.3rem);
+
+                        position: absolute;
+                        top: 50%;
+                        right: .6rem;
+                        transform: translateY(-50%);
+                        border-radius: 50%;
+                        background: #fff;
+                        content: "";
+                    }
+                }
+            }
+        }
+    }
+
+    &__characteristics-grid {
+        display: flex;
+
+        @include mq(lg) {
+            justify-content: space-between;
+        }
+    }
+
+    &__image-information-footer {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.6rem;
+
+        .views-indicator,
+        .like__item {
+            > .icon {
+                fill: #fff;
+            }
+
+            > span {
+                font-size: 1.6rem;
+                color: #fff;
+            }
+
+            &.like__item--up {
+                &.is-active {
+                    > .icon {
+                        fill: $brand-turquoise;
+                    }
+                }
+            }
+
+            &.like__item--down {
+                &.is-active {
+                    > .icon {
+                        fill: $brand-grapefruit;
+                    }
+                }
+            }
+        }
+    }
+
+    &__information-on-additions {
+        @include mq(sx) {
+            display: flex;
+        }
+
+
+        &.is-sm {
+            @include mq(sm) {
+                display: flex !important;
+                margin-bottom: map_get($mq-container-indents, 'sm');
+                color: $color-light;
+
+                > strong,
+                > b,
+                > time,
+                > span {
+                    @include text-small();
+
+                    &:not(:last-child) {
+                        margin-right: map_get($mq-container-indents, 'sx') / 8;
+                    }
+                }
+
+                > strong,
+                > b {
+                    font-weight: 400;
+                }
+            }
+        }
+
+        > strong,
+        > b,
+        > time,
+        > span {
+            @include text-base;
+
+            &:not(:last-child) {
+                margin-right: map_get($mq-container-indents, 'sx') / 8;
+            }
+        }
+
+        > strong,
+        > b {
+            font-weight: 400;
+        }
+
+        > time,
+        > span {
+
+        }
+    }
+
+    &__indicators {
+        display: flex;
+
+        .views-indicator,
+        .like {
+            &:not(:last-child) {
+                margin-right: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+    }
+
+    &__characteristics-block {
+        flex-grow: 1;
+
+        @include mq(lg) {
+            flex-grow: 1;
+            max-width: 44rem;
+        }
+    }
+
+    &__final-grade-block {
+        width: 5.2rem;
+        margin-left: map_get($mq-container-indents, 'sx') / 4;
+
+        @include mq(sx) {
+            width: 10.3rem;
+            margin-left: map_get($mq-container-indents, 'sx') / 2;
+        }
+
+        @include mq(lg) {
+            width: 13.8rem;
+        }
+    }
+
+    &__content {
+        margin-top: map_get($mq-container-indents, 'sx') / 4;
+
+        @include mq(sx) {
+            margin-top: map_get($mq-container-indents, 'sx') / 2;
+        }
+    }
+
+    &__content-item {
+        padding-top: calc(#{map_get($mq-container-indents, 'sx') / 4} - 1px);
+
+        &:not(:first-child) {
+            border-top: 1px solid $color-lightest-minimal;
+        }
+
+        @include mq(sx) {
+            padding-top: calc(#{map_get($mq-container-indents, 'sx') / 2} - 1px);
+            border-top: 1px solid $color-lightest-minimal;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+
+            @include mq(sx) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+            }
+        }
+
+        > .wysiwyg {
+            @include mq(sx) {
+                @include header-model-settings-h3(300);
+            }
+
+            &.n-feedback-content-comparison-block {
+                @include text-base;
+            }
+
+            > figure {
+                @include wysiwyg-indents-lg;
+            }
+
+            > img {
+                @include wysiwyg-indents-lg;
+            }
+
+            // Lists
+            > dl {
+                @include wysiwyg-indents-lg;
+            }
+
+            > p,
+            > ol,
+            > ul {
+                a {
+                    font-weight: 400;
+                }
+            }
+        }
+
+        &--md-grid {
+            @include mq(md) {
+                display: flex;
+                align-items: stretch;
+            }
+        }
+
+        &--sx-indents {
+            @include mq(sx) {
+                padding-left: map_get($mq-container-indents, 'sx') / 2;
+                padding-right: map_get($mq-container-indents, 'sx') / 2;
+            }
+        }
+
+        &--no-padding-bottom {
+            padding-bottom: 0;
+            border-bottom: 0;
+
+            @include mq(sx) {
+                padding-bottom: 0;
+                border-bottom: 0;
+            }
+        }
+    }
+
+    &__content-item-col {
+
+        @include mq(md) {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+
+        &:not(:first-child) {
+            margin-top: map_get($mq-container-indents, 'sx') / 4;
+
+            @include mq(sx) {
+                margin-top: map_get($mq-container-indents, 'sx') / 2;
+            }
+
+            @include mq(md) {
+                margin-top: 0;
+                margin-left: map_get($mq-container-indents, 'sx') / 2;
+                padding-bottom: 0;
+                border-bottom: 0;
+            }
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+            border: 0;
+
+            @include mq(sx) {
+                padding-bottom: 0;
+                border: 0;
+            }
+        }
+
+        .n-feedback__content-item-title {
+            + div,
+            + ul {
+                @include mq(md) {
+                    margin-top: auto;
+                }
+            }
+        }
+    }
+
+    &__content-item-title {
+        @include header-model-settings-h3;
+
+        &:not(:last-child) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+
+            @include mq(lg) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+            }
+        }
+    }
+
+    &__all-feedbacks {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+
+        @include mq(lg) {
+            margin-top: map_get($mq-container-indents, 'sx');
+            //margin-bottom: -1 * map_get($mq-container-indents, 'sx') / 2;
+        }
+    }
+
+    &__all-feedbacks-title {
+        @include header-h2;
+
+        margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+
+        @include mq(lg) {
+            margin-bottom: map_get($mq-container-indents, 'sx');
+        }
+    }
+
+    &__all-feedbacks-content {
+        border-top: 1px solid $color-lightest-minimal;
+        margin-bottom: -1px;
+    }
+
+    &__load {
+        margin-top: map_get($mq-container-indents, 'sx') / 4;
+
+        @include mq(lg) {
+            margin-top: map_get($mq-container-indents, 'sx') / 2;
+        }
+
+        > .button {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &__grade-grid {
+        display: flex;
+
+        @include mq(md) {
+            @include grid;
+        }
+    }
+
+    &__grade-grid-col {
+        @include mq(md) {
+            @include grid-col-mx(1/2);
+
+            flex-grow: 0;
+        }
+
+        &:first-child {
+            flex-grow: 1;
+
+            @include mq(sm) {
+                margin-right: map_get($mq-container-indents, 'sx') / 4;
+            }
+
+            @include mq(sx) {
+                margin-right: map_get($mq-container-indents, 'sx') / 2;
+            }
+
+            @include mq(md) {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__action {
+        > p {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+            color: $color-light;
+
+            @include mq(sx) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+            }
+        }
+
+        > .button {
+
+            + p {
+                @include text-small(300);
+
+                margin-top: map_get($mq-container-indents, 'sx') / 4;
+                margin-bottom: 0;
+                text-align: center;
+                color: $color-lighter;
+
+                @include mq(sx) {
+                    margin-bottom: 0;
+                }
+
+                > a {
+                    font-weight: 400;
+                    color: $color-base;
+                }
+            }
+        }
+    }
+
+}

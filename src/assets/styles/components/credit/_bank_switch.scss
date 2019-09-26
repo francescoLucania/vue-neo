@@ -1,0 +1,191 @@
+@charset "UTF-8";
+
+.bank-switch {
+    @include mq(sm) {
+        margin: map_get($mq-container-indents, 'sx') / 2 0;
+    }
+
+    @include mq(sx) {
+        margin: map_get($mq-container-indents, 'sx') 0;
+    }
+
+    &__grid {
+        display: flex;
+        justify-content: center;
+
+        @include mq(md) {
+            @include grid(x, center);
+
+            margin: map_get($mq-container-indents, 'sx') 0;
+        }
+    }
+
+    &__col {
+        @include mq(sm) {
+            display: none;
+        }
+
+        @include mq(sx) {
+            @include grid-col-mx(1/2);
+
+            display: block;
+        }
+
+        @include mq(lg) {
+            @include grid-col-mx(3/8);
+        }
+    }
+
+    &__select {
+        position: relative;
+        min-width: 27.2rem;
+
+        @include mq(sm) {
+            width: 100%;
+        }
+
+        &::before {
+            @include size(4rem);
+
+            position: absolute;
+            top: 50%;
+            left: map_get($mq-container-indents, 'sx') / 4;
+            transform: translateY(-50%);
+            z-index: 0;
+            background: {
+                position: 50%;
+                size: contain;
+                repeat: no-repeat;
+            };
+            content: "";
+        }
+
+        &[data-bank-name="Сетелем Банк"] {
+            &::before {
+                background-image: url(../img/bank-logo/Setelem.svg);
+            }
+        }
+
+        &[data-bank-name='MC Bank Rus'] {
+            &::before {
+                background-image: url(../img/bank-logo/MCBR.svg);
+            }
+        }
+
+        @include mq(sx) {
+            display: none;
+        }
+
+        > select {
+            @include header-brand-h3-black;
+
+            position: relative;
+            z-index: 1;
+            display: block;
+            width: 100%;
+            height: 7.2rem;
+            padding: map_get($mq-container-indents, 'sx') / 4
+                     map_get($mq-container-indents, 'sx') / 4
+                     map_get($mq-container-indents, 'sx') / 4
+                     7.2rem;
+            background: transparent;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.09);
+            border-radius: $border-radius-min;
+
+
+            &:focus {
+                outline: none;
+            }
+
+            &:disabled {
+                opacity: .9;
+            }
+
+            + span {
+                position: absolute;
+                top: 50%;
+                right: map_get($mq-container-indents, 'sx') / 4;
+                transform: translateY(-50%);
+                display: block;
+                pointer-events: none;
+                border-top: 6px solid $color-base;
+                border-right: 5px solid transparent;
+                border-left: 5px solid transparent;
+                -webkit-transition: .4s;
+                transition: .4s;
+                content: "";
+            }
+        }
+    }
+}
+
+.bank-switch-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: map_get($mq-indents, 'sm');
+    cursor: pointer;
+
+
+    &__image {
+        @include size(4rem);
+
+        margin-right: map_get($mq-container-indents, 'sx') / 4;
+        min-width: 4rem;
+
+        > img {
+            width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+    }
+
+    &__title {
+        @include header-brand-h3-black;
+    }
+
+    > input,
+    > span {
+        @include size(100%);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    > input {
+        z-index: 2;
+        opacity: 0;
+        cursor: pointer;
+
+        .mod_no-touchevents & {
+            &:hover {
+                + span {
+                    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.11);
+                }
+            }
+        }
+
+        + span {
+            border-radius: $border-radius-min;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.09);
+            border: 2px solid transparent;
+            transition: all $transition-duration-base-min;
+        }
+
+        &:checked {
+            .mod_no-touchevents & {
+                &:hover {
+                    + span {
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            + span {
+                border-color: $brand-turquoise;
+                box-shadow: none;
+            }
+        }
+    }
+}

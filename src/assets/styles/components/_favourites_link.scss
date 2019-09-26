@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+.favourites-link {
+    @include interact(fill, $brand-reddish, 'hover .icon');
+
+    > .icon {
+        fill: $brand-grapefruit;
+        transition: fill $transition-duration-base;
+
+        &:first-child {
+            display: block;
+        }
+
+        &:last-child {
+            display: none;
+        }
+    }
+
+
+    &.is-active {
+        > .icon {
+            &:first-child {
+                display: none;
+            }
+
+            &:last-child {
+                display: block;
+            }
+        }
+    }
+}
+
+.compare-link {
+    @include interact(fill, $brand-turquoise, 'hover .icon');
+
+    > .icon {
+        fill: $color-base;
+        transition: fill $transition-duration-base;
+    }
+}
+
+.burger {
+    @include interact(fill, $brand-turquoise, 'hover .icon');
+
+    display: block;
+
+    &:focus {
+        outline: none;
+        > .icon {
+            fill: $brand-turquoise;
+        }
+    }
+
+    > .icon {
+        @include size(2rem);
+
+        fill: $color-base;
+        transition: fill 0.3s ease;
+
+        @include mq(lg) {
+            @include size(2.4rem);
+        }
+    }
+}
+
+
+
+

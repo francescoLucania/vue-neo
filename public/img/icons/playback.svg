@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="32px" viewBox="0 0 28 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon/ Misc/ Playback</title>
+    <desc>Created with Sketch.</desc>
+    <g id="UI-Set" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01.-Icons" transform="translate(-844.000000, -982.000000)" fill="#1A1A1A" fill-rule="nonzero">
+            <g id="Icon/-Misc/-Playback" transform="translate(844.000000, 982.000000)">
+                <path d="M0.748069469,0.427468268 L27.2402873,15.5658784 C27.480046,15.7028834 27.5633443,16.0083107 27.4263394,16.2480695 C27.3820447,16.3255851 27.3178029,16.3898269 27.2402873,16.4341216 L0.748069469,31.5725317 C0.508310746,31.7095367 0.202883414,31.6262384 0.0658784289,31.3864796 C0.0227076587,31.3109308 2.21040943e-14,31.2254236 2.20934382e-14,31.1384102 L2.19824159e-14,0.861589839 C2.19485982e-14,0.585447464 0.223857625,0.361589839 0.5,0.361589839 C0.587013469,0.361589839 0.672520621,0.384297498 0.748069469,0.427468268 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>

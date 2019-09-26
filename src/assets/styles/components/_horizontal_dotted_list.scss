@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.horizontal-dotted-list {
+  display: flex;
+
+  > li {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: map_get($mq-indents, 'sm');
+
+      &::before {
+        @include size(.3rem);
+
+        position: absolute;
+        top: 50%;
+        right: -1.4rem;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        background: $color-base;
+        content: "";
+      }
+    }
+
+    > a {
+      @include interact(text-decoration, underline);
+
+    }
+  }
+}

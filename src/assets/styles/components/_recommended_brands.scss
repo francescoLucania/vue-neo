@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.recommended-brands {
+    max-width: 100% ;
+
+    &:first-child {
+        padding-top: map-get($mq-container-indents, 'sx') / 2;
+        padding-bottom: map-get($mq-container-indents, 'sx') / 2;
+    }
+
+    &:not(:first-child) {
+        padding-top: calc(#{map-get($mq-container-indents, 'sx')} / 2 - 1px);
+        padding-bottom:  map-get($mq-container-indents, 'sx') / 2;
+        border-top: 1px solid $color-lightest;
+    }
+
+    &__container {
+        @include scroll-not-scrollbar(auto, hidden);
+
+        max-width: 100%;
+        text-align: center;
+    }
+
+    &__grid {
+        display: inline-flex;
+
+        @include mq(sm) {
+            padding-left: map_get($mq-container-indents, 'sm');
+            padding-right: map_get($mq-container-indents, 'sm');
+        }
+
+        @include mq(sx) {
+            padding-left: map_get($mq-container-indents, 'sx');
+            padding-right: map_get($mq-container-indents, 'sx');
+        }
+
+        @include mq(xl) {
+            justify-content: center;
+        }
+
+        > .car-brand-item {
+            &:not(:last-child) {
+                margin-right: map_get($mq-container-indents, 'sx') / 2;
+            }
+        }
+    }
+}

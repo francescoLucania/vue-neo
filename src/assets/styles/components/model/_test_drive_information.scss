@@ -1,0 +1,211 @@
+@charset "UTF-8";
+
+.model-test-drive-information {
+    margin-top: 3.2rem;
+
+    @include mq(sx) {
+        margin-top: 5rem;
+    }
+
+    &__grid {
+        @include mq(sx) {
+            @include grid(x, center, stretch);
+
+            margin-bottom: -1 * map_get($mq-indents, 'sx');
+        }
+    }
+
+    &__col {
+        @include mq(sm) {
+            &:not(:last-child) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+
+        @include mq(sx) {
+            @include grid-col-mx(1/2);
+
+            margin-bottom: map_get($mq-indents, 'sx');
+        }
+
+        @include mq(md) {
+            @include grid-col-mx(1/4);
+        }
+    }
+
+    &__item {
+        display: flex;
+
+        @include mq(sm) {
+            align-items: center;
+        }
+
+        @include mq(sx) {
+            flex-direction: column;
+        }
+
+        @include mq(lg) {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+
+    &__item-icon {
+        @include size(8rem);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 8rem;
+        border-radius: 50%;
+
+        @include mq(sm) {
+            @include size(7.2rem);
+
+            margin-right: map_get($mq-container-indents, 'sm');
+            min-width: 7.2rem;
+        }
+
+        @include mq(sx) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+        }
+
+        @include mq(lg) {
+            margin-right: map_get($mq-container-indents, 'sx') / 4;
+            margin-bottom: 0;
+        }
+
+        &[data-background-color="brand-duck-egg-blue"] {
+            background-color: $brand-duck-egg-blue;
+        }
+
+        &[data-background-color="color-amber"] {
+            background-color: $color-amber;
+        }
+
+        &[data-background-color="brand-turquoise"] {
+            background-color: $brand-turquoise;
+        }
+
+        &[data-background-color="brand-bluish"] {
+            background-color: $brand-bluish;
+        }
+
+        > i {
+            display: block;
+
+            background: {
+                position: 50%;
+                size: contain;
+                repeat: no-repeat;
+            };
+
+            &[data-price] {
+                @include size(3.3rem, 4rem);
+
+                transform: translateX(.4rem);
+                background-image: url(../img/icons/0.svg);
+
+                @include mq(sx) {
+                    @include size(3.6rem, 4.4rem)
+                }
+            }
+
+            &[data-location] {
+                @include size(3.6rem, 4.32rem);
+
+                background-image: url(../img/icons/location.svg);
+
+                @include mq(sx) {
+                    @include size(4rem, 4.8rem)
+                }
+            }
+
+            &[data-key] {
+                @include size(3.4rem);
+
+                background-image: url(../img/icons/key.svg);
+
+                @include mq(sx) {
+                    @include size(3.8rem);
+                }
+            }
+
+            &[data-insurance] {
+                @include size(2.88rem, 3.42rem);
+
+                background-image: url(../img/icons/shield.svg);
+
+                @include mq(sx) {
+                    @include size(3.2rem, 3.65rem);
+                }
+            }
+
+        }
+
+    }
+
+    &__item-tescription {
+        width: 100%;
+    }
+
+    &__warning {
+        @include mq(sm) {
+            margin-top: map_get($mq-indents, 'sx') / 2;
+            text-align: center;
+        }
+
+        @include mq(sx) {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-top: map_get($mq-indents, 'sx');
+        }
+
+
+        @include mq(sx) {
+            align-items: flex-start;
+        }
+
+        @include mq(md) {
+            justify-content: center;
+            align-items: center;
+        }
+
+        @include mq(lg) {
+            margin-top: map_get($mq-container-indents, 'sx');
+        }
+    }
+
+    &__warning-icon {
+        display: none;
+
+        @include mq(sx) {
+            @include size(3.2rem);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: .8rem;
+            min-width: 3.2rem;
+            border-radius: 50%;
+            background: $brand-bluish;
+        }
+
+        @include mq(md) {
+            margin-right: map_get($mq-container-indents, 'sx') / 4;
+        }
+
+        > i {
+            @include font(2.4rem, 2.4rem);
+
+            font-style: normal;
+            font-weight: 800;
+            color: #fff;
+
+            &::before {
+                content: "!";
+            }
+        }
+    }
+}

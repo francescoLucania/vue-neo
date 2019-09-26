@@ -1,0 +1,595 @@
+@charset "UTF-8";
+
+@keyframes arrowSpanFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.best-deals {
+    position: static !important; // slick overrides
+    margin-top: map-get($mq-container-indents, 'sx') / 4;
+    padding-bottom: 4px;
+
+    @include mq(sm) {
+        margin: 0 calc(-1 * #{map-get($mq-indents, 'sm')}) ;
+    }
+
+    @include mq(sx) {
+        margin-top: 0;
+        @include mq-custom(max, 767px) {
+            margin-left: -1 * map_get($mq-container-indents, 'sx');
+            margin-right: -1 * map_get($mq-container-indents, 'sx');
+        }
+    }
+
+    @include mq-custom(min, 768px) {
+        padding-top: map-get($mq-container-indents, 'sx');
+
+        @include mq-custom(max, 912px) {
+            padding-top: 0;
+        }
+    }
+
+    @include mq(md) {
+        padding-top: map-get($mq-container-indents, 'sx');
+    }
+
+    &--top-gutters {
+        @include mq(sx) {
+            margin-top: map_get($mq-container-indents, 'sm') / 2;
+            padding-top: map-get($mq-container-indents, 'sx');
+        }
+
+        @include mq(md) {
+            padding-top: map-get($mq-container-indents, 'sx') - 1px;
+            border-top: 1px solid $color-lightest-minimal;
+        }
+    }
+
+    // Just mobile
+    .car-model-item {
+        margin: map_get($mq-container-indents, 'sx') / 4 0 map_get($mq-container-indents, 'sx') / 2;
+    }
+
+    // just mobile
+    &--custom {
+        @include mq(sm) {
+            margin: 0;
+        }
+    }
+
+    &__card {
+        @include mq-custom(min, 635px) {
+            @include mq-custom(max, 767px) {
+                flex-grow: 1;
+                display: flex !important; // slick overrides
+                flex-direction: column;
+            }
+        }
+
+
+        @include mq(md) {
+            display: flex !important; // slick overrides
+            align-items: stretch;
+            flex-wrap: wrap;
+        }
+
+        &:not(:first-child) {
+            display: none !important; // slick overrides
+        }
+
+        &.slick-initialized {
+            display: flex !important; // slick overrides
+        }
+    }
+
+    &__auto-block {
+        @include mq(md) {
+            width: 70%;
+            padding-right: map_get($mq-indents, 'sx');
+        }
+    }
+
+    &__header {
+        &--tablet {
+            display: none;
+            margin: map_get($mq-indents, 'sm') / 3 0;
+
+            @include mq-custom(min, 768px) {
+                display: block;
+            }
+
+            @include mq(md) {
+                display: none;
+            }
+        }
+
+        &--desktop {
+            display: none;
+
+            @include mq(md) {
+                display: block;
+            }
+        }
+    }
+
+    &__auto-title {
+        margin-bottom: calc(((#{map_get($mq-container-indents, sx)} / 2) / 2) / 2);
+
+        @include mq-custom(max, 767px) {
+            display: none;
+        }
+
+        @include mq(md) {
+            text-align: left;
+        }
+    }
+
+    &__auto-tag-block {
+        display: flex;
+        margin-bottom: map-get($mq-container-indents, 'sx') / 2;
+
+        @include mq-custom(max, 767px) {
+            display: none;
+        }
+
+        @include mq(md) {
+            justify-content: flex-start;
+        }
+    }
+
+    &__auto-tag-block-item {
+        line-height: 1;
+
+        &:not(:last-child) {
+            margin-right: .8rem;
+        }
+    }
+
+    &__image-block {
+        @include mq(lg) {
+            margin: 0 auto;
+            width: 63.2rem;
+        }
+
+        @include mq-custom(min, 1024px) {
+            width: 100%;
+        }
+
+        &.lazy-background {
+            position: relative;
+            background: {
+                position: 50%;
+                size: contain;
+                repeat: no-repeat;
+            };
+
+            .mod_flexboxtweener & {
+                &::before {
+                    display: none;
+                }
+            }
+
+            &::before {
+                @include size(8rem, 3.4rem);
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: {
+                    position: 50%;
+                    size: contain;
+                    repeat: no-repeat;
+                    image: url(../img/loader.svg);
+                };
+                transition: opacity $transition-duration-base-min;
+                content: "";
+
+                @include mq(md) {
+                    @include size(14rem, 6rem);
+                }
+
+                @include mq(lg) {
+                    @include size(30rem, 12.9rem);
+                }
+            }
+
+            > a {
+                @include size(100%);
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block !important;
+                width: 100%;
+            }
+
+        }
+
+        &.is-visible {
+            &::before {
+                opacity: 0;
+            }
+
+            > a > img,
+            > img {
+                opacity: 1;
+            }
+        }
+
+        > img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            vertical-align: top;
+            opacity: 0;
+
+            .mod_flexboxtweener & {
+                opacity: 1;
+            }
+        }
+
+        .model-status-bar {
+            @include mq-custom(max, 767px) {
+                display: flex;
+                margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+    }
+
+    &__auto-title,
+    &__price {
+        @include header-h2;
+    }
+
+    &__information-block {
+        @include mq-custom(min, 768px){
+            margin-top: map_get($mq-container-indents, 'sx') / 2;
+        }
+
+        @include mq(md) {
+            margin-top: 0;
+            width: 30%;
+        }
+    }
+
+    &__information-block-grid {
+        @include mq(sm) {
+            &:not(:last-child) {
+                margin-bottom: map-get($mq-container-indents, 'sx') / 2;
+            }
+        }
+
+        @include mq(sx) {
+            display: flex;
+            flex-direction: row-reverse;
+
+            @include mq-custom(min, 768px) {
+                @include mq-custom(max, 1195px) {
+                    @include grid;
+
+                    flex-direction: row-reverse;
+                }
+            }
+
+        }
+
+        @include mq(md) {
+            display: block;
+            margin-bottom: 0;
+            margin-left: 0;
+            margin-right: 0;
+
+            &:not(:last-child) {
+                margin-right: 0;
+                margin-bottom: map-get($mq-container-indents, 'sx') / 2;
+            }
+        }
+
+        &--full-width {
+            width: 100%;
+        }
+
+        &.not-mobile {
+            @include mq-custom(max, 767px) {
+                display: none;
+            }
+        }
+    }
+
+    &__information-block-grid-item {
+        @include mq-custom(min, 768px) {
+            @include mq-custom(max, 912px) {
+                @include grid-col-mx(1/2);
+            }
+        }
+
+        @include mq(md) {
+            width: calc(50% - (#{map_get($mq-indents, 'sx')} / 2));
+
+            &:first-child {
+                margin-right: map_get($mq-indents, 'sx');
+
+                @include mq-custom(min, 768px) {
+                    @include mq-custom(max, 912px) {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        @include mq(md) {
+            margin-bottom: 0;
+            padding-left: 0;
+            padding-right: 0;
+            width: auto;
+
+            &:not(:last-child) {
+                margin-right: 0;
+                margin-bottom: map-get($mq-container-indents, 'sx') / 2;
+            }
+        }
+
+        &--button-box {
+            @include mq(sm) {
+                width: 100%;
+            }
+
+            padding: 1px;
+            > .button {
+                display: block;
+            }
+        }
+
+        &.not-mobile {
+            @include mq-custom(max, 767px) {
+                display: none;
+
+                > a {
+                    display: none;
+                }
+            }
+        }
+
+        > .auto-options-grid {
+            @include mq(sm) {
+                display: none;
+            }
+        }
+    }
+
+    &__price {
+        margin-bottom: calc(((#{map_get($mq-container-indents, sx)} / 2) / 2) / 2);
+
+        > span {
+            @include text-small(300);
+        }
+    }
+
+    &__sale-box {
+        margin-top: calc(((#{map_get($mq-container-indents, sx)} / 2) / 2) / 2);
+
+        @include mq(md) {
+            margin-bottom: map-get($mq-container-indents, 'sx') / 2;
+        }
+
+        &[data-old-price],
+        &[data-sale] {
+            display: flex;
+        }
+
+        &[data-old-price] {
+            &::before {
+                font-size: 1.3rem;
+                line-height: 1.54;
+                display: block;
+                text-decoration: line-through;
+                color: $color-light;
+                content: attr(data-old-price);
+            }
+        }
+
+        &[data-sale] {
+            &::after {
+                @include ellipsis;
+
+                font-size: 1.2rem;
+                line-height: 1.33;
+                display: block;
+                margin-left: 2.2rem;
+                padding: .2rem .6rem;
+                max-width: 60%;
+                border-radius: $border-radius-min;
+                background: $brand-grapefruit;
+                font-weight: 400;
+                color: #fff;
+                content: attr(data-sale);
+            }
+        }
+    }
+
+    &__old-price,
+    &__sale-badge {
+        &:not(:first-child) {
+            margin-top: map_get($mq-indents, 'sm') / 3;
+        }
+    }
+
+    &__old-price {
+        display: block;
+        text-decoration: line-through;
+        color: $color-light;
+    }
+
+    &__sale-badge {
+        @include ellipsis(100%, inline-block);
+
+        font-size: 1.2rem;
+        line-height: 1.33;
+        padding: .4rem .6rem;
+        border-radius: $border-radius-min;
+        background: $brand-grapefruit;
+        font-weight: 400;
+        color: #fff;
+
+        &--mobile {
+            @include mq-custom(min, 768px) {
+                display: none;
+            }
+        }
+    }
+
+    &__buttons-grid {
+        @include mq-custom(min, 635px) {
+            @include mq-custom(min, 767px) {
+                margin-top: auto;
+            }
+        }
+
+        @include mq-custom(min, 768px) {
+            @include grid;
+
+            flex-direction: row-reverse;
+            margin-top: map_get($mq-container-indents, 'sx') / 2;
+            min-width: 100%;
+        }
+    }
+
+    &__buttons-grid-col {
+        @include mq-custom(min, 768px) {
+            @include grid-col-mx(1/2);
+        }
+
+        &:not(:first-child) {
+            display: none;
+
+            @include mq-custom(min, 768px) {
+                display: block;
+            }
+        }
+    }
+
+    // car-model-item overrides
+    .car-model-item {
+        &.is-mobile {
+            display: none;
+
+            @include mq-custom(max, 767px) {
+                display: block;
+            }
+        }
+    }
+
+    // car-model-item overrides
+    .car-model-item__title {
+        margin-bottom: map_get($mq-container-indents, 'sm') / 3;
+    }
+
+    .car-model-item__description-price {
+        font-weight: 900;
+    }
+
+    .auto-options-item[data-color] i {
+        @include size(2.4rem);
+    }
+
+    .car-model-item__description--top-gutter {
+        margin-top: map_get($mq-container-indents, 'sm') / 3;
+    }
+
+    // slick overrides
+    .slick-list {
+        @include mq-custom(min, 768px) {
+            overflow: inherit !important;
+        }
+    }
+
+    .slick-track {
+        @include mq-custom(min, 635px) {
+            @include mq-custom(max, 767px) {
+                display: flex !important;
+                align-items: stretch;
+            }
+        }
+    }
+
+    .slick-slide {
+        @include mq(sm) {
+            padding: 0 map-get($mq-indents, 'sm');
+        }
+
+        @include mq-custom(min, 635px) {
+            @include mq-custom(max, 767px) {
+                display: flex !important;
+                flex-direction: column;
+                margin: 0 map_get($mq-indents, 'sm') / 2;
+                float: none;
+                height: auto;
+            }
+        }
+
+        > div {
+            @include mq-custom(min, 635px) {
+                @include mq-custom(max, 767px) {
+                    flex-grow: 1;
+                    display: flex !important;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+
+    .custom-slider-actions__prev,
+    .slick-arrow.slick-prev {
+        left: 0;
+
+        > span {
+            margin-left: map-get($mq-container-indents, 'sx') / 4;
+        }
+    }
+
+    .custom-slider-actions__next,
+    .slick-arrow.slick-next {
+        right: 0;
+
+        > span {
+            margin-right: map-get($mq-container-indents, 'sx') / 4;
+        }
+    }
+
+    .slick-dots {
+        min-height: .6rem;
+        margin-top: map-get($mq-container-indents, 'sx') / 4;
+    }
+
+    &--old-type {
+        .best-deals__auto-title {
+            @include header-h1-black(300);
+
+            @include mq(sx) {
+                @include font(3.2rem, 3.6rem);
+            }
+        }
+
+        .best-deals__price {
+            @include header-h1-black;
+
+            @include mq(sx) {
+                @include font(3.2rem, 3.6rem);
+            }
+        }
+
+        .auto-options-item[data-color] {
+            > i {
+                @include size(2.4rem);
+            }
+        }
+    }
+}

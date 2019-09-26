@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+.like {
+    display: flex;
+    align-items: center;
+
+    &__item {
+        display: inline-flex;
+        align-items: center;
+        outline: none;
+
+        &:not(:last-child) {
+            margin-right: map_get($mq-container-indents, 'sx') / 4;
+        }
+
+        > .icon {
+            @include size(1.6rem);
+
+            fill: $color-lightest;
+        }
+
+        > span {
+            @include text-small(400);
+
+            margin-left: .5rem;
+            font-weight: 400;
+            color: $color-light;
+        }
+
+        &--label-type {
+            &::before {
+                @include size(2rem);
+
+                background-position: 50%;
+                background-size: contain;
+                background-image: url(../img/icons/like.svg);
+                background-repeat: no-repeat;
+                content: "";
+            }
+
+            &[data-type="dislike"] {
+                &::before {
+                    transform: translateY(.3rem) scale(1, -1);
+                }
+            }
+        }
+
+        &--up {
+            @include interact(fill, $brand-turquoise, 'hover .icon');
+
+            &.is-active {
+                > .icon {
+                    fill: $brand-turquoise;
+                }
+            }
+        }
+
+        &--down {
+            @include interact(fill, $brand-grapefruit, 'hover .icon');
+
+            > .icon {
+                transform: translateY(.3rem)rotate(180deg);
+            }
+
+            &.is-active {
+                > .icon {
+                    fill: $brand-grapefruit;
+                }
+            }
+        }
+    }
+}
+
+.like-buttons {
+    position: relative;
+    display: flex;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.09);
+    background-color: #ffffff;
+
+    @include mq(sx) {
+        width: 23.4rem;
+    }
+
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 1px;
+        background: $color-lightest-minimal;
+        content: "";
+    }
+
+    > li {
+        width: 50%;
+
+        > a {
+            @include interact(background-color, $color-lightest-secondary);
+            @include interact(text-decoration, none);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.1rem;
+            transition: background-color $transition-duration-base-min;
+
+            @include mq(sx) {
+                width: 100%;
+            }
+
+            &[data-up] {
+
+            }
+
+            &[data-down] {
+                &::before {
+                    transform: translateY(.2rem) rotate(180deg);
+                }
+            }
+
+            &::before {
+                @include size(2rem);
+
+                background: {
+                    position: 50%;
+                    size: contain;
+                    image: url(../img/icons/like.svg);
+                    repeat: no-repeat;
+                };
+                content: "";
+            }
+
+            > span {
+                margin-left: map_get($mq-container-indents, 'sx') / 8;
+                font-weight: 400;
+            }
+        }
+    }
+}

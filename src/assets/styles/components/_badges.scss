@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+.auto-status-badge {
+    @include text-minimal(400);
+
+    line-height: 1;
+    display: inline-flex;
+    padding: .5rem;
+    border-radius: 1.2rem;
+    border: 1px solid $color-lighter-secondary;
+
+    > .icon {
+        @include size(1.2rem);
+
+        margin-right: .6rem;
+    }
+
+    > span {
+        color: $color-base;
+        white-space: nowrap;
+    }
+}
+
+
+.information-badge-grid {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: -1 * map_get($mq-indents, 'sm') / 3;
+
+    @include mq(sm) {
+        position: relative;
+    }
+
+    > li {
+        display: block;
+        max-height: 2.4rem;
+        //margin-bottom: map_get($mq-indents, 'sm') / 3;
+
+        &:not(:last-child) {
+            margin-right: map_get($mq-container-indents, 'sx') / 4;
+        }
+    }
+}
+
+.auto-card-information-badge {
+    @include text-small(500);
+    @include interact(text-decoration, none);
+
+    display: block;
+    transition: all $transition-duration-base-min;
+
+    &[data-type='grapefruit'] {
+        color: $brand-grapefruit;
+    }
+
+    &[data-type='color-base'] {
+        @include interact(border-color, $color-light);
+        color: $color-light;
+    }
+
+    &[data-type='brand-bluish'] {
+        color: $brand-bluish;
+    }
+
+    &[data-type='icon'] {
+        @include size(2.4rem);
+
+        padding: 0;
+        font-size: 0;
+
+        > .icon {
+            @include size(100%);
+        }
+    }
+}
+
+.base-badge {
+    @include text-minimal(400);
+
+    padding: .5rem .8rem .4rem;
+    border-radius: $border-radius-min;
+    white-space: nowrap;
+    color: #fff;
+    cursor: default;
+
+    &[data-type="white"] {
+        background: #fff;
+        color: $color-base;
+    }
+
+    &[data-type="sale"] {
+        background: $brand-grapefruit;
+        color: #fff;
+    }
+}
+
+.dotted-badge {
+    @include size(2.4rem);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: transparent;
+
+    > span {
+        @include size(.2rem);
+
+        border-radius: 50%;
+        background: $color-base;
+
+        &:not(:last-child) {
+            margin-right: .2rem;
+        }
+    }
+
+    .mod_no-touchevents & {
+        .auto-card & {
+
+        }
+    }
+
+    &:focus {
+        background: $color-lightest-secondary;
+    }
+}

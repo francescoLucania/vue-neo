@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+.landing-program {
+    &__grid {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+
+        @include mq(md) {
+            @include grid(x, center, stretch);
+
+            margin-top: map_get($mq-container-indents, 'sx');
+        }
+    }
+
+    &__col {
+        @include mq(sm) {
+            &:not(:last-child) {
+                margin-bottom: .8rem;
+            }
+        }
+
+        @include mq(md) {
+            @include grid-col-mx(1/2);
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        @include mq(lg) {
+            @include grid-col-mx(3/8);
+        }
+    }
+}
+
+.bank-card {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-start;
+    padding: map_get($mq-indents, 'sm');
+    border-radius: $border-radius-min;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.09);
+    transition: box-shadow $transition-duration-base-min;
+
+    .mod_no-touchevents & {
+        &:hover {
+            box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.11);
+        }
+    }
+
+    &__image {
+        @include size(4rem);
+
+        margin-right: 1.6rem;
+        min-width: 4rem;
+
+        @include mq(md) {
+            @include size(9.6rem);
+
+            min-width: 9.6rem;
+        }
+
+        > img {
+            width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+    }
+
+    &__information {
+        > h2,
+        > h3 {
+            @include header-brand-h3-black;
+
+            margin-bottom: .8rem;
+        }
+
+        > p {
+            > span {
+                position: relative;
+                padding-left: 1.2rem;
+
+                &:not(:last-child) {
+                    margin-right: .6rem;
+                }
+
+                &::before {
+                    @include size(.6rem);
+
+                    position: absolute;
+                    top: .7rem;
+                    left: 0;
+                    border-radius: 50%;
+                    background: $color-light;
+                    content: "";
+                }
+            }
+        }
+    }
+}

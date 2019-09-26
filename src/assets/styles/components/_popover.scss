@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.popover-container {
+    position: absolute;
+    top: -9999rem;
+    z-index: 99;
+    visibility: hidden;
+}
+
+.popover {
+    position: absolute;
+    top: 0;
+    border-radius: $border-radius-min;
+    background: #fff;
+    box-shadow: 0 .6rem .8rem 0 rgba(0, 0, 0, 0.11), 0 0 0 .1rem rgba(0, 0, 0, 0.11);
+
+    &[data-content-type="price-dynamics"] {
+
+        @include mq(sx) {
+            transform: translate(calc(-100% - #{map_get($mq-container-indents, 'sx')}), calc(-100% - #{map_get($mq-container-indents, 'sx')} / 2));
+            padding: calc(#{map_get($mq-container-indents, 'sx')} / 2) map_get($mq-container-indents, 'sx');
+            width: calc(100vw - #{map_get($mq-container-indents, 'sx')} * 2);
+            min-height: 30rem;
+        }
+
+        @include mq(md) {
+            transform: translate(calc(-100% - #{map_get($mq-container-indents, 'sx')}), calc(-100% - #{map_get($mq-container-indents, 'sx')} / 2));
+            width: 76rem;
+        }
+    }
+}

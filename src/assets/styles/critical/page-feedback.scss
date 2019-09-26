@@ -1,0 +1,27 @@
+// general critical
+@import "general_critical"; // general critical
+
+// n-feedback
+@import "../components/feedback/_n_feedback.scss";
+
+@import "../components/feedback/n_feedback_content_block";
+
+@import "../components/feedback/n_feedback_characteristics_charts";
+
+@import "../components/section_bread_crumb";
+
+@import "../components/feedback/n_feedback_final_grade";
+
+@import "../components/feedback/n_feedback_preview";
+
+@import "../components/feedback/n_feedback_banner";
+
+@import "../components/feedback/add_n_feedback";
+
+@import "../components/landing_program.scss";
+
+@import "../components/like";
+
+@import "../components/views_indicator";
+
+@import "../components/comment_indicator";

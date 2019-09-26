@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.catalog-auto {
+    margin-top: calc(#{map_get($mq-container-indents, 'sx')} / 2);
+
+    @include mq(sx) {
+        margin-top: map_get($mq-container-indents, 'sx');
+    }
+
+    &__grid {
+        @include mq(sx) {
+            @include grid(x,flex-start,stretch);
+
+            margin-bottom: calc(-1 * #{map_get($mq-container-indents, 'sx')});
+            transition: $transition-duration-base-min;
+        }
+    }
+
+    &__grid-col {
+        margin-bottom: calc(#{map_get($mq-container-indents, 'sx')} / 2);
+
+        @include mq(sm) {
+            position: relative !important;
+            top: auto !important; // overrides isotop
+            left: auto !important; // overrides isotop
+            width: 100% !important; // overrides isotop
+        }
+
+        @include mq(sx) {
+            @include grid-col;
+            @include col-size(1/2);
+
+            display: flex;
+            flex-direction: column;
+
+            margin-bottom: map_get($mq-container-indents, 'sx');
+        }
+
+        @include mq(md) {
+            @include col-size(1/3);
+        }
+
+        @include mq(lg) {
+            @include col-size(1/4);
+        }
+    }
+}

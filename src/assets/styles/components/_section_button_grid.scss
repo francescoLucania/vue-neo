@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.credit-button-grid,
+.section-button-grid {
+    margin-top: map-get($mq-container-indents, 'sx') / 2;
+
+    @include mq(sx) {
+        display: flex;
+        justify-content: center;
+    }
+
+    &--margin-top-min {
+        margin-top: map-get($mq-container-indents, 'sx') / 4;
+
+        @include mq(sx) {
+            margin-top: map-get($mq-indents, 'sx') / 2;
+        }
+    }
+
+    > .button {
+        @include mq(sm) {
+            display: block;
+
+            &:not(:last-child) {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @include mq(sx) {
+            min-width: 27rem;
+
+            &:not(:last-child) {
+                margin-right: map-get($mq-indents, 'sx');
+            }
+        }
+
+        @include mq(md) {
+            min-width: 29.6rem;
+        }
+    }
+}

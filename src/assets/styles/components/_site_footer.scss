@@ -1,0 +1,443 @@
+@charset "UTF-8";
+
+.site-footer {
+    position: relative;
+    padding: map-get($mq-container-indents, 'sx') / 2 0 0;
+    background: $color-base;
+    z-index: 99;
+
+    @include mq(sx) {
+        padding: map-get($mq-container-indents, 'sx') 0 0;
+    }
+
+    &__container {
+        @include mq(md) {
+            @include col-size(6/8);
+
+            margin: 0 auto;
+        }
+    }
+
+    &__top-box,
+    &__medium-box{
+        padding-bottom: calc(#{map-get($mq-container-indents, 'sx')} / 2 - .1rem);
+        border-bottom: .1rem solid #333333;
+
+        @include mq(sx) {
+            padding-bottom: calc(#{map-get($mq-container-indents, 'sx')} - .1rem);
+        }
+    }
+
+    &__medium-box {
+        padding-top: map-get($mq-container-indents, 'sx') / 2;
+
+        @include mq(md) {
+            padding-top: map-get($mq-container-indents, 'sx');
+        }
+    }
+
+    &__regions-grid {
+        @include grid;
+
+        margin-bottom: -1 * map_get($mq-container-indents, 'sx') / 4;
+    }
+
+    &__regions-grid-col {
+        @include grid-col-mx(1/2);
+
+        margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+
+        @include mq(md) {
+            @include grid-col-mx(1/3);
+        }
+
+        > a {
+            font-weight: 400;
+            color: #fff;
+        }
+    }
+
+    &__bottom-box {
+        padding: map-get($mq-container-indents, 'sx') / 2 0;
+
+        @include mq(sx) {
+            padding: map-get($mq-container-indents, 'sx') 0;
+        }
+    }
+
+    &__top-line {
+        margin-bottom: 3.2rem;
+
+        @include mq(sx) {
+            margin-bottom: map-get($mq-container-indents, 'sx');
+        }
+    }
+
+    &__logo {
+        display: block;
+        max-width: 13rem;
+
+        @include mq(sx) {
+            max-width: 18rem;
+        }
+
+        > img {
+            max-width: 100%;
+            height: auto;
+            vertical-align: top;
+
+            .mod_flexboxtweener & {
+                flex-shrink: 0;
+            }
+        }
+    }
+
+    &__navigate-grid {
+
+        @include mq(sx) {
+            @include grid;
+        }
+    }
+
+    &__navigate-grid-col {
+
+        @include mq(sm) {
+            &:not(:last-child) {
+                margin-bottom: 1.6rem;
+            }
+        }
+
+        @include mq(sx) {
+            @include grid-col;
+            @include col-size(1/2);
+        }
+
+        @include mq(md) {
+            @include col-size(1/3);
+        }
+
+        &--form {
+            @include mq(sx) {
+                @include grid-col;
+                @include col-size(1/1);
+
+                margin-top: map-get($mq-container-indents, 'sx');
+            }
+
+            @include mq(md) {
+                @include col-size(1/3);
+
+                margin-top: 0;
+            }
+
+            > p {
+                margin-bottom: map-get($mq-container-indents, 'sm');
+                font-weight: 400;
+                color: $color-lighter;
+
+                @include mq(md) {
+                    margin-bottom: map-get($mq-container-indents, 'sx') / 2;
+                }
+            }
+        }
+
+        > ul {
+            > li {
+                &:not(:last-child) {
+                    margin-bottom: 1.6rem;
+                }
+                > a {
+                    @include interact(text-decoration,underline);
+                    position: relative;
+                    display: inline-block;
+                    color: #fff;
+                    white-space: nowrap;
+                    font-weight: 400;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+
+                    > span {
+                        position: relative;
+                        display: block;
+                    }
+
+                    &.dropdown-link {
+                        position: relative;
+                        padding-right: 2rem;
+
+                        &::after{
+                            position: absolute;
+                            top: 50%;
+                            right: 0rem;
+                            transform: translateY(-50%);
+                            display: block;
+                            pointer-events: none;
+                            border-top: .6rem solid $color-base;
+                            border-right: .5rem solid transparent;
+                            border-left: .5rem solid transparent;
+                            transition: $transition-duration-base;
+                            content: ""
+                        }
+
+                        &.is-active {
+                            &::after {
+                                transform: translate(100%,-50%) rotate(180deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__form-body {
+        @include mq(sx) {
+            @include grid;
+        }
+
+        @include mq(md) {
+            margin: 0;
+        }
+    }
+
+    &__form-body-col {
+
+        @include mq(sx) {
+            @include grid-col;
+            @include col-size(1/2);
+        }
+
+        @include mq(md) {
+            padding: 0;
+            width: 100%;
+        }
+    }
+
+    &__form-input-box {
+        position: relative;
+
+        > .input-text,
+        > button {
+            outline: none;
+        }
+
+        > .input-text {
+            @include text-base;
+
+            padding: .8rem 4.2rem .8rem 1rem;
+            width: 100%;
+            border-radius: $border-radius-min;
+            background: #fff;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.09);
+
+            &::placeholder {
+                color: $color-base;
+            }
+
+            .mod_flexboxtweener & {
+                min-height: 4rem;
+            }
+        }
+
+        > .input-button {
+            @include size(3.2rem);
+
+            position: absolute;
+            top: .4rem;
+            right: .4rem;
+            border-radius: 50%;
+            background: $brand-turquoise;
+
+            @include mq(sx) {
+                display: none;
+            }
+
+            @include mq(md) {
+                display: block;
+            }
+
+            .icon {
+                @include size(1.2rem, 2rem);
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                fill: $color-base
+            }
+        }
+    }
+
+    &__form-button-box {
+        display: none;
+
+        @include mq(sx) {
+            display: block;
+        }
+
+        @include mq(md) {
+            display: none;
+        }
+    }
+
+
+
+
+    // bottom box
+    &__contacts-link-box {
+        margin-bottom: map-get($mq-container-indents, 'sx') / 2;
+    }
+
+    &__contacts-information {
+        @include mq(sm) {
+            margin-top: map-get($mq-container-indents, 'sx') / 2;
+        }
+
+        @include mq(sx) {
+            display: flex;
+            justify-content: center;
+        }
+
+        > li {
+            @include mq(sx) {
+                &:not(:last-child) {
+                    margin-right: 4.8rem;
+                }
+            }
+
+            &:nth-child(2) {
+                @include mq(sm) {
+                    display: none;
+                }
+            }
+
+            > a,
+            > div > a,
+            > span,
+            > div > span {
+                @include text-small;
+
+                color: $color-lighter;
+
+                &.tooltip-link {
+                    @include interact(text-decoration, underline);
+
+                    position: relative;
+                    padding-right: 1.9rem;
+
+                    &::after{
+                        position: absolute;
+                        top: 50%;
+                        right: 0;
+                        transform: translateY(-50%);
+                        display: block;
+                        pointer-events: none;
+                        border-top: .6rem solid #fff;
+                        border-right: .5rem solid transparent;
+                        border-left: .5rem solid transparent;
+                        transition: $transition-duration-base;
+                        content: ""
+                    }
+
+                    &.is-active {
+                        &::after {
+                            transform: translateY(-50%) rotate(180deg);
+                        }
+                    }
+                }
+            }
+
+            > a {
+                @include interact(text-decoration, none);
+
+                &:not(.tooltip-link) {
+                    @include interact(text-decoration, underline);
+                }
+            }
+        }
+    }
+
+    &__social-networks-box {
+        margin: map-get($mq-container-indents, 'sx') calc(#{map-get($mq-container-indents, 'sm')} * -1);
+
+        @include mq(sm) {
+            margin: map-get($mq-container-indents, 'sx') / 2 calc(#{map-get($mq-container-indents, 'sm')} * -1);
+            padding: map-get($mq-container-indents, 'sx') / 2 map-get($mq-container-indents, 'sm');
+            border-top: 1px solid #333333;
+            border-bottom: 1px solid #333333;
+        }
+
+        @include mq(md) {
+            margin: map-get($mq-container-indents, 'sx') / 2 0 map-get($mq-container-indents, 'sx');
+        }
+    }
+
+    &__copywriting {
+        @include mq(sx) {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        > li {
+            @include mq(sx) {
+                text-align: center;
+            }
+
+            &:not(:last-child) {
+                @include mq(sm) {
+                    margin-bottom: 1.6rem;
+                }
+            }
+
+            &:nth-child(1) {
+                @include mq(sx) {
+                    margin-right: calc(#{map-get($mq-container-indents, 'sm')} * 2);
+                }
+            }
+
+            &:nth-child(2) {
+                @include mq(sx) {
+                    margin-right: 0;
+                }
+
+                @include mq(md) {
+                    margin-right: calc(#{map-get($mq-container-indents, 'sm')} * 2);
+                }
+            }
+
+            &:nth-child(3) {
+                @include mq(sx) {
+                    width: 100%;
+                    margin-top: map-get($mq-container-indents, 'sx') / 2;
+                }
+
+                @include mq(md) {
+                    width: auto;
+                    margin-top: auto;
+                }
+            }
+
+            a,
+            span {
+                color: $brand-gray;
+                font-weight: 400;
+            }
+
+            > a {
+                @include interact(text-decoration, underline);
+            }
+
+            span {
+                > a {
+                    @include interact(text-decoration, underline);
+
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

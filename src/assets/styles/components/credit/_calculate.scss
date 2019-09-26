@@ -1,0 +1,539 @@
+@charset "UTF-8";
+
+.credit-calculate {
+    &.credit-calculate--mobile-just-popup {
+        @include mq(sm) {
+            display: none;
+        //    position: fixed;
+        //    top: 0;
+        //    left: 0;
+        //    right: 0;
+        //    bottom: 0;
+        //    z-index: 99999;
+            padding: map_get($mq-container-indents, 'sm');
+            background: #fff;
+        }
+
+        .popup-tooltip-block & {
+            display: block;
+        }
+
+        .close-button {
+            @include mq(sx) {
+                display: none;
+            }
+        }
+    }
+
+    &__grid {
+        margin-top: map-get($mq-container-indents, 'sx') / 4;
+
+        @include mq(sx) {
+            margin-top: map-get($mq-container-indents, 'sx');
+        }
+
+        @include mq-custom(min, 1024px) {
+            display: flex;
+            align-items: stretch;
+        }
+    }
+
+    &__auto-block {
+        margin-bottom: map-get($mq-container-indents, 'sx') / 2;
+
+        @include mq(sx) {
+            padding-bottom: calc((#{map-get($mq-container-indents, 'sx')} / 2) - 1px);
+            border-bottom: 1px solid $color-lightest-minimal;
+            border-right: 0;
+        }
+
+        @include mq(md) {
+            margin: 0 auto;
+            //max-width: 40%;
+            padding-bottom: calc(#{map-get($mq-container-indents, 'sx')} / 2 - 1px);
+        }
+
+        @include mq-custom(min, 1025px) {
+            padding-right: calc(#{map-get($mq-container-indents, 'sx')} / 2 - 1px);
+            border-bottom: transparent;
+            border-right: 1px solid $color-lightest-minimal;
+        }
+
+        @include mq-custom(min, 1100px) {
+            //flex: 1;
+            padding-right: calc(#{map-get($mq-container-indents, 'sx')} - 1px);
+            padding-bottom: 0;
+            flex-basis: 51%;
+            max-width: 51%;
+            border-bottom: 0;
+        }
+
+        @include mq(lg) {
+            max-width: none;
+        }
+
+        > .auto-options-grid {
+            margin-top: map-get($mq-container-indents, 'sx') / 4;
+
+            @include mq(sx) {
+                margin-top: map-get($mq-container-indents, 'sx') / 2;
+            }
+        }
+    }
+
+    &__auto-tag-block {
+        display: flex;
+        margin-bottom: map-get($mq-container-indents, 'sx') / 2;
+    }
+
+    &__auto-tag-block-item {
+        line-height: 1;
+
+        &:not(:last-child) {
+            margin-right: .8rem;
+        }
+    }
+
+    &__image-block {
+
+        @include mq(md) {
+            margin: 0 auto;
+            width: 63.2rem;
+        }
+
+        @include mq-custom(min, 1024px) {
+            width: 100%;
+        }
+
+        > img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+    }
+
+    &__conditions {
+        @include mq(sx) {
+            margin: map-get($mq-container-indents, 'sx') / 2 auto 0;
+        }
+
+        @include mq-custom(min, 1024px) {
+            margin-top: 0;
+            margin-left: map-get($mq-indents, 'sx');
+            width: calc(60% - #{map-get($mq-indents, 'sx')});
+        }
+
+        @include mq(lg) {
+            width: auto;
+        }
+    }
+
+    &__conditions-grid {
+        display: flex;
+
+        @include mq(sm) {
+            flex-direction: column-reverse;
+        }
+
+        @include mq(sx) {
+            align-items: stretch;
+        }
+    }
+
+    &__conditions-information,
+    &__conditions-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__conditions-form {
+        @include mq(sx) {
+            width: 50%;
+            padding-right: calc(#{map-get($mq-indents, 'sx')} / 2);
+        }
+
+        @include mq(md) {
+            padding-right: calc(#{map-get($mq-indents, 'sx')} / 2);
+
+        }
+
+        @include mq-custom(min, 1024px) {
+            padding-right: 0;
+            flex-basis: 21.2rem;
+            max-width: 21.2rem;
+        }
+
+        @include mq-custom(min, 1200px) {
+            flex-basis: 29.2rem;
+            max-width: 29.2rem;
+        }
+    }
+
+    &__conditions-information {
+        @include mq(sm) {
+            margin: 0 calc(-1 * (#{map-get($mq-container-indents, 'sx')} / 2) / 2) map-get($mq-container-indents, 'sx') / 2;
+        }
+
+        @include mq(sx) {
+            width: calc(50% - #{map-get($mq-indents, 'sx')} / 2);
+            margin-left: calc(#{map-get($mq-indents, 'sx')} / 2);
+        }
+
+        @include mq-custom(min, 1024px) {
+            margin-left: map-get($mq-indents, 'sx');
+            flex-basis: 25.2rem;
+            max-width: 25.2rem;
+        }
+
+        @include mq-custom(min, 1200px) {
+            margin-left: map-get($mq-indents, 'sx');
+            flex-basis: 29.2rem;
+            max-width: 29.2rem;
+        }
+
+        @include mq(lg) {
+            flex-basis: 29.2rem;
+            max-width: 29.2rem;
+        }
+
+    }
+
+    &__conditions-information-fixed-box {
+        @include mq(sm) {
+            padding: map-get($mq-container-indents, 'sx') / 4;
+            border-radius: $border-radius-min;
+            border: 1px solid $color-lightest;
+            //transition: all $transition-duration-base-min;
+        }
+
+        @include mq(sx) {
+            padding: calc(#{map-get($mq-container-indents, 'sx') / 2} - 1px);
+            border-radius: $border-radius-min;
+            border: 1px solid $color-lightest-minimal;
+            background: $color-lightest-secondary;
+        }
+
+        &.is-fixed {
+            //@include mq(sm) {
+            //    position: fixed;
+            //    top: 0;
+            //    left: 0;
+            //    right: 0;
+            //    z-index: 120;
+            //    background: #fff;
+            //    border-radius: 0;
+            //    border: 0;
+            //    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.09);
+            //}
+
+            .credit-calculate__conditions-information-item {
+                @include mq(sm) {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                }
+            }
+
+            .credit-calculate__conditions-information-item-title {
+                @include mq(sm) {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    &__conditions-form-item {
+        &:not(:last-child) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+
+            @include mq(sx) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+            }
+        }
+
+        &--min-margin-bottom {
+            &:not(:last-child) {
+                margin-bottom: map_get($mq-indents, 'sm');
+            }
+        }
+
+        &--min-margin-top {
+            &:not(:last-child) {
+                margin-top: -1 * map_get($mq-indents, 'sm') / 3;
+            }
+        }
+
+        &--medium-size-in-mobile {
+            .credit-calculate__conditions-label > input,
+            .credit-calculate__input-grid > input,
+            .credit-calculate__input-grid > input + span:not([class]),
+            .credit-calculate__input-grid[data-percent]::after {
+                @include mq-custom(max, 912px) {
+                    font-size: 2.8rem;
+                    line-height: 1.14;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+
+    &__conditions-form-item-description {
+        @include text-small(400);
+
+        color: $color-lighter;
+    }
+
+    &__action-description {
+        @include text-small(300);
+
+        margin-top: map_get($mq-container-indents, 'sx') / 4;
+        text-align: center;
+    }
+
+    &__conditions-form-item-link {
+        @include interact(text-decoration, underline);
+
+        display: inline-flex;
+    }
+
+    &__conditions-label {
+        margin-bottom: map_get($mq-indents, 'sm') / 3;
+
+        > label,
+        > span,
+        > input {
+            display: block;
+            max-width: 100%;
+            color: $color-cod-gray;
+        }
+
+        .help-string,
+        > label {
+            @include text-base(400);
+        }
+
+        > span,
+        > input {
+            @include header-model-settings-h3;
+
+            display: inline-block;
+            font-weight: 400;
+            outline: none;
+
+            @include mq(sx) {
+                @include header-h1;
+            }
+        }
+    }
+
+    &__conditions-label-old-price {
+        text-decoration: line-through;
+    }
+
+    &__input-grid {
+        position: relative;
+
+        > input {
+            @include header-model-settings-h3;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            display: none;
+            width: 100% !important;
+            background: #fff;
+            font-weight: 400;
+            line-height: 1.14;
+            white-space: nowrap;
+            outline: none;
+            text-align: left;
+
+            @include mq(sx) {
+                @include header-h1;
+            }
+
+            + span {
+                &:not([class]) {
+                    @include header-model-settings-h3;
+
+                    margin-left: 0;
+                    display: inline-block;
+
+                    @include mq(sx) {
+                        @include header-h1;
+                    }
+                }
+            }
+        }
+
+        > span {
+            &:not([class]) {
+                @include header-model-settings-h3;
+
+                display: inline-block;
+                margin-left: .6rem;
+                font-weight: 400;
+
+                @include mq(sx) {
+                    @include header-h1;
+                }
+            }
+        }
+
+        &[data-percent] {
+            &::after {
+                @include header-model-settings-h3;
+
+                position: absolute;
+                top: -.1rem;
+                right: 0;
+                font-size: 2.1rem;
+                line-height: 1.14;
+                font-weight: 400;
+                color: $color-lightest;
+                content: attr(data-percent);
+
+                @include mq(sx) {
+                    @include header-h1;
+                }
+            }
+        }
+    }
+
+    &__conditions-input {
+        margin-top: 2rem;
+    }
+
+    &__conditions-input-information {
+        display: flex;
+        justify-content: space-between;
+        margin-top: map-get($mq-container-indents, 'sx') / 4;
+
+        &::before,
+        &::after {
+            font-size: 1.3rem;
+            line-height: 1.23;
+            display: block;
+            color: $color-light;
+        }
+
+        &::before {
+            content: attr(data-min-val);
+        }
+
+        &::after {
+            content: attr(data-max-val);
+        }
+    }
+
+    &__conditions-information-item {
+        @include mq(sm) {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        &:not(:first-child) {
+            margin-top: .8rem;
+
+            @include mq(sx) {
+                margin-top: map-get($mq-container-indents, 'sx') / 2;
+            }
+        }
+    }
+
+    &__conditions-information-item-title {
+        @include text-small(300);
+
+        white-space: nowrap;
+        color: $color-light;
+
+        @include mq(sm) {
+            margin-bottom: 0;
+            line-height: 1.33;
+        }
+
+        @include mq(md) {
+            font-weight: 300;
+        }
+    }
+
+    &__conditions-value {
+        @include header-h1-lg;
+
+        font-weight: 400;
+        white-space: nowrap;
+        color: $color-cod-gray;
+        outline: none;
+
+        @include mq(md) {
+            @include header-h1;
+
+            font-weight: 400;
+        }
+    }
+
+
+    // bank comparing page
+    &__popup-title {
+        margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+        text-align: center;
+        font-size: 2.8rem;
+        line-height: 1.14;
+        font-weight: 300;
+
+        @include mq(md) {
+            display: none;
+        }
+    }
+
+    &__popup-result-button {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        z-index: 9999;
+        padding: 1.2rem;
+        width: 100%;
+        text-align: center;
+        font-weight: 700;
+        transition: background $transition-duration-base-min;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.09);
+
+        &:focus {
+            outline: none;
+            background: $color-lightest-secondary;
+        }
+
+        @include mq(sx) {
+            display: none;
+        }
+    }
+
+    &--is-mobile-mod {
+        display: none;
+        margin: map_get($mq-container-indents, 'sx') / 4 -1 * map_get($mq-container-indents, 'sm') map_get($mq-container-indents, 'sx') / 2;
+        padding: calc(#{map_get($mq-container-indents, 'sx') / 4} - 1px) map_get($mq-container-indents, 'sm');
+        border-top: 1px solid $color-lightest-minimal;
+        border-bottom: 1px solid $color-lightest-minimal;
+
+        @include mq(sx) {
+            margin-left: -1 * map_get($mq-container-indents, 'sx');
+            margin-right: -1 * map_get($mq-container-indents, 'sx');
+        }
+
+        @include mq-custom(max, 912px) {
+            display: block;
+        }
+
+        .credit-calculate__conditions-value {
+            @include mq-custom(max, 912px) {
+                font-size: 2.8rem;
+                line-height: 1.14;
+                font-weight: 300;
+            }
+        }
+    }
+}

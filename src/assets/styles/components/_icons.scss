@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+@if $enable-icons == true {
+    .icon {
+        fill: $color-base;
+        fill-rule: evenodd;
+        transition: fill $transition-duration-base;
+        fill: $color-base;
+
+        &.icon--20 {
+            @include size(2rem);
+        }
+
+        &.icon--24 {
+            @include size(2.4rem);
+        }
+
+        &.icon--48 {
+            @include size(4.8rem);
+        }
+
+        &.icon--25-24 {
+            @include size(2.5rem, 2.4rem);
+        }
+
+        &.brand {
+            fill: $color-success
+        }
+    }
+}

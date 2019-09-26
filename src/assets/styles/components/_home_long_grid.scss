@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+.home-long-grid {
+    display: block;
+    margin: 0 auto;
+    padding-left: map_get($mq-container-indents, 'sm');
+    padding-right: map_get($mq-container-indents, 'sm');
+
+    @include mq(sx) {
+        padding-left: map_get($mq-container-indents, 'sx');
+        padding-right: map_get($mq-container-indents, 'sx');
+    }
+
+    @include mq(md) {
+        padding-left: map_get($mq-container-indents, 'md');
+        padding-right: map_get($mq-container-indents, 'md');
+    }
+
+    &--position-relative {
+        position: relative;
+        overflow: hidden;
+    }
+
+    &--reviews-top-gutters {
+        margin-top: calc(#{map_get($mq-container-indents, 'sx')} / 2);
+
+        @include mq(md) {
+            margin-top: map_get($mq-container-indents, 'sx');
+        }
+
+        @include mq(lg) {
+            margin-top: 9.6rem;
+        }
+
+    }
+
+    .site-footer & {
+        @include mq(sm) {
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+
+    &__content {
+        @include mq(lg) {
+            margin: 0 auto;
+            width: 75%;
+            max-width: 97.2rem;
+
+        }
+    }
+
+    > .auto-slider {
+        @include mq(lg) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+

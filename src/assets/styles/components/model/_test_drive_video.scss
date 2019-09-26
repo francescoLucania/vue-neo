@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+.model-test-drive-video {
+    margin-top: map_get($mq-container-indents, 'sx') / 2;
+    max-width: 97.2rem;
+
+    @include mq(sx) {
+        margin: map_get($mq-indents, 'sx') auto  -1 * map_get($mq-container-indents, 'sx');
+        width: 100%;
+    }
+
+    @include mq(lg) {
+        margin: map_get($mq-container-indents, 'sx') auto 0;
+    }
+
+    &__player-box {
+        position: relative;
+        padding-bottom: 56.25%; // 16:9
+        height: 0;
+
+        > iframe {
+            @include size(100%);
+
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &__poster {
+        @include size(100%);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: {
+            position: 50%;
+            size: cover;
+            repeat: no-repeat;
+            color: $color-lightest;
+        };
+
+        .mod_flexboxtweener & {
+            display: none;
+        }
+    }
+
+    &__play {
+        @include size(4.8rem);
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: #bcf2eb;
+        cursor: pointer;
+
+        @include mq(lg) {
+            @include size(6.4rem);
+        }
+
+        > .icon {
+            @include size(1.5, 1.8rem);
+
+            transform: translateX(.2rem);
+            fill: $color-base;
+
+            @include mq(md) {
+                @include size(2rem, 2.4rem);
+            }
+        }
+    }
+
+    &__title {
+        @include header-h1;
+
+        display: none;
+        text-align: center;
+        color: #fff;
+
+        @include mq(md) {
+            position: absolute;
+            top: map_get($mq-container-indents, 'sx');
+            left: map_get($mq-container-indents, 'sx');
+            right: map_get($mq-container-indents, 'sx');
+            z-index: 10;
+            display: block;
+        }
+    }
+
+    &--about-page {
+        .model-test-drive-video__poster::after {
+            @include size(100%);
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(#000, .5);
+            content: "";
+        }
+
+        .model-test-drive-video__play {
+            background: $brand-turquoise;
+
+            > .icon {
+                fill: #fff;
+            }
+        }
+    }
+}

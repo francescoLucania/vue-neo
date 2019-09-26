@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+.dealers-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 999999999;
+    overflow: auto;
+    transform: translate(-100%);
+    visibility: hidden;
+    opacity: 0;
+
+    @include mq(sx) {
+        padding: map_get($mq-container-indents, 'sx') / 2 0;
+    }
+
+    &.is-open {
+        transform: translate(0);
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 1.6rem;
+        right: 1.6rem;
+        outline: none;
+        cursor: pointer;
+
+        @include mq(md) {
+            top: 3.2rem;
+            right: 3.2rem;
+        }
+
+        > .icon {
+            fill: $color-base;
+        }
+    }
+
+    &__box {
+        max-width: 97.2rem;
+        padding: map_get($mq-container-indents, 'sx') / 2 0;
+
+        @include mq(sx) {
+            margin: 0 auto;
+            padding: map_get($mq-container-indents, 'sx') 0;
+        }
+    }
+
+    &__title {
+        @include header-h1;
+
+        margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+        text-align: center;
+
+        @include mq(sx) {
+            margin-bottom: map_get($mq-container-indents, 'sx');
+        }
+    }
+
+    &__grid {
+        margin-bottom: -1 * map_get($mq-container-indents, 'sx') / 4;
+
+        @include mq(md) {
+            @include grid(x, flex-start, flex-start);
+
+        }
+    }
+
+    &__col {
+        margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+
+        @include mq(md) {
+            @include grid-col-mx(1/2);
+        }
+
+        @include mq(lg) {
+            @include grid-col-mx(1/3);
+        }
+
+        a {
+            font-weight: 400;
+        }
+    }
+}
+
+.dealers-item {
+    @include interact(text-decoration, underline, 'hover span');
+
+    position: relative;
+    display: inline-block;
+
+    > input {
+        @include size(100%);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        outline: none;
+
+        &:checked {
+            + span {
+                + svg {
+                    opacity: 1;
+                }
+            }
+        }
+
+        + span {
+
+            font-weight: 400;
+
+            + svg {
+                @include size(1.9rem, 1.4rem);
+
+                position: absolute;
+                top: .3rem;
+                left: -.4rem;
+                transform: translateX(-100%);
+                fill: $brand-turquoise;
+                opacity: 0;
+
+                @include mq(sx) {
+                    left: -.8rem;
+                }
+            }
+        }
+    }
+}

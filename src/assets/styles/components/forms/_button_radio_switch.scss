@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.button-radio-switch {
+    @include mq(md) {
+        display: flex;
+    }
+
+    &__item {
+        position: relative;
+
+        @include mq(md) {
+            width: 50%;
+        }
+    }
+
+    &__tag {
+        @include size(100%);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        opacity: 0;
+        cursor: pointer;
+
+        &:checked {
+            pointer-events: none;
+
+            + .button-radio-switch__box {
+                background: $color-lightest-minimal;
+                box-shadow: none;
+            }
+        }
+    }
+
+    &__box {
+        @include text-base(400);
+
+        padding: 1rem;
+        border-radius: $border-radius-min;
+        background: #ffffff;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.09);
+        text-align: center;
+        color: $color-cod-gray;
+        transition: background $transition-duration-base-min, box-shadow $transition-duration-base-min;
+    }
+}

@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+
+    <symbol id="calender" viewBox="0 0 24 24">
+        <title>calender</title>
+        <g stroke="none" stroke-width="1" fill-rule="evenodd">
+            <g transform="translate(-490.000000, -897.000000)" fill-rule="nonzero">
+                <g id="calendar" transform="translate(490.000000, 897.000000)">
+                    <path d="M3,2 L21,2 C22.6568542,2 24,3.34314575 24,5 L24,21 C24,22.6568542 22.6568542,24 21,24 L3,24 C1.34314575,24 0,22.6568542 0,21 L0,5 C0,3.34314575 1.34314575,2 3,2 Z M3,4 C2.44771525,4 2,4.44771525 2,5 L2,21 C2,21.5522847 2.44771525,22 3,22 L21,22 C21.5522847,22 22,21.5522847 22,21 L22,5 C22,4.44771525 21.5522847,4 21,4 L3,4 Z" ></path>
+                    <path d="M17,1 C17,0.447715 17.4477,0 18,0 L18,0 C18.5523,0 19,0.447715 19,1 L19,6 C19,6.55228 18.5523,7 18,7 L18,7 C17.4477,7 17,6.55228 17,6 L17,1 Z" id="Path"></path>
+                    <path d="M5,1 C5,0.447715 5.44772,0 6,0 L6,0 C6.55228,0 7,0.447715 7,1 L7,6 C7,6.55228 6.55228,7 6,7 L6,7 C5.44772,7 5,6.55228 5,6 L5,1 Z" id="Path"></path>
+                    <rect x="1" y="6" width="21" height="2"></rect>
+                    <rect x="5" y="14" width="2" height="2" rx="1"></rect>
+                    <rect x="9" y="14" width="2" height="2" rx="1"></rect>
+                    <rect x="13" y="14" width="2" height="2" rx="1"></rect>
+                    <rect x="5" y="18" width="2" height="2" rx="1"></rect>
+                    <rect x="9" y="18" width="2" height="2" rx="1"></rect>
+                    <rect x="13" y="18" width="2" height="2" rx="1"></rect>
+                    <rect x="17" y="14" width="2" height="2" rx="1"></rect>
+                    <rect x="5" y="10" width="2" height="2" rx="1"></rect>
+                    <rect x="9" y="10" width="2" height="2" rx="1"></rect>
+                    <rect x="13" y="10" width="2" height="2" rx="1"></rect>
+                    <rect x="17" y="10" width="2" height="2" rx="1"></rect>
+                </g>
+            </g>
+        </g>
+    </symbol>
+
+    <symbol id="drive" viewBox="0 0 24 24">
+        <title>drive</title>
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="27.5-C-4-Key-options-1440" transform="translate(-64.000000, -953.000000)" stroke="#1A1A1A" stroke-width="2">
+                <g id="drive" transform="translate(64.000000, 953.000000)">
+                    <rect id="Rectangle" fill-opacity="0" fill="#FFFFFF" x="1" y="1" width="3" height="8" rx="1.5"></rect>
+                    <rect id="Rectangle" fill-opacity="0" fill="#FFFFFF" x="20" y="1" width="3" height="8" rx="1.5"></rect>
+                    <rect id="Rectangle" fill-opacity="0" fill="#FFFFFF" x="1" y="15" width="3" height="8" rx="1.5"></rect>
+                    <rect id="Rectangle" fill-opacity="0" fill="#FFFFFF" x="20" y="15" width="3" height="8" rx="1.5"></rect>
+                    <rect id="Rectangle" fill-opacity="0" fill="#FFFFFF" x="6" y="5" width="3" height="1"></rect>
+                    <rect id="Rectangle" fill-opacity="0" fill="#FFFFFF" x="15" y="5" width="3" height="1"></rect>
+                    <circle id="Oval" cx="12" cy="5" r="2"></circle>
+                    <rect id="Rectangle" fill-opacity="0" fill="#FFFFFF" x="6" y="19" width="3" height="1"></rect>
+                    <rect id="Rectangle" fill-opacity="0" fill="#FFFFFF" x="15" y="19" width="3" height="1"></rect>
+                    <rect id="Rectangle" fill-opacity="0" fill="#FFFFFF" x="12" y="7" width="1" height="10"></rect>
+                    <circle id="Oval" cx="12" cy="19" r="2"></circle>
+                </g>
+            </g>
+        </g>
+    </symbol>
+
+    <symbol id="engine" viewBox="0 0 24 24">
+        <title>engine</title>
+        <g stroke="none" stroke-width="1" fill-rule="evenodd">
+            <g transform="translate(-64.000000, -841.000000)">
+                <g id="engine" transform="translate(64.000000, 841.000000)">
+                    <rect fill="#1A1A1A" x="7" y="0" width="10" height="2"></rect>
+                    <rect fill="#1A1A1A" x="11" y="2" width="2" height="3"></rect>
+                    <path d="M1,11 L1,18 L3.69495995,18 C4.88457125,18 5.96180265,18.7029151 6.44090505,19.7917842 L7.01531503,21.0972614 C7.52408538,22.2535576 8.66802327,23 9.93130006,23 L14.0686999,23 C15.3319767,23 16.4759146,22.2535576 16.984685,21.0972614 L17.5590949,19.7917842 C18.0381974,18.7029151 19.1154288,18 20.30504,18 L23,18 L23,11 L20.236068,11 C19.0997518,11 18.0609624,10.3579929 17.5527864,9.34164079 L16.8555728,7.9472136 C16.2588822,6.75383246 15.0391557,6 13.704915,6 L10.295085,6 C8.9608443,6 7.74111776,6.75383246 7.14442719,7.9472136 L6.4472136,9.34164079 C5.93903755,10.3579929 4.9002482,11 3.76393202,11 L1,11 Z" stroke="#1A1A1A" stroke-width="2" fill-opacity="0" fill="#FFFFFF"></path>
+                    <rect fill="#1A1A1A" x="22" y="9" width="2" height="11"></rect>
+                </g>
+            </g>
+        </g>
+    </symbol>
+
+    <symbol id="speed" viewBox="0 0 24 24">
+        <title>speed</title>
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0">
+            <g transform="translate(-490.000000, -841.000000)" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2">
+                <g transform="translate(490.000000, 841.000000)">
+                    <circle cx="12" cy="12" r="11"></circle>
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <path d="M19,12 C19,8.13400675 15.8659932,5 12,5 C8.13400675,5 5,8.13400675 5,12"></path>
+                    <path d="M12,12 L17,7"></path>
+                </g>
+            </g>
+        </g>
+    </symbol>
+
+    <symbol id="speed" viewBox="0 0 24 24">
+        <title>speed</title>
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0">
+            <g transform="translate(-64.000000, -897.000000)" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2">
+                <g transform="translate(64.000000, 897.000000)">
+                    <rect  x="1" y="1" width="22" height="22" rx="2"></rect>
+                    <rect  x="6" y="5" width="12" height="5" rx="2"></rect>
+                    <rect  x="13" y="10" width="1" height="9" rx="0.5"></rect>
+                    <rect  x="9" y="14" width="1" height="1"></rect>
+                    <rect  x="9" y="18" width="1" height="1"></rect>
+                </g>
+            </g>
+        </g>
+    </symbol>
+
+    <symbol id="expense" viewBox="0 0 18 24">
+        <title>expense</title>
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="27.5-C-4-Key-options-1440" transform="translate(-64.000000, -1009.000000)" stroke="#1A1A1A" stroke-width="2">
+                <g id="fuel" transform="translate(64.000000, 1009.000000)">
+                    <path d="M2,1 C1.44771525,1 1,1.44771525 1,2 L1,22 C1,22.5522847 1.44771525,23 2,23 L16,23 C16.5522847,23 17,22.5522847 17,22 L17,2 C17,1.44771525 16.5522847,1 16,1 L2,1 Z" id="Rectangle" fill-opacity="0" fill="#FFFFFF"></path>
+                    <path d="M18,17 L18.5,17 C19.3284271,17 20,17.6715729 20,18.5 C20,19.3284271 20.6715729,20 21.5,20 C22.3284271,20 23,19.3284271 23,18.5 L23,10 L21,5" id="Path-2" stroke-linecap="round"></path>
+                    <rect id="Rectangle" fill-opacity="0" fill="#FFFFFF" x="5" y="4" width="8" height="4" rx="2"></rect>
+                </g>
+            </g>
+        </g>
+    </symbol>
+
+    <symbol id="transmission" viewBox="0 0 24 24">
+        <title>transmission</title>
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0">
+            <g transform="translate(-64.000000, -897.000000)" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="2">
+                <g transform="translate(64.000000, 897.000000)">
+                    <rect id="Rectangle" x="1" y="1" width="22" height="22" rx="2"></rect>
+                    <rect id="Rectangle" x="6" y="5" width="12" height="5" rx="2"></rect>
+                    <rect id="Rectangle" x="13" y="10" width="1" height="9" rx="0.5"></rect>
+                    <rect id="Rectangle" x="9" y="14" width="1" height="1"></rect>
+                    <rect id="Rectangle" x="9" y="18" width="1" height="1"></rect>
+                </g>
+            </g>
+        </g>
+    </symbol>
+</svg>

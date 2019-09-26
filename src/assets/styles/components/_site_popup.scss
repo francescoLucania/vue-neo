@@ -1,0 +1,2266 @@
+@charset "UTF-8";
+// overrides old styles
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+// overrides old styles
+.mfp-wrap {
+    top: 0 !important;
+
+    @include mq(sm) {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
+.mfp-bg {
+    background: transparent;
+}
+
+.mfp-content {
+    text-align: center !important;
+}
+
+.site-popup-content {
+    position: relative;
+    display: inline-block;
+
+    @media (max-width: 634px) {
+        display: block;
+        min-height: 100%;
+    }
+
+    &__inner {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        text-align: left;
+
+        @media (max-width: 634px) {
+            min-height: 100vh;
+        }
+
+        @media (max-width: 912px) {
+            display: block;
+            min-height: auto;
+            width: 100%;
+        }
+
+        @media (min-width: 635px) {
+            display: block;
+            min-height: auto;
+        }
+    }
+}
+
+.site-popup {
+    font-family: $font-family-text;
+    background-color: rgba(0, 0, 0, 0.14);
+    z-index: 9999;
+
+    @include mq(sm) {
+        top: 0 !important;
+        overflow-y: auto;
+
+        // for safari scrolling
+        -webkit-overflow-scrolling: touch;
+    }
+
+    @include mq(sx) {
+        opacity: 0;
+    }
+
+    &.is-open {
+        @include mq(sx) {
+            animation: shadow-animation .2s ease-in 0s 1 alternate forwards;
+        }
+    }
+
+    &[data-color-type='ВТБ'],
+    &[data-color-type='Локобанк'],
+    &[data-color-type='Ситибанк'],
+    &[data-color-type='Банк «ФК Открытие»'],
+    &[data-color-type='Банк РНКБ'],
+    &[data-color-type='РНКБ'],
+    &[data-color-type='Ситибанк'] {
+        .close-button {
+            @include interact(fill, $color-base, 'hover .icon');
+
+            > .icon {
+                fill: #fff;
+            }
+        }
+    }
+
+    &[data-color-type='МС Банк Рус'],
+    &[data-color-type='Тойота Банк'],
+    &[data-color-type='БМВ Банк'],
+    &[data-color-type='Мерседес-Бенц Банк Рус'],
+    &[data-color-type='Мерседес-Бенц Банк'],
+    &[data-color-type='Банк ПСА Финанс Рус'],
+    &[data-color-type='ПСА Банк'],
+    &[data-color-type='Фольксваген Банк Рус'] {
+        &[data-color-type='Фольксваген Банк РУС']
+        .close-button {
+            @include interact(fill, $brand-turquoise, 'hover .icon');
+
+            > .icon {
+                fill: $color-base;
+            }
+        }
+    }
+
+    &[data-color-type='Московский Кредитный Банк'],
+    &[data-color-type='Московский Областной Банк'],
+    &[data-color-type='ЮниКредит Банк'],
+    &[data-color-type='Русфинанс Банк'],
+    &[data-color-type='Альфа-Банк'],
+    &[data-color-type='Альфабанк'],
+    &[data-color-type='Газпромбанк'],
+    &[data-color-type='Промсвязьбанк'],
+    &[data-color-type='Национальный Банк «Траст»'],
+    &[data-color-type='РН Банк'] {
+        .close-button {
+            @include interact(fill, $brand-turquoise, 'hover .icon');
+
+            > .icon {
+                fill: #fff;
+            }
+        }
+    }
+
+    &[data-color-type='РН Банк'] {
+        .close-button {
+            @include interact(fill, $brand-turquoise, 'hover .icon');
+
+            > .icon {
+                fill: #fff;
+            }
+        }
+    }
+
+    // actions
+    .close-button,
+    .right-menu-close {
+        @include size(4rem);
+
+        position: absolute;
+        top: 1.6rem;
+        right: 1.6rem;
+        padding: 1rem;
+        outline: none;
+        cursor: pointer;
+
+        @include mq-custom(max, 340px) {
+            @include size(2.4rem);
+
+            top: .2rem;
+            right: .2rem;
+            padding: 0;
+        }
+
+        > .icon {
+            @include size(2rem);
+        }
+    }
+
+    a {
+        @include interact(color, $color-base);
+    }
+
+    &--bottom {
+        .mfp-content {
+            vertical-align: bottom;
+        }
+
+        .site-popup__container {
+            width: 100%;
+            border-radius: 0;
+            margin: 0;
+        }
+    }
+
+    &--badge {
+        height: 100% !important;
+        z-index: 1043;
+        position: fixed !important;
+        outline: 0!important;
+
+        .site-popup__container {
+            @include mq(sm) {
+                width: auto;
+                margin: map_get($mq-container-indents, 'sx') / 4;
+                min-height: 50%;
+            }
+        }
+
+        .site-popup__header {
+            transform: translate(0, 0);
+            text-align: left;
+        }
+
+        .mfp-wrap {
+            top: 0;
+            left: 0;
+            width: 100%!important;
+            height: 100% !important;
+            z-index: 1043;
+            position: fixed !important;
+            outline: 0!important;
+            -webkit-backface-visibility: hidden;
+        }
+    }
+
+    &--sx-fullscreen {
+        @include mq(sx) {
+            top: 0 !important;
+            overflow-y: auto;
+
+            // for safari scrolling
+            -webkit-overflow-scrolling: touch;
+
+            .mfp-wrap {
+                top: 0 !important;
+            }
+        }
+
+        @include mq(md) {
+            top: auto !important;
+        }
+    }
+
+    &--bank-credit-calculate {
+
+    }
+
+    &__container {
+        position: relative;
+        padding: map-get($mq-container-indents, 'sx') / 2 map-get($mq-container-indents, 'sm') map-get($mq-container-indents, 'sm');
+        border-radius: $border-radius-min;
+        background: #fff;
+
+        @include mq(sm) {
+            min-height: 100vh;
+            height: auto;
+        }
+
+        @include mq(sx) {
+            margin: map-get($mq-container-indents, 'sx') 0;
+            padding: map-get($mq-container-indents, 'sx') / 2 map-get($mq-container-indents, 'sx') map-get($mq-container-indents, 'sx') / 2 map-get($mq-container-indents, 'sx');
+            box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+            opacity: 0;
+        }
+
+        @include mq(md) {
+            margin: map-get($mq-container-indents, 'sx') auto;
+            width: 76rem;
+        }
+
+        .is-open & {
+            @include mq(sx) {
+                animation: shadow-animation .1s ease-in .2s 1 alternate forwards;
+            }
+        }
+
+        &--model-type-search,
+        &--car-search {
+            @include mq(sx) {
+                width: 100%;
+                min-height: 100vh;
+                height: auto;
+            }
+
+            @include mq(md) {
+                min-height: auto;
+                width: 100%;
+            }
+
+            @include mq(lg) {
+                width: 110rem;
+            }
+        }
+
+        &--region-scroll-list,
+        &--steps {
+            > .close-button {
+                @include mq(sm) {
+                    position: fixed;
+                }
+            }
+        }
+
+        &--region-scroll-list {
+            @include mq(sx) {
+                padding-bottom: 0;
+                height: 60rem;
+                max-height: 60rem;
+            }
+        }
+
+        &--steps {
+            position: relative;
+
+            @include mq(sm) {
+                margin-bottom: 2rem;
+            }
+
+            @include mq(sx) {
+                display: flex;
+                flex-direction: column;
+                padding-bottom: map_get($mq-container-indents, 'sx') / 2;
+                min-height: 60rem;
+                max-height: none;
+
+                .site-popup__content {
+                    flex-grow: 1;
+
+                    .mod_flexboxtweener & {
+                        flex-grow: 1;
+                        flex-shrink: 0;
+                        flex-basis: auto;
+                    }
+                }
+            }
+        }
+
+        &--fixed-footer {
+            padding-bottom: 0;
+
+            .site-popup__navigate-footer {
+                @include mq(sx) {
+                    position: fixed;
+                    bottom: 0;
+                    z-index: 99;
+                    padding: map_get($mq-container-indents, 'sx') / 2 map_get($mq-container-indents, 'sx');
+                    width: 100%;
+                    background: #fff;
+                }
+
+                @include mq(md) {
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 76rem;
+                }
+
+                &::before {
+                    @include mq(sx) {
+                        position: absolute;
+                        top: 0;
+                        left: map_get($mq-container-indents, 'sx');
+                        right: map_get($mq-container-indents, 'sx');
+                        height: 1px;
+                        background: $color-lightest-minimal;
+                        content: "";
+                    }
+                }
+            }
+
+            .site-popup__content-row {
+                @include mq(sx) {
+                    margin-bottom: 13.4rem;
+                }
+            }
+        }
+
+        &--content-sx-scroll {
+            @include mq(sm) {
+                position: relative;
+            }
+            @include mq(sx) {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+
+            @include mq(md) {
+                max-height: 60rem;
+            }
+
+            .site-popup__header {
+                @include mq(sx) {
+                    padding-top: map-get($mq-container-indents, 'sx') / 2;
+                }
+            }
+
+            .site-popup__navigate-footer {
+                @include mq(sx) {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    padding: map-get($mq-container-indents, 'sx') / 2 map-get($mq-container-indents, 'sx') map-get($mq-container-indents, 'sx') / 2;
+                }
+            }
+        }
+
+        &--md-long-height {
+            @include mq(lg) {
+                min-height: 56.8rem;
+            }
+        }
+
+        &--sm-vertical-middle {
+            @include mq(sm) {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .site-popup__header--border-bottom {
+                    padding-bottom: 0;
+                    border-bottom: 0;
+                }
+            }
+        }
+
+        &--vertical-middle {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .site-popup__header--border-bottom {
+                padding-bottom: 0;
+                border-bottom: 0;
+            }
+        }
+
+        &--minimal-width {
+            @include mq(md) {
+                margin: 0 auto;
+                width: 42rem;
+            }
+        }
+    }
+
+    &__container-scroll-y {
+        @include mq(sx) {
+            //max-height: calc(60rem - 10.4rem);
+            padding: 0 .3rem .8rem;
+            border-bottom: 1px solid $color-lightest-secondary;
+            //overflow: auto;
+        }
+    }
+
+    &__content-container {
+        @include mq(lg) {
+            @include col-size(4/8);
+
+            margin: 0 auto;
+        }
+    }
+
+
+    // header
+    &__header {
+        margin-bottom: map-get($mq-container-indents, 'sx') / 2;
+        text-align: center;
+
+        &--border-bottom,
+        &--border-bottom-full-width {
+            margin-bottom: map-get($mq-container-indents, 'sx') / 2;
+            padding-bottom: calc(#{map-get($mq-container-indents, 'sx')} / 2 - 1px);
+            border-bottom: 1px solid $color-lightest-minimal;
+            text-align: center;
+        }
+
+        &--border-bottom-full-width {
+            margin-right: -1 * map-get($mq-container-indents, 'sm');
+            margin-left: -1 * map-get($mq-container-indents, 'sm');
+            padding-left: map-get($mq-container-indents, 'sm');
+            padding-right: map-get($mq-container-indents, 'sm');
+
+            @include mq(sx) {
+                margin-left: -1 * map-get($mq-container-indents, 'sx');
+                margin-right: -1 * map-get($mq-container-indents, 'sx');
+                padding-left: map-get($mq-container-indents, 'sx');
+                padding-right: map-get($mq-container-indents, 'sx');
+            }
+        }
+
+        &--doble-bottom-gutter {
+            margin-bottom: map-get($mq-container-indents, 'sx') / 2;
+        }
+
+        &--colored-background {
+            margin: -1 * map-get($mq-container-indents, 'sx') / 2 -1 * map-get($mq-container-indents, 'sm') map-get($mq-container-indents, 'sx') / 2;
+            padding: map-get($mq-container-indents, 'sx') / 2 map-get($mq-container-indents, 'sm') map-get($mq-container-indents, 'sm');
+            background: $color-lightest-minimal;
+
+            @include mq(sx) {
+                margin: -1 * map-get($mq-container-indents, 'sx') / 2 -1 * map-get($mq-container-indents, 'sx')  map-get($mq-container-indents, 'sx') / 2;
+                padding: map-get($mq-container-indents, 'sx') / 2 map-get($mq-container-indents, 'sx') / 2 map-get($mq-container-indents, 'sx') / 2;
+            }
+        }
+    }
+
+    &__header-image {
+        display: flex;
+        justify-content: center;
+        margin: 4.4rem 0 map-get($mq-container-indents, 'sx') / 2;
+    }
+
+    &__close-button-box {
+        position: sticky;
+        top: 0;
+        z-index: 99;
+
+        &.is-fixed {
+            top: 0;
+            right: 0;
+            transform: translateZ(0);
+            z-index: 99;
+
+            @include mq(sx) {
+                width: 100%;
+            }
+
+            @include mq(sx) {
+                width: 76rem;
+            }
+        }
+
+        &.is-scroll {
+            position: sticky;
+        }
+
+        .close-button {
+            @include mq(md) {
+                top: 1.6rem;
+            }
+        }
+
+        &--color-base {
+            .close-button {
+                > .icon {
+                    fill: $color-base !important; // overrides brand color type
+                }
+            }
+        }
+    }
+
+    &__icon-box {
+        display: flex;
+        justify-content: center;
+        margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+    }
+
+    &__icon {
+        > img {
+            vertical-align: top;
+        }
+
+        &--subscribe {
+            @include size(12.8rem);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            border-radius: 50%;
+            background: $brand-duck-egg-blue;
+
+            > img {
+                width: 9.2rem;
+                transform: translateX(.6rem);
+            }
+        }
+    }
+
+    &__image-box {
+        position: relative;
+        margin: 0 auto;
+
+        > img {
+            display: block;
+            margin: 0 auto;
+            vertical-align: top;
+        }
+
+        > svg {
+            @include size(2rem);
+            position: absolute;
+            top: -1.4rem;
+            right: 1rem;
+        }
+    }
+
+    &__title {
+        @include header-h2;
+
+        font-weight: 400;
+
+        //&--font-weight-normal {
+        //    font-weight: 400;
+        //}
+
+        &--sm-big-font-size {
+            @include mq(sm) {
+                font-size: 2.8rem;
+                line-height: 1.14;
+            }
+        }
+    }
+
+    &__icon {
+        margin-bottom: map_get($mq-container-indents, 'sm');
+
+        .banner-badge {
+            display: flex;
+
+            @include mq(sm) {
+                display: flex;
+            }
+        }
+    }
+
+    &__content-title {
+        @include header-equipment-h4;
+
+        margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+    }
+
+    &__alert-title {
+        @include header-h1;
+
+        text-align: center;
+        color: $color-light;
+    }
+
+    &__description {
+        @include text-base;
+
+        margin-top: .8rem;
+    }
+
+    &__content {
+        width: 100% !important; // overrides old styles
+
+        &--flex-column {
+            display: flex;
+            flex-direction: column;
+
+            .site-popup__content-row {
+                width: 100%;
+
+                @include mq(sx) {
+                    &:last-child {
+                        margin-top: auto !important;
+                    }
+                }
+            }
+        }
+
+        > p,
+        > ul {
+            &:not(:last-child) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+            }
+        }
+
+        &.wysiwyg {
+            font-weight: 400;
+            color: $color-base;
+
+            > h3,
+            > h4 {
+                color: $color-base;
+
+                &:not([class]) {
+                    &:not(:last-child) {
+                        margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+                    }
+
+                    &:not(:first-child) {
+                        margin-top: map_get($mq-indents, 'sm');
+                    }
+                }
+            }
+        }
+
+        &.wysiwyg > p,
+        > p {
+            &:not([class]) {
+                &:not(:last-child) {
+                    margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+                }
+            }
+        }
+
+        > ul {
+            > li {
+                position: relative;
+                padding-left: 2.4rem;
+
+                &:not([class]) {
+                    &:not(:last-child) {
+                        margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+                    }
+                }
+
+                &::before {
+                    @include size(.8rem);
+
+                    position: absolute;
+                    top: .7rem;
+                    left: 0;
+                    border-radius: 50%;
+                    background: $color-light;
+                    content: "";
+                }
+            }
+        }
+    }
+
+    &__content-row {
+        height: auto !important; // overrides old styles
+
+        &:not(:first-child) {
+            margin-top: map-get($mq-container-indents, 'sx') / 4;
+        }
+
+        @include mq(sx) {
+            &:not(:first-child) {
+                margin-top: map-get($mq-container-indents, 'sm');
+            }
+        }
+
+        &--grid {
+            @include mq(sx) {
+                @include grid(x,flex-start,stretch);
+            }
+        }
+
+        &--bottom-gutters {
+            padding-bottom: map_get($mq-container-indents, 'sx') / 2 - 1px;
+            border-bottom: 1px solid $color-lightest-minimal;
+
+            &.site-popup__content-row--md-gutter {
+                padding-bottom: 3.9rem;
+            }
+
+            &:last-child {
+                padding-bottom: 0;
+                border-bottom: 0;
+            }
+        }
+
+        &--no-border-bottom {
+            border-bottom-color: transparent;
+        }
+
+        &--load-box {
+            min-height: 4.8rem; // button height
+            > .load-icon {
+                display: none;
+            }
+
+            &.is-load {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                > .button {
+                    display: none;
+                }
+
+                > .load-icon {
+                    display: block;
+                    animation: rotate 1s linear infinite;
+                }
+            }
+        }
+
+        &--md-gutters {
+            &:not(:first-child) {
+                margin-top: 4rem;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 4rem;
+            }
+        }
+
+        &.not-sm {
+            @include mq(sm) {
+                display: none;
+            }
+        }
+
+        .credit-calculate & {
+            &:not(:first-child) {
+                @include mq(sm) {
+                    margin-top: 3.8rem;
+                }
+            }
+        }
+    }
+
+    &__row-col {
+        @include mq(sm) {
+            &:not(:first-child) {
+                margin-top: calc(#{map-get($mq-container-indents, 'sx')} / 2 / 2);
+            }
+        }
+
+        @include mq(sx) {
+            @include grid-col;
+            @include col-size(1/2);
+        }
+
+        > .input {
+            &:not(:last-child) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+
+        &--flex-column-end {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            > .credit-calculate__conditions-form-item {
+                width: 100%;
+            }
+        }
+
+        .credit-calculate & {
+            &:not(:first-child) {
+                @include mq(sm) {
+                    margin-top: 3.8rem;
+                }
+            }
+        }
+    }
+
+    &__text {
+        @include text-base; // overrides old styles
+
+        color: $color-light;
+
+        &:not(:first-child) {
+            margin-top: calc(#{map-get($mq-container-indents, 'sx')} / 2 / 2);
+        }
+
+        &--min-width {
+            @include mq(md) {
+                margin: 0 auto;
+                width: 36rem;
+            }
+        }
+    }
+
+    &__warning-text {
+        @include text-minimal(400);
+
+        text-align: center;
+        color: $color-lighter;
+
+        &:not(:first-child) {
+            margin-top: calc(#{map-get($mq-container-indents, 'sx')} / 2 / 2);
+        }
+
+        > a {
+            color: $color-base;
+        }
+
+        &--not-sm-margin-bottom {
+            @include mq(sm) {
+                margin-bottom: 0 !important;
+
+                &:not(:last-child) {
+                    margin-bottom: 0 !important;
+                }
+            }
+        }
+    }
+
+    &__order-buttons {
+        margin: calc(#{map-get($mq-indents, 'sx')}) auto 0;
+        text-align: center;
+
+        @include mq(sx) {
+            width: 29.2rem;
+        }
+
+        > span {
+            display: block;
+            margin: 1.6rem  0;
+            color: $color-light;
+        }
+    }
+
+    &__recommended-auto {
+        @include mq(sm) {
+            display: none;
+        }
+    }
+
+    &__recommended-auto-grid {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+
+        @include mq(sx) {
+            @include grid;
+        }
+    }
+
+    &__recommended-auto-grid-col {
+        @include mq(sx) {
+            @include grid-col-mx(1/2);
+        }
+    }
+
+    // model subscribe elements
+    .site-popup-subscribe-information {
+        margin-bottom: -32px;
+
+        &:empty {
+            display: none;
+        }
+
+        &__item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 32px 3rem 31px 0;
+            border-bottom: 1px solid $color-lightest-minimal;
+
+            &:last-child {
+                padding-bottom: 32px;
+                border: 0;
+            }
+        }
+
+        &__remove-button {
+            @include interact(fill, $brand-turquoise, 'hover .icon');
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            display: block;
+            width: 3rem;
+
+            > .icon {
+                @include size(2rem);
+
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                fill: $color-lightest;
+            }
+        }
+    }
+
+    &__model-status-line {
+        display: flex;
+        margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+    }
+
+    // footer
+    &__footer {
+        display: none;
+        margin: map-get($mq-container-indents, 'sx') / 2 0 0;
+        padding-top: calc(#{map_get($mq-container-indents, 'sx')} / 2 - 1px);
+        border-top: 1px solid $color-lightest-minimal;
+
+        > .icon-information-line {
+            margin-top: 0;
+        }
+
+        @include mq(sx) {
+            display: block;
+        }
+    }
+
+    &__navigate-footer {
+        display: flex;
+        background: #fff;
+
+        @include mq(sm) {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
+            flex-direction: column;
+            padding: map_get($mq-container-indents, 'sx') / 2 map_get($mq-indents, 'sm') map_get($mq-container-indents, 'sx') / 4;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.09);
+        }
+
+        @include mq(sm) {
+            @include mq-custom(max, 912px) {
+                left: 0 !important; // override js
+                width: 100% !important; // override js
+            }
+        }
+        @include mq(sx) {
+            justify-content: space-between;
+            align-items: center;
+            padding-top: map_get($mq-container-indents, 'sx') / 2;
+        }
+
+        > li {
+            @include mq(sm) {
+                width: 100%;
+            }
+
+            @include mq(sx) {
+                @include col-size(1/3);
+            }
+
+            &:first-child {
+                display: none;
+
+                @include mq(sm) {
+                    order: 1;
+                }
+
+                @include mq(md) {
+                    display: block;
+                }
+            }
+
+            &:nth-child(2) {
+                @include mq(sm) {
+                    order: 3
+                }
+            }
+
+            &:last-child {
+                @include mq(sm) {
+                    order: 1;
+                    margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+                }
+
+                @include mq(sx) {
+                    text-align: right;
+                }
+            }
+
+            > .button {
+                @include mq(sm) {
+                    width: 100%;
+                }
+
+                @include mq(sx) {
+                    min-width: 12.8rem;
+                }
+            }
+        }
+    }
+
+    &__client-service-grid {
+        @include mq(md) {
+            display: flex;
+        }
+
+        + .site-popup__footer {
+            @include mq(md) {
+                margin-top: map_get($mq-container-indents, 'sx') - 1px;
+            }
+        }
+    }
+
+    &__client-service-grid-operator-col {
+        margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+
+        @include mq(md) {
+            width: 17.2rem;
+            margin-bottom: 0;
+            margin-right: map_get($mq-container-indents, 'sx');
+        }
+    }
+
+    &__client-service-grid-information-col {
+        @include mq(md) {
+            width: 39.6rem;
+        }
+    }
+
+    &__operator-image {
+        @include mq(md) {
+            width: 17.2rem;
+        }
+
+        > img {
+            display: block;
+            margin: 0 auto;
+            width: 17.2rem;
+            border-radius: 50%;
+            vertical-align: top;
+        }
+    }
+
+    &__operator-information {
+        @include text-small();
+
+        margin-top: map_get($mq-container-indents, 'sx') / 4;
+        text-align: center;
+    }
+
+    &__service-content {
+        > h4 {
+            @include header-h1;
+
+            margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+        }
+
+        > p {
+            @include text-base; // overrides old styles
+        }
+
+        > .button {
+            margin-top: map_get($mq-container-indents, 'sx') / 2;
+            width: 29.2rem;
+
+            @include mq(sm) {
+                width: 100%;
+            }
+        }
+    }
+
+    &__content-list {
+        > li {
+            @include header-offer-h5(400);
+
+            position: relative;
+            padding-left: .8rem;
+
+            &::before {
+                @include size(.3rem);
+
+                position: absolute;
+                top: .8rem;
+                left: 0;
+                border-radius: 50%;
+                background: $color-light;
+                content: "";
+            }
+        }
+    }
+
+    // overrides
+    .mfp-container {
+        padding: 0;
+    }
+
+    .mfp-content {
+        @include mq(sm) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow-y: scroll;
+        }
+
+        @include mq(md) {
+            vertical-align: top;
+        }
+
+        &.vertical-align-middle {
+            @include mq(md) {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+.site-gallery-popup {
+    position: fixed;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0!important;
+    right: 0 !important;
+
+    .close-button {
+        position: absolute;
+        top: 1.6rem;
+        right: 1.6rem;
+        outline: none;
+        cursor: pointer;
+
+        @include mq(md) {
+            top: 3.2rem;
+            right: 3.2rem;
+        }
+
+        > .icon {
+            fill: #fff;
+        }
+    }
+
+    // mfp overrides
+    .mfp-content,
+    .mfp-container,
+    &__container {
+        position: absolute;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: #000;
+    }
+
+    .mfp-container {
+        padding: 0;
+    }
+}
+
+.site-popup-pagination-steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: map_get($mq-container-indents, 'sx') / 4;
+    background: #fff;
+
+    @include mq(sx) {
+        margin-top: 0;
+    }
+
+    > li {
+        display: block;
+
+        &:empty {
+            display: none;
+        }
+
+        &:not(:last-child) {
+            margin-right: map_get($mq-container-indents, 'sx') / 4;
+        }
+
+        > a {
+            @include size(2rem);
+            @include link-minimal;
+            @include interact(text-decoration, none);
+
+            line-height: 1.67;
+            display: block;
+            border-radius: 50%;
+            color: $color-base;
+            text-align: center;
+
+            &.is-current {
+                background: $brand-turquoise;
+                color: #fff;
+
+                .mod_no-flexboxtweener & {
+                    pointer-events: none;
+                }
+
+
+                &.is-active {
+                    padding: .5rem;
+                    width: 5.6rem;
+                    border-radius: 9px;
+                }
+            }
+
+            > span {
+                line-height: 1 !important;
+            }
+        }
+
+        &:nth-child(2) {
+            > a {
+                &.is-current {
+                    display: flex;
+                    justify-content: space-between;
+                    background: $brand-turquoise;
+                    color: #fff;
+
+                    &.is-active {
+                        padding: .5rem;
+                        width: 5.6rem;
+                        border-radius: 9px;
+
+                        &::before {
+                            @include size(1.1rem, .8rem);
+
+                            display: block;
+                            background: {
+                                position: 50% 50% !important;
+                                size: contain !important;
+                                repeat: no-repeat !important;
+                                image: url("../img/icons/check.svg") !important;
+                            }
+                            content: "";
+                        }
+                    }
+                }
+            }
+        }
+
+        &:nth-child(3) {
+            > a {
+                &.is-current {
+                    display: flex;
+                    justify-content: space-between;
+                    background: $brand-turquoise;
+                    color: #fff;
+                    pointer-events: none;
+
+                    &.is-active {
+                        padding: .5rem;
+                        width: 7.6rem;
+                        border-radius: 9px;
+
+                        &::before,
+                        &::after  {
+                            @include size(1.1rem, .8rem);
+
+                            display: block;
+                            background: {
+                                position: 50% 50% !important;
+                                size: contain !important;
+                                repeat: no-repeat !important;
+                                image: url("../img/icons/check.svg") !important;
+                            }
+                            content: "";
+                        }
+
+                        &::before {
+                            order: 1;
+                        }
+
+                        &::after {
+                            order: 2;
+                        }
+
+                        span {
+                            order: 3;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// bank calculate credit
+.site-popup-bank-header {
+    display: flex;
+    align-items: flex-start;
+    margin: -1 * map-get($mq-container-indents, 'sx') / 2 -1 * map-get($mq-container-indents, 'sm') map-get($mq-container-indents, 'sx') / 2;
+    padding: map_get($mq-container-indents, 'sx') / 4;
+    border-bottom: 1px solid rgba(168, 168, 168, 0.4);
+    background: $color-lightest-minimal;
+
+    @include mq(sx) {
+        margin-left: -1 * map-get($mq-container-indents, 'sx');
+        margin-right: -1 * map-get($mq-container-indents, 'sx');
+        padding: map_get($mq-container-indents, 'sx') / 2;
+    }
+
+    &__logo {
+        @include size(3.2rem);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: map_get($mq-container-indents, 'sx') / 4;
+        min-width: 3.2rem;
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: #fff;
+
+        @include mq(md) {
+            @include size(4.4rem);
+
+            margin-right: map_get($mq-indents, 'sm');
+            min-width: 4.4rem;
+        }
+
+        > img {
+            max-width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+    }
+
+    &__information {
+        margin-right: map_get($mq-container-indents, 'sx') / 2;
+    }
+
+    &__subtitle,
+    &__title {
+        font-size: 1.3rem;
+        line-height: 1.23;
+        font-weight: 400;
+    }
+
+    &__subtitle {
+        color: $brand-greyish;
+    }
+
+    &__title {
+        @include mq(md) {
+            font-size: 2.1rem;
+            line-height: 1.14;
+            margin-top: .4rem;
+        }
+    }
+
+    &[data-color-type='Московский Кредитный Банк'],
+    &[data-color-type='Сбербанк'],
+    &[data-color-type='Сбербанк России'],
+    &[data-color-type='Московский Областной Банк'],
+    &[data-color-type='ЮниКредит Банк'],
+    &[data-color-type='Русфинанс Банк'],
+    &[data-color-type='Альфа-Банк'],
+    &[data-color-type='Альфабанк'],
+    &[data-color-type='Промсвязьбанк'],
+    &[data-color-type='РН Банк'],
+    &[data-color-type='ВТБ'],
+    &[data-color-type='Газпромбанк'],
+    &[data-color-type='Локобанк'],
+    &[data-color-type='Ситибанк'],
+    &[data-color-type='Банк «ФК Открытие»'],
+    &[data-color-type='Банк РНКБ'],
+    &[data-color-type='РНКБ'],
+    &[data-color-type='Ситибанк'],
+    &[data-color-type='Сетелем банк'],
+    &[data-color-type='Сетелем Банк'],
+    &[data-color-type='Россельхозбанк'],
+    &[data-color-type='Национальный Банк «Траст»'],
+    &[data-color-type='Ак Барс'],
+    &[data-color-type='Ак Барс Банк'],
+    &[data-color-type='Уралсиб'],
+    &[data-color-type='Банк Уралсиб'],
+    &[data-color-type='Кредит Европа Банк'],
+    &[data-color-type='Кредит ЕвропаБанк'],
+    &[data-color-type='Ситибанк'],
+    &[data-color-type='Банк «ФК Открытие»'],
+    &[data-color-type='Совкомбанк'] {
+        border-bottom-color: rgba(255, 255, 255, 0.4);
+
+        .site-popup-bank-header__subtitle,
+        .site-popup-bank-header__title {
+            color: #fff;
+        }
+    }
+
+    &[data-color-type='Кредит ЕвропаБанк'],
+    &[data-color-type='Кредит Европа Банк'] {
+        background: #0053ac;
+    }
+
+    &[data-color-type='Банк Уралсиб'] {
+        background: #3c5186;
+    }
+
+    &[data-color-type='Ак Барс Банк'] {
+        background: #10002b;
+    }
+
+    &[data-color-type='Национальный Банк «Траст»'] {
+        background: #231f20;
+    }
+
+    &[data-color-type='Банк «ФК Открытие»'] {
+        background: #09ccff;
+    }
+
+    &[data-color-type='Ситибанк'] {
+        background: #00bbee;
+    }
+
+    &[data-color-type='Совкомбанк'] {
+        background: #005395;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #005395;
+        }
+    }
+
+    &[data-color-type='Тинькоф'],
+    &[data-color-type='Тинькофф Банк'] {
+        background: #ffdd2d;
+    }
+
+    &[data-color-type='РН Банк'] {
+        background: #f68c28;
+    }
+
+    &[data-color-type='Промсвязьбанк'] {
+        background: #e15d29;
+    }
+
+    &[data-color-type='Альфа-Банк'],
+    &[data-color-type='Альфабанк'] {
+        background: #ef3124;
+    }
+
+    &[data-color-type='Русфинанс Банк'] {
+        background: #ee3a45;
+    }
+
+    &[data-color-type='ЮниКредит Банк'] {
+        background: #e2011a;
+    }
+
+    &[data-color-type='Московский Кредитный Банк'] {
+        background: #9a0028;
+    }
+
+    &[data-color-type='Сбербанк'],
+    &[data-color-type='Сбербанк России'] {
+        background: #2c9906;
+    }
+
+    &[data-color-type='Сетелем Банк'] {
+        background: #22b25c;
+    }
+
+    &[data-color-type='Россельхозбанк'] {
+        background: #19502e;
+    }
+
+    &[data-color-type='ВТБ'] {
+        background: #00a3da;
+    }
+
+    &[data-color-type='Газпромбанк'] {
+        background: #03467d;
+    }
+
+    &[data-color-type='Локобанк'],
+    &[data-color-type='ЛОКО-Банк'] {
+        background: #00aae7;
+    }
+
+    &[data-color-type='Ситибанк'] {
+        background: #00bbee;
+    }
+
+    &[data-color-type='Банк «ФК Открытие»'] {
+        background: #09ccff
+    }
+
+    &[data-color-type='РНКБ'],
+    &[data-color-type='Банк РНКБ'] {
+        background: #02abca;
+    }
+
+    &[data-color-type='Тинькофф Банк'],
+    &[data-color-type='Райффайзенбанк'] {
+        border-bottom-color: rgba(168, 168, 168, 0.4);
+
+        .site-popup-bank-header__subtitle,
+        .site-popup-bank-header__title {
+            color: #000;
+        }
+    }
+
+    &[data-color-type='Райффайзенбанк'] {
+        background: #fff200;
+        box-shadow: none;
+    }
+}
+
+
+.credit-application-information {
+    margin-left: -1 * map_get($mq-container-indents, 'sm');
+    margin-right: -1 * map_get($mq-container-indents, 'sm');
+    margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+    padding:  0 map_get($mq-container-indents, 'sm') map_get($mq-container-indents, 'sm');
+    border-radius: $border-radius-min;
+    background: $color-lightest-minimal;
+
+    @include mq(sm) {
+        margin-top: calc(#{-1 * map_get($mq-container-indents, 'sx') / 2} - 1px);
+    }
+
+    @include mq(sx) {
+        margin: map_get($mq-container-indents, 'sx') / 2 0;
+        padding: map_get($mq-container-indents, 'sm');
+    }
+
+    &__header {
+        display: flex;
+        align-items: flex-start;
+        margin-left: -1 * map_get($mq-container-indents, 'sm');
+        margin-right: -1 * map_get($mq-container-indents, 'sm');
+        border-bottom: 1px solid rgba(168, 168, 168, 0.4);
+
+        @include mq(sm) {
+            padding: map_get($mq-container-indents, 'sm');
+        }
+
+        @include mq(sx) {
+            margin-left: -1 * map_get($mq-container-indents, 'sm');
+            margin-right: -1 * map_get($mq-container-indents, 'sm');
+            padding-left: map_get($mq-container-indents, 'sm');
+            padding-right: map_get($mq-container-indents, 'sm');
+            padding-bottom: map_get($mq-container-indents, 'sm');
+        }
+    }
+
+    &__badge-line,
+    &__options-list {
+        margin-top: map_get($mq-container-indents, 'sx') / 4;
+
+        @include mq(sx) {
+            margin-top: map_get($mq-container-indents, 'sm');
+        }
+    }
+
+    &__options-list {
+        @include mq(sx) {
+            display: flex;
+            margin-left: -1 * map_get($mq-container-indents, 'sm') / 2;
+            margin-right: -1 * map_get($mq-container-indents, 'sm') / 2;
+        }
+    }
+
+    &__options-list-item {
+        @include mq(sx) {
+            @include col-size(1/2);
+
+            padding-left: map_get($mq-container-indents, 'sm') / 2;
+            padding-right: map_get($mq-container-indents, 'sm') / 2;
+        }
+    }
+
+    &__logo {
+        @include size(3.2rem);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: map_get($mq-container-indents, 'sx') / 4;
+        min-width: 3.2rem;
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: #fff;
+
+        @include mq(md) {
+            @include size(4.4rem);
+
+            margin-right: map_get($mq-indents, 'sm');
+            min-width: 4.4rem;
+        }
+
+        > img {
+            max-width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+    }
+
+    &__information {
+        margin-right: map_get($mq-container-indents, 'sx') / 2;
+    }
+
+    &__subtitle,
+    &__title {
+        font-size: 1.3rem;
+        line-height: 1.23;
+        font-weight: 400;
+    }
+
+    &__subtitle {
+        color: $brand-greyish;
+    }
+
+    &__title {
+        @include mq(md) {
+            font-size: 2.1rem;
+            line-height: 1.14;
+            margin-top: .4rem;
+        }
+    }
+
+    // branding
+
+    .dotted-line > dl > dt,
+    .dotted-line > dl > dd {
+        background: $color-lightest-minimal;
+    }
+
+    &[data-color-type='Московский Кредитный Банк'],
+    &[data-color-type='Сбербанк'],
+    &[data-color-type='Сбербанк России'],
+    &[data-color-type='Московский Областной Банк'],
+    &[data-color-type='ЮниКредит Банк'],
+    &[data-color-type='Русфинанс Банк'],
+    &[data-color-type='Альфа-Банк'],
+    &[data-color-type='Альфабанк'],
+    &[data-color-type='Промсвязьбанк'],
+    &[data-color-type='РН Банк'],
+    &[data-color-type='ВТБ'],
+    &[data-color-type='Газпромбанк'],
+    &[data-color-type='Локобанк'],
+    &[data-color-type='Ситибанк'],
+    &[data-color-type='Банк «ФК Открытие»'],
+    &[data-color-type='Банк РНКБ'],
+    &[data-color-type='РНКБ'],
+    &[data-color-type='Ситибанк'],
+    &[data-color-type='Сетелем банк'],
+    &[data-color-type='Сетелем Банк'],
+    &[data-color-type='Россельхозбанк'],
+    &[data-color-type='Национальный Банк «Траст»'],
+    &[data-color-type='Ак Барс'],
+    &[data-color-type='Ак Барс Банк'],
+    &[data-color-type='Уралсиб'],
+    &[data-color-type='Банк Уралсиб'],
+    &[data-color-type='Кредит Европа Банк'],
+    &[data-color-type='Кредит ЕвропаБанк'],
+    &[data-color-type='Ситибанк'],
+    &[data-color-type='Банк «ФК Открытие»'],
+    &[data-color-type='ЛОКО-Банк'],
+    &[data-color-type='Совкомбанк'] {
+
+        .credit-application-information__header {
+            border-bottom-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .credit-application-information__subtitle,
+        .credit-application-information__title,
+        .dotted-line > dl > dt[data-color="color-lighter"],
+        .dotted-line > dl > dd {
+            color: #fff;
+        }
+
+        .dotted-line > dl {
+            &::after {
+                background-image: linear-gradient(to right, rgba(255,255,255, 1) 1px, transparent 1px, transparent 7px);
+            }
+        }
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: $color-lightest-minimal;
+        }
+    }
+
+    &[data-color-type='Кредит ЕвропаБанк'],
+    &[data-color-type='Кредит Европа Банк'] {
+        background: #0053ac;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #0053ac;
+        }
+    }
+
+    &[data-color-type='Банк Уралсиб'] {
+        background: #3c5186;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #3c5186;
+        }
+    }
+
+    &[data-color-type='Ак Барс Банк'] {
+        background: #10002b;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #10002b;
+        }
+    }
+
+    &[data-color-type='Национальный Банк «Траст»'] {
+        background: #231f20;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #231f20;
+        }
+    }
+
+    &[data-color-type='Банк «ФК Открытие»'] {
+        background: #09ccff;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #09ccff;
+        }
+    }
+
+    &[data-color-type='Ситибанк'] {
+        background: #00bbee;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #00bbee;
+        }
+    }
+
+    &[data-color-type='Совкомбанк'] {
+        background: #005395;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #005395;
+        }
+    }
+
+    &[data-color-type='Тинькоф'],
+    &[data-color-type='Тинькофф Банк'] {
+        background: #ffdd2d;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #ffdd2d;
+        }
+    }
+
+    &[data-color-type='РН Банк'] {
+        background: #f68c28;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #f68c28;
+        }
+    }
+
+    &[data-color-type='Промсвязьбанк'] {
+        background: #e15d29;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #e15d29;
+        }
+    }
+
+    &[data-color-type='Альфа-Банк'],
+    &[data-color-type='Альфабанк'] {
+        background: #ef3124;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #ef3124;
+        }
+    }
+
+    &[data-color-type='Русфинанс Банк'] {
+        background: #ee3a45;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #ee3a45;
+        }
+    }
+
+    &[data-color-type='ЮниКредит Банк'] {
+        background: #e2011a;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #e2011a;
+        }
+    }
+
+    &[data-color-type='Московский Кредитный Банк'] {
+        background: #9a0028;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #9a0028;
+        }
+    }
+
+    &[data-color-type='Сбербанк'],
+    &[data-color-type='Сбербанк России'] {
+        background: #2c9906;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #2c9906;
+        }
+    }
+
+    &[data-color-type='Сетелем Банк'] {
+        background: #22b25c;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #22b25c;
+
+            .dotted-line > dl > dt,
+            .dotted-line > dl > dd {
+                background: #22b25c;
+            }
+        }
+    }
+
+    &[data-color-type='Россельхозбанк'] {
+        background: #19502e;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #19502e;
+        }
+    }
+
+    &[data-color-type='ВТБ'] {
+        background: #00a3da;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #00a3da;
+        }
+    }
+
+    &[data-color-type='Газпромбанк'] {
+        background: #03467d;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #03467d;
+        }
+    }
+
+    &[data-color-type='Локобанк'],
+    &[data-color-type='ЛОКО-Банк'] {
+        background: #00aae7;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #00aae7;
+        }
+    }
+
+    &[data-color-type='Ситибанк'] {
+        background: #00bbee;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #00bbee;
+        }
+    }
+
+    &[data-color-type='Банк «ФК Открытие»'] {
+        background: #09ccff;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #09ccff;
+        }
+    }
+
+    &[data-color-type='РНКБ'],
+    &[data-color-type='Банк РНКБ'] {
+        background: #02abca;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #02abca;
+        }
+    }
+
+    &[data-color-type='Тинькофф Банк'],
+    &[data-color-type='Райффайзенбанк'] {
+        border-bottom-color: rgba(168, 168, 168, 0.4);
+
+        .credit-application-information__subtitle,
+        .credit-application-information__title,
+        .dotted-line > dl > dd {
+            color: #000;
+        }
+    }
+
+    &[data-color-type='Райффайзенбанк'] {
+        background: #fff200;
+        box-shadow: none;
+
+        .dotted-line > dl > dt,
+        .dotted-line > dl > dd {
+            background: #fff200;
+        }
+    }
+
+    @include mq(sx) {
+        padding: map_get($mq-container-indents, 'sm');
+    }
+}
+
+
+.popup-information-credit-total {
+    margin: map_get($mq-container-indents, 'sx') / 2 0;
+    padding-bottom: calc(#{map_get($mq-container-indents, 'sx') / 2} - 1px);
+    border-bottom: 1px solid $color-lightest-minimal;
+
+    @include mq(md) {
+        margin: 4rem 0;
+    }
+
+    > .button {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+    }
+
+    &__item {
+        @include mq(md) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+
+            @include mq(md) {
+                margin-bottom: map_get($mq-indents, 'sm');
+            }
+        }
+    }
+
+    &__item-title {
+        display: inline-flex;
+        font-weight: 400;
+
+        @include mq-custom(max, 912px) {
+            margin-bottom: .4rem;
+            font-weight: 300;
+        }
+
+        @include mq(md) {
+            font-size: 2.1rem;
+            line-height: 1.14;
+        }
+    }
+
+    &__item-value {
+        font-size: 2.8rem;
+        line-height: 1.14;
+    }
+}
+
+// trade-in header
+.site-popup-header-trade-in-infographics {
+    margin-top: map_get($mq-container-indents, 'sx') / 2;
+
+    @include mq(sx) {
+        margin-top: 7.2rem;
+    }
+
+    @include mq(md) {
+        padding: 0 map_get($mq-container-indents, 'sx') / 2;
+    }
+
+    &__grid {
+        position: relative;
+
+        @include mq(sx) {
+            @include grid;
+
+            margin-bottom: -5.6rem;
+        }
+    }
+
+    &__col {
+        &:not(:last-child) {
+            @include mq(sm) {
+                margin-bottom: map_get($mq-indents, 'sm') / 3;
+            }
+        }
+
+        @include mq(sx) {
+            @include grid-col-mx(1/2);
+
+            margin-bottom: 5.6rem;
+        }
+
+        @include mq(sm) {
+            &:nth-child(1),
+            &:nth-child(3) {
+                .site-popup-header-trade-in-infographics__description {
+                    position: relative;
+
+                    &::before {
+                        @include size(4.8rem, 9.6rem);
+
+                        position: absolute;
+                        top: 50%;
+                        right: 1.2rem;
+                        transform: translate(100%, -50%);
+                        background: {
+                            position: 50%;
+                            size: contain;
+                            repeat: no-repeat;
+                            image: url(../img/trade-in/arrow-mob-1.svg);
+                        };
+                        content: "";
+
+                        @include mq-custom(max, 360px) {
+                            right: 3.2rem;
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(2) {
+                .site-popup-header-trade-in-infographics__description {
+                    position: relative;
+
+                    &::before {
+                        @include size(4.8rem, 9.6rem);
+
+                        position: absolute;
+                        top: 50%;
+                        left: 1.2rem;
+                        transform: translate(-100%, -50%);
+                        background: {
+                            position: 50%;
+                            size: contain;
+                            repeat: no-repeat;
+                            image: url(../img/trade-in/arrow-mob-2.svg);
+                        };
+                        content: "";
+
+                        @include mq-custom(max, 360px) {
+                            left: 3.2rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include mq(sx) {
+            &:nth-child(1) {
+                .site-popup-header-trade-in-infographics__description {
+                    &::before {
+                        @include size(12rem, 2.4rem);
+
+                        position: absolute;
+                        top: -1.6rem;
+                        left: 50%;
+                        transform: translate(-50%, -100%);
+                        background: {
+                            position: 50%;
+                            size: contain;
+                            repeat: no-repeat;
+                            image: url(../img/trade-in/arrow-1.svg);
+                        };
+                        content: "";
+                    }
+                }
+            }
+
+            &:nth-child(2) {
+                .site-popup-header-trade-in-infographics__icon {
+                    position: relative;
+
+                    &::before {
+                        @include size(15rem, 3.2rem);
+
+                        position: absolute;
+                        bottom: -1rem;
+                        left: 1.6rem;
+                        transform: translate(-100%, 100%);
+                        background: {
+                            position: 50%;
+                            size: contain;
+                            repeat: no-repeat;
+                            image: url(../img/trade-in/arrow-2.svg);
+                        };
+                        content: "";
+                    }
+                }
+            }
+
+            &:nth-child(3) {
+                position: relative;
+
+                &::before {
+                    @include size(12rem, 2.4rem);
+
+                    position: absolute;
+                    bottom: -3.6rem;
+                    right: -4.6rem;
+                    -webkit-transform: matrix(0, 0, 0, -1, 0, 0);
+                    transform: matrix(1, 0, 0, -1, 0, 0);
+                    background: {
+                        position: 50%;
+                        size: contain;
+                        repeat: no-repeat;
+                        image: url(../img/trade-in/arrow-3.svg);
+                    };
+                    content: "";
+                }
+            }
+        }
+    }
+
+    &__col-container {
+        @include mq(sx) {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__icon {
+        @include size(6.4rem);
+
+        min-width: 6.4rem;
+
+        @include mq(sm) {
+            margin: 0 auto map_get($mq-indents, 'sm') / 2;
+        }
+
+        @include mq(sx) {
+            @include size(9.6rem);
+
+            min-width: 9.6rem;
+            margin-right: map_get($mq-container-indents, 'sx') / 4;
+        }
+
+        > img {
+            width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+    }
+
+    &__description {
+        @include mq(sm) {
+            margin: 0 auto;
+            max-width: 27.2rem;
+        }
+        @include mq(sx) {
+            text-align: left;
+        }
+    }
+
+
+    &__list-container {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+        padding-top: calc(#{map_get($mq-container-indents, 'sx') / 2} - 1px);
+        border-top: 1px solid $color-lightest;
+
+        @include mq(sx) {
+            margin-top: 7.2rem;
+        }
+
+        ul {
+            position: relative;
+
+            li {
+                position: relative;
+                padding-left: 4rem;
+                text-align: left;
+
+                &::before {
+                    @include size(.8rem);
+
+                    position: absolute;
+                    top: .7rem;
+                    left: 0;
+                    border-radius: 50%;
+                    background: $color-base;
+                    content: "";
+                }
+            }
+        }
+    }
+}

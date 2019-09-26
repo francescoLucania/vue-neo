@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+.comment {
+    &:not(:last-child) {
+        margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+    }
+
+    &__header {
+        margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+
+        > .rating {
+            margin: map_get($mq-container-indents, 'sx') / 4 0;
+        }
+    }
+
+    &__name {
+        @include header-offer-h3;
+    }
+
+    &__date {
+        @include text-small(300);
+
+        color: $brand-greyish;
+    }
+
+    &__rating {
+        display: flex;
+        margin-top: map_get($mq-container-indents, 'sx') / 4;
+    }
+
+    &__content {
+        color: $color-light;
+        &.wysiwyg {
+            > p {
+                &:not(:last-child) {
+                    margin-bottom: map_get($mq-indents, 'sm');
+                }
+            }
+        }
+
+        > p {
+            &:not(:last-child) {
+                margin-bottom: map_get($mq-indents, 'sm');
+            }
+        }
+    }
+
+    &__content-advantages,
+    &__content-disadvantages {
+        position: relative;
+        padding-top: 3.4rem;
+
+        &::before {
+            @include size(2rem);
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: {
+                position: 50%;
+                size: contain;
+                image: url(../img/icons/like.svg);
+                repeat: no-repeat;
+            };
+            content: "";
+        }
+    }
+
+    &__content-advantages {
+
+    }
+
+    &__content-disadvantages {
+        &::before {
+            transform: scale(1, -1);;
+        }
+    }
+
+    &__footer {
+        @include text-small(300);
+
+        margin-top: map_get($mq-container-indents, 'sx') / 4;
+        padding-bottom: map_get($mq-container-indents, 'sx') / 4 - 1px;
+        border-bottom: 1px solid $color-lightest-minimal;
+
+        > a {
+            font-weight: 400;
+        }
+    }
+}

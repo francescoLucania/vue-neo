@@ -1,0 +1,28 @@
+.chart-block {
+    margin-top: map_get($mq-container-indents, 'sx') / 2;
+
+    @include mq(sm) {
+        overflow: auto;
+        margin-left: -1 * map_get($mq-container-indents, 'sm');
+        margin-right: -1 * map_get($mq-container-indents, 'sm');
+    }
+
+    &__container {
+        position: relative;
+        height: 30rem;
+
+        @include mq(sm) {
+            min-width: 63.2rem + 16rem;
+            pointer-events: none;
+        }
+
+        @include mq(sx) {
+            margin: map_get($mq-container-indents, 'sx') auto 0;
+            max-width: 63.2rem + 16rem;
+        }
+    }
+
+    .canvasjs-chart-credit {
+        display: none !important;
+    }
+}

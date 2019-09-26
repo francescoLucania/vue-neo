@@ -1,0 +1,569 @@
+@charset "UTF-8";
+
+// Media queries
+@mixin mq($mq-breakpoint) {
+    @if map-has-key($mq-breakpoints, $mq-breakpoint) {
+        $mq-device: "";
+        @if $enable-mq-device == true {
+            $mq-device: "-device";
+        }
+
+        $mq-range: "min";
+        @if $mq-breakpoint == nth(map-keys($mq-breakpoints), 1) {
+            $mq-range: "max";
+        }
+
+        @media all and (#{$mq-range}#{$mq-device}-width: map-get($mq-breakpoints, $mq-breakpoint)) {
+            @content;
+        }
+    }
+}
+
+@mixin mq-custom($mq-range, $mq-breakpoint) {
+    $mq-device: "";
+    @if $enable-mq-device == true {
+        $mq-device: "-device";
+    }
+
+    @media all and (#{$mq-range}#{$mq-device}-width: $mq-breakpoint) {
+        @content;
+    }
+}
+
+// Container
+@mixin container {
+    margin-right: auto;
+    margin-left: auto;
+
+    @if $enable-mq == true {
+        @each $mq-container-width in $mq-container-widths {
+            $mq: nth($mq-container-width, 1);
+            $container-width: nth($mq-container-width, 2);
+
+            @include mq($mq) {
+                max-width: $container-width;
+            }
+        }
+
+        @each $mq-container-indent in $mq-container-indents {
+            $mq: nth($mq-container-indent, 1);
+            $container-indent: nth($mq-container-indent, 2);
+
+            @include mq($mq) {
+                padding-right: $container-indent;
+                padding-left: $container-indent;
+            }
+        }
+    } @else {
+        max-width: $container-width;
+        padding-right: $container-indent;
+        padding-left: $container-indent;
+    }
+}
+
+// Grid
+@mixin grid($main-axis: x, $justify-content: flex-start, $align-items: flex-start, $multiplier: 1) {
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+
+    @if $main-axis == x {
+        flex-flow: row wrap;
+    }
+
+    @if $main-axis == y {
+        flex-flow: column nowrap;
+    }
+
+    @if $enable-mq == true {
+        @each $mq-grid-gutter in $mq-grid-gutters {
+            $mq: nth($mq-grid-gutter, 1);
+            $gutter: -#{nth($mq-grid-gutter, 2) / 2 * $multiplier};
+
+            @include mq($mq) {
+                margin-right: $gutter;
+                margin-left: $gutter;
+            }
+        }
+    } @else {
+        $gutter: -$grid-gutter / 2 * $multiplier;
+
+        margin-right: $gutter;
+        margin-left: $gutter;
+    }
+}
+
+// Grid col
+@mixin grid-col($multiplier: 1) {
+    @if $enable-mq == true {
+        @each $mq-grid-gutter in $mq-grid-gutters {
+            $mq: nth($mq-grid-gutter, 1);
+            $gutter: nth($mq-grid-gutter, 2) / 2 * $multiplier;
+
+            @include mq($mq) {
+                padding-right: $gutter;
+                padding-left: $gutter;
+            }
+        }
+    } @else {
+        $gutter: $grid-gutter / 2;
+
+        padding-right: $gutter * $multiplier;
+        padding-left: $gutter * $multiplier;
+    }
+}
+
+@mixin grid-col-mx($size, $multiplier: 1) {
+    flex: 0 0 $size * 100%;
+    max-width: $size * 100%;
+
+    @if $enable-mq == true {
+        @each $mq-grid-gutter in $mq-grid-gutters {
+            $mq: nth($mq-grid-gutter, 1);
+            $gutter: nth($mq-grid-gutter, 2) / 2 * $multiplier;
+
+            @include mq($mq) {
+                padding-right: $gutter;
+                padding-left: $gutter;
+            }
+        }
+    } @else {
+        $gutter: $grid-gutter / 2;
+
+        padding-right: $gutter * $multiplier;
+        padding-left: $gutter * $multiplier;
+    }
+}
+
+// Col size
+@mixin col-size($size) {
+    width: $size * 100%;
+}
+
+// Col center
+@mixin col-center {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+// Ellipsis
+// https://github.com/thoughtbot/bourbon/blob/master/core/bourbon/library/_ellipsis.scss
+@mixin ellipsis($width: 100%, $display: inline-block) {
+    display: $display;
+    max-width: $width;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+// hide scrollbar
+@mixin scroll-not-scrollbar($overflow-x: auto, $overflow-y: auto) {
+    overflow-x: $overflow-x;
+    overflow-y: $overflow-y;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none; // hide scrollbar
+    overflow: -moz-scrollbars-none; // hide scrollbar
+
+    &::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important
+    }
+}
+
+// Font
+@mixin font($font-size, $line-height: $font-size) {
+    font-size: $font-size;
+    line-height: strip-units($line-height) / strip-units($font-size);
+}
+
+// indents
+@mixin wysiwyg-indents-md {
+    &:not(:first-child) {
+        margin-top: 2.4rem;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 2.4rem;
+    }
+}
+
+@mixin wysiwyg-indents-lg {
+    &:not(:first-child) {
+        margin-top: 3.2rem;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 3.2rem;
+    }
+}
+
+// Interact
+@mixin interact($properties-list, $values-list, $state: hover) {
+    $properties-length: length($properties-list);
+    $values-length: length($values-list);
+
+    @if $properties-length == $values-length {
+        .mod_no-touchevents & {
+            @if $enable-interact-multiple == true {
+                &:#{$state},
+                &.#{$state} {
+                    @for $i from 1 through $properties-length {
+                        #{nth($properties-list, $i)}: nth($values-list, $i);
+                    }
+                }
+            } @else {
+                &:#{$state} {
+                    @for $i from 1 through $properties-length {
+                        #{nth($properties-list, $i)}: nth($values-list, $i);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Size
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+// Headings
+@mixin h {
+    font-family: $font-family-title;
+
+    a {
+        text-decoration: none;
+        font-weight: inherit;
+    }
+}
+
+// button-focus
+@mixin button-focus {
+    transition: outline 0ms;
+    outline: 0 !important;
+
+    &:focus {
+        background: $brand-blue-green;
+        color: #fff;
+    }
+
+    &:active {
+        outline: 0;
+    }
+}
+
+// button-focus secondary
+@mixin button-focus-secondary {
+    transition: outline 0ms;
+    outline: 0;
+
+    &:focus {
+        background: $color-lightest-secondary;
+        color: $color-base;
+    }
+}
+
+// brand logo
+@mixin brand-logo {
+
+    &::before {
+        background: {
+            position: 50%;
+            size: contain;
+            repeat: no-repeat;
+        };
+        content: "";
+    }
+
+    &[data-brand-name="Audi"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/audi.png");
+        }
+    }
+
+    &[data-brand-name="BMW"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/bmw.png");
+        }
+    }
+
+    &[data-brand-name="Chery"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/chery.png");
+        }
+    }
+
+    &[data-brand-name="Citroen"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/citroen.png");
+        }
+    }
+
+    &[data-brand-name="Ford"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/ford.png");
+        }
+    }
+
+    &[data-brand-name="Hyundai"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/hyundai.png");
+        }
+    }
+
+    &[data-brand-name="Infiniti"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/infiniti.png");
+        }
+    }
+
+    &[data-brand-name="Jaguar"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/jaguar.png");
+        }
+    }
+
+    &[data-brand-name="Jeep"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/jeep.png");
+        }
+    }
+
+    &[data-brand-name="Kia"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/kia.png");
+        }
+    }
+
+    &[data-brand-name="Lada"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/lada.png");
+        }
+    }
+
+    &[data-brand-name="Land Rover"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/land_rover.png");
+        }
+    }
+
+    &[data-brand-name="Lexus"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/lexus.png");
+        }
+    }
+
+    &[data-brand-name="Lifan"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/lifan.png");
+        }
+    }
+
+    &[data-brand-name="Mazda"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/mazda.png");
+        }
+    }
+
+    &[data-brand-name="MINI"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/mini.png");
+        }
+    }
+
+    &[data-brand-name="Mitsubishi"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/mitsubishi.png");
+        }
+    }
+
+    &[data-brand-name="Nissan"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/nissan.png");
+        }
+    }
+
+    &[data-brand-name="Porsche"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/porsche.png");
+        }
+    }
+
+    &[data-brand-name="Ravon"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/ravon.png");
+        }
+    }
+
+    &[data-brand-name="Renault"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/renault.png");
+        }
+    }
+
+    &[data-brand-name="Skoda"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/skoda.png");
+        }
+    }
+
+    &[data-brand-name="Suzuki"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/suzuki.png");
+        }
+    }
+
+    &[data-brand-name="Toyota"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/toyota.png");
+        }
+    }
+
+    &[data-brand-name="УАЗ"],
+    &[data-brand-name="UAZ"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/uaz.png");
+        }
+    }
+
+    &[data-brand-name="Volkswagen"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/volkswagen.png");
+        }
+    }
+
+    &[data-brand-name="Volvo"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/volvo.png");
+        }
+    }
+
+    &[data-brand-name="Haval"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/haval.png");
+        }
+    }
+
+    &[data-brand-name="Genesis"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/genesis.png");
+        }
+    }
+
+    &[data-brand-name="Geely"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/geely.png");
+        }
+    }
+
+    &[data-brand-name="Datsun"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/datsun.png");
+        }
+    }
+
+    &[data-brand-name="Peugeot"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/peugeot.png");
+        }
+    }
+
+    &[data-brand-name="Geely"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/geely.png");
+        }
+    }
+
+    &[data-brand-name="Mercedes-Benz"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/mercedes-benz.png");
+        }
+    }
+
+    &[data-brand-name="Tesla"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/tesla.png");
+        }
+    }
+
+    &[data-brand-name="Subaru"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/subaru.png");
+        }
+    }
+
+    &[data-brand-name="Chevrolet-Niva"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/chevrolet.png");
+        }
+    }
+
+    &[data-brand-name="Honda"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/honda.png");
+        }
+    }
+
+    &[data-brand-name="Opel"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/opel.png");
+        }
+    }
+
+    &[data-brand-name="Cadillac"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/cadillac.png");
+        }
+    }
+
+    &[data-brand-name="Fiat"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/fiat.png");
+        }
+    }
+
+    &[data-brand-name="Chrysler"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/chrysler.png");
+        }
+    }
+
+    &[data-brand-name="Zotye"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/zotye.png");
+        }
+    }
+
+    &[data-brand-name="Changan"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/changan.png");
+        }
+    }
+
+    &[data-brand-name="DongFeng"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/dfm.png");
+        }
+    }
+
+    &[data-brand-name="FAW"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/faw.png");
+        }
+    }
+
+    &[data-brand-name="JAC"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/jac.png");
+        }
+    }
+
+    &[data-brand-name="ГАЗ"],
+    &[data-brand-name="GAZ"] {
+        &::before {
+            background-image: url("../img/n-brand-logo/gaz.png");
+        }
+    }
+}

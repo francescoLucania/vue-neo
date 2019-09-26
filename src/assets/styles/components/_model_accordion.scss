@@ -1,0 +1,186 @@
+@charset "UTF-8";
+
+.model-accordion {
+    &__item {
+        &:last-child {
+            .model-accordion__item-header > a {
+                padding-bottom: calc(1.2rem - 1px) ;
+                border-bottom: 1px solid $color-lightest-minimal;
+
+                @include mq(sx) {
+                    padding-bottom: calc(#{map_get($mq-container-indents, 'sx') / 2} - 1px) ;
+                }
+            }
+
+            .model-accordion__item-content {
+                border-bottom: 1px solid $color-lightest-minimal;
+            }
+        }
+    }
+
+    &__item-header {
+        > a {
+            @include interact(background-color, $color-lightest-secondary);
+            @include interact(text-decoration, none);
+
+            position: relative;
+            display: block;
+            border-top: 1px solid $color-lightest-minimal;
+            border-bottom: 1px solid transparent;
+            padding: calc(1.2rem - 1px) 40px calc(1.2rem - 1px) map_get($mq-indents, 'sm');
+
+            @include mq(sm) {
+                margin-left: -1 * map_get($mq-indents, 'sm');
+                margin-right: -1 * map_get($mq-indents, 'sm');
+            }
+
+            @include mq(sx) {
+                padding: calc(#{map_get($mq-container-indents, 'sx') / 2} - 1px) 48px calc(#{map_get($mq-container-indents, 'sx') / 2} - 1px) map_get($mq-container-indents, 'sx') / 2;
+            }
+
+            &::after {
+                position: absolute;
+                top: 50%;
+                right: map-get($mq-indents, 'sm');
+                transform: translateY(-50%);
+                max-height: 1rem;
+                border-top: .6rem solid $color-base;
+                border-right: .5rem solid transparent;
+                border-left: .5rem solid transparent;
+                transition: all 300ms;
+                content: "";
+
+                @include mq(sx) {
+                    right: map-get($mq-container-indents, 'sm');;
+                }
+            }
+
+            &.is-active {
+                border-bottom-color: $color-lightest-minimal;
+
+                &::after {
+                    transform: translateY(-50%) rotate(180deg);
+                }
+            }
+        }
+    }
+
+    &__item-header-title,
+    &__item-header-content {
+        pointer-events: none;
+    }
+
+    &__item-header-title {
+        margin-bottom: .4rem;
+        font-weight: 300;
+        color: $color-light;
+
+        @include mq(sm) {
+            @include text-small(300);
+        }
+
+        .not-checked & {
+            font-weight: 400;
+
+            @include mq(sx) {
+                @include header-model-settings-h3;
+            }
+        }
+    }
+
+    &__item-header-content {
+        @include mq(sm) {
+            font-weight: 400;
+        }
+
+        @include mq(sx) {
+            @include header-model-settings-h3;
+        }
+
+        > span {
+            position: relative;
+            display: inline-block;
+
+            &:not(:last-child) {
+                padding-right: 1.6rem;
+
+                @include mq(sx) {
+                    padding-right: 2rem;
+                }
+
+                &::after {
+                    @include size(.3rem);
+
+                    position: absolute;
+                    top: 50%;
+                    right: .65rem;
+                    transform: translateY(-50%);
+                    border-radius: 50%;
+                    background: $color-base;
+                    content: "";
+
+                    @include mq(sx) {
+                        @include size(.5rem);
+
+                        right: .75rem;
+                    }
+                }
+            }
+        }
+
+        &:empty {
+            margin-top: -.4rem;
+        }
+    }
+
+    &__item-content {
+        border-bottom: 1px solid transparent;
+        height: auto;
+        overflow: hidden;
+        //SHAME: magic number to allow the accordion to animate
+        max-height: 500em;
+        transition: max-height 300ms;
+
+        @include mq(sm) {
+            margin-left: -1 * map_get($mq-indents, 'sm');
+            margin-right: -1 * map_get($mq-indents, 'sm');
+        }
+
+        &.is-collapsed {
+            margin-top: -1px;
+            max-height: 0;
+        }
+    }
+
+    &__item-content-box {
+        padding: 1.2rem map_get($mq-indents, 'sm') calc(1.2rem - 1px);
+
+        @include mq(sx) {
+            padding: map_get($mq-container-indents, 'sx') / 2 map_get($mq-container-indents, 'sx') / 2 calc(#{map_get($mq-container-indents, 'sx') / 2} - 1px);
+        }
+    }
+
+
+    &__checkbox-line {
+        &:not(:last-child) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+        }
+
+        .label-checkbox {
+            font-weight: 400;
+        }
+    }
+
+    &__grid {
+        @include grid;
+
+        margin-bottom: -2rem;
+    }
+
+    &__grid-col {
+        @include grid-col-mx(1/2);
+
+        margin-bottom: 2rem;
+    }
+
+}

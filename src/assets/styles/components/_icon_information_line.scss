@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+.icon-information-line {
+    margin-top: map-get($mq-container-indents, 'sx') / 2;
+    text-align: center;
+
+    &--grid {
+        display: flex;
+        justify-content: center;
+
+        .icon-information-line__item {
+
+            &:not(:last-child) {
+                margin-right: map_get($mq-indents, 'sm');
+            }
+
+            &:not(:first-child) {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &__item {
+        position: relative;
+
+        &:not(:first-child) {
+            margin-top: .8rem;
+        }
+
+        @include mq(sm) {
+            @include text-small()
+        }
+
+        > a,
+        > span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $color-base;
+            //
+            //@at-root {
+            //    a {
+            //        position: relative;
+            //        display: inline-block;
+            //        align-items: center;
+            //        font-weight: 400;
+            //    }
+            //}
+
+            &[data-doc],
+            &[data-phone],
+            [data-mail],
+            [data-telegram],
+            [data-question] {
+                 a {
+                     position: relative;
+                 }
+            }
+
+            &[data-doc] {
+                a {
+                    position: relative;
+                    padding-left: 1.8rem;
+                }
+
+                .icon {
+                    @include size(1rem, 1.2rem);
+
+                    fill: $brand-bluish;
+                }
+            }
+
+            &[data-phone] {
+                a {
+                    padding-left: 2rem;
+                }
+                .icon {
+                    @include size(1.4rem);
+
+                    fill: $brand-turquoise;
+                }
+            }
+
+            &[data-mail] {
+                a {
+                    padding-left: 2rem;
+                }
+                .icon {
+                    @include size(1.2rem, 1rem);
+
+                    fill: $color-amber;
+                }
+            }
+
+            &[data-telegram] {
+                a {
+                    padding-left: 2rem;
+                }
+                .icon {
+                    @include size(1.4rem, 1.4rem);
+
+                    fill: $brand-turquoise;
+                }
+            }
+
+            &[data-question] {
+                a {
+                    padding-left: 2rem;
+                }
+                .icon {
+                    @include size(1.4rem, 1.4rem);
+
+                    fill: $brand-bluish;
+                }
+            }
+
+
+            .icon {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+            }
+
+            > span {
+                > span {
+                    display: inline;
+                }
+            }
+
+            .icon {
+                margin-right: .8rem;
+            }
+
+            a {
+                @include interact(text-decoration, underline);
+
+                font-weight: 400;
+            }
+        }
+    }
+}

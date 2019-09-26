@@ -1,0 +1,13 @@
+// general critical
+@import "general_critical"; // general critical
+
+// model
+@import "../components/model/slider"; // model critical
+
+@import "../components/section"; // model critical
+
+@import "../components/offer/offers"; // model critical
+
+@import "../components/car_model_item"; // model critical
+
+@import "../components/auto_card"; // model critical

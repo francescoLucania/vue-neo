@@ -1,0 +1,176 @@
+@charset "UTF-8";
+.partnership-promo,
+.contacts-promo,
+.about-promo,
+.segment-promo {
+    position: relative;
+    z-index: 0;
+    margin-top: -15.2rem;
+    padding-top: 15.2rem;
+    padding-bottom: map_get($mq-container-indents, 'sx') / 2;
+    min-height: 30rem;
+    background: {
+        position: 50% 0;
+        size: cover;
+        color: $color-light;
+        image: url(../img/segment-promo-m.webp);
+    };
+    text-align: center;
+    color: #fff;
+    content: "";
+
+    @include mq(sx) {
+        background-image: url(../img/segment-promo.webp);
+        min-height: 34.4rem;
+    }
+
+    &::before {
+        @include size(100%);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        content: "";
+    }
+
+    .mod_no-webp & {
+        background-image: url(../img/segment-promo-m.jpg);
+
+        @include mq(sx) {
+            background-image: url(../img/segment-promo.jpg);
+        }
+    }
+
+    .promo-slider {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+
+        @include mq(sx) {
+            margin-top: map_get($mq-container-indents, 'sx');
+        }
+    }
+
+    &__content {
+        position: relative;
+        padding: 1.6rem 0;
+        z-index: 1;
+    }
+
+    &__title {
+        @include header-h1;
+
+        @include mq(lg) {
+            @include header-h1-lg;
+        }
+
+        &--min {
+            @include mq(lg) {
+                @include header-h1;
+            }
+        }
+    }
+
+    &__description {
+        margin-top: map_get($mq-container-indents, 'sx') / 4;
+        font-weight: 400;
+
+        @include mq(md) {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 63.2rem;
+        }
+    }
+
+    &__actions {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+
+        @include mq(sx) {
+            display: flex;
+            justify-content: center;
+        }
+
+        @include mq(sx) {
+            margin-top: map_get($mq-container-indents, 'sx');
+        }
+
+        > .button {
+            min-width: 20.8rem;
+
+            @include mq(sm) {
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.about-promo {
+    background-image: url(../img/background-about.jpg);
+
+    @include mq(sx) {
+        padding-bottom: map_get($mq-container-indents, 'sx');
+    }
+
+    .mod_webp & {
+        background-image: url(../img/background-about.webp);
+    }
+
+    .promo-slider__item {
+        @include mq(sx) {
+            padding: map_get($mq-indents, 'sm');
+        }
+    }
+}
+
+.partnership-promo,
+.contacts-promo {
+    &::before {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    &__schedule-line {
+        margin-top: map_get($mq-container-indents, 'sx') / 4;
+        text-align: center;
+        font-weight: 400;
+        color: #fff;
+    }
+
+    &__schedule-item {
+        display: inline-block;
+
+        @include mq(sm) {
+            display: block;
+        }
+
+        &--icon {
+            position: relative;
+            padding-left: 2rem;
+
+
+            > .icon {
+                @include size(1.6rem);
+
+                position: absolute;
+                top: .4rem;
+                left: 0;
+                fill: #fff;
+            }
+        }
+    }
+}
+
+.contacts-promo {
+    background-image: url(../img/background-contacts.webp);
+
+    .mod_no-webp & {
+        background-image: url(../img/background-contacts.jpg);
+    }
+}
+
+.partnership-promo {
+    background-image: url(../img/background-partnerrship.webp);
+
+    .mod_no-webp & {
+        background-image: url(../img/background-partnerrship.jpg);
+    }
+}

@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+.credit-promo {
+    @include mq(lg) {
+        //width: 97.2rem;
+        margin: 0 auto;
+    }
+
+    &__grid {
+        @include mq(sx) {
+            @include grid;
+        }
+    }
+
+    &__col {
+        @include mq(sm) {
+            &:not(:last-child) {
+                margin-bottom: map-get($mq-container-indents, 'sx') / 2;
+            }
+        }
+
+        @include mq(sx) {
+            @include grid-col;
+            @include col-size(1/4);
+        }
+
+
+        &:nth-child(1) {
+
+            .credit-promo__item-icon {
+                background: $brand-blue-green;
+
+                > img {
+                    width: 5.91rem;
+
+                    @include mq(sx) {
+                        width: 6rem;
+                    }
+
+                    @include mq(md) {
+                        width: 8rem;
+                    }
+                }
+            }
+        }
+
+        &:nth-child(2) {
+
+            .credit-promo__item-icon {
+                background: $brand-bluish;
+
+                > img {
+                    width: 5.91rem;
+
+                    @include mq(sx) {
+                        width: 8.5rem;
+                    }
+
+                    @include mq(md) {
+                        width: 10.1rem;
+                    }
+                }
+            }
+        }
+
+        &:nth-child(3) {
+            .credit-promo__item-icon {
+                background: $color-amber;
+
+                > img {
+                    width: 3.04rem;
+
+                    @include mq(sx) {
+                        width: 4.3rem;
+                    }
+
+                    @include mq(md) {
+                        width: 5.7rem;
+                    }
+                }
+            }
+        }
+
+        &:nth-child(4) {
+            .credit-promo__item-icon {
+                background: $brand-duck-egg-blue;
+
+                > img {
+                    width: 3.98rem;
+
+                    @include mq(sx) {
+                        width: 5.72rem;
+                    }
+
+                    @include mq(md) {
+                        width: 6.8rem;
+                    }
+                }
+            }
+        }
+    }
+
+    &__item {
+        > p {
+            @include text-small;
+
+            margin-top: map-get($mq-container-indents, 'sx') / 4;
+            text-align: center;
+            font-weight: 300;
+            color: $color-light;
+
+            @include mq(sx) {
+                margin-top: map-get($mq-container-indents, 'sx') / 2;
+            }
+
+            @include mq(md) {
+                @include text-base;
+
+                font-weight: 300;
+            }
+        }
+    }
+
+    &__item-icon {
+        @include size(9.6rem);
+
+        @include mq(sx) {
+            @include size(12.8rem)
+        }
+
+        @include mq(md) {
+            @include size(16.4rem)
+        }
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        border-radius: 50%;
+        overflow: hidden;
+
+        > img {
+            display: block;
+            height: auto;
+            vertical-align: top;
+        }
+    }
+
+    &__button-block {
+        margin-top: map-get($mq-container-indents, 'sx') / 2;
+
+        @include mq(sx) {
+            margin-top: map-get($mq-container-indents, 'sx');
+            line-height: 1;
+            text-align: center;
+        }
+
+        > .button {
+            @include mq(sm) {
+                display: block;
+            }
+
+            @include mq(sx) {
+                min-width: 29.2rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+.accordion-tooltip {
+    line-height: 1;
+
+    &[data-font-size='small'] {
+        .accordion-tooltip__button,
+        .accordion-tooltip__content {
+            @include text-small(400);
+        }
+    }
+
+    &__button,
+    &__content {
+        @include text-base(400);
+    }
+
+    &__button {
+        &:focus {
+            color: $brand-turquoise;
+            outline: none;
+        }
+
+        &[data-type="triangle"] {
+            position: relative;
+            padding-right: 2.6rem;
+
+            &::after{
+                position: absolute;
+                top: 50%;
+                right: .6rem;
+                transform: translateY(-50%);
+                display: block;
+                pointer-events: none;
+                border-top: 6px solid $color-base;
+                border-right: 5px solid transparent;
+                border-left: 5px solid transparent;
+                transition: all $transition-duration-base-min;
+                content: ""
+            }
+
+            &.is-active {
+                &::after {
+                    transform: translateY(-50%) rotate(180deg);
+                }
+            }
+        }
+
+        &.is-active + .accordion-tooltip__content {
+            display: block;
+        }
+    }
+
+    &__content {
+        display: none;
+        margin-top: map_get($mq-indents, 'sm');
+    }
+}

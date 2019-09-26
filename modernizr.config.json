@@ -1,0 +1,15 @@
+{
+  "classPrefix": "mod_",
+  "options": [
+    "mq",
+    "setClasses"
+
+  ],
+  "feature-detects": [
+    "css/flexboxtweener",
+    "css/positionsticky",
+    "css/objectfit",
+    "img/webp",
+    "dom/intersection-observer"
+  ]
+}

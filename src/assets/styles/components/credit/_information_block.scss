@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+.credit-information-block {
+    text-align: center;
+    margin-top: map-get($mq-container-indents, 'sx') / 4;
+
+    @include mq(sx) {
+        margin: map-get($mq-container-indents, 'sx') / 2 auto 0;
+    }
+
+    @include mq(md) {
+        margin: map-get($mq-container-indents, 'sx') / 2 auto 0;
+        max-width: 64rem;
+    }
+
+    @include mq(lg) {
+        max-width: 73.8rem;
+    }
+
+    > p {
+        font-size: 1.2rem;
+        line-height: 1.67;
+
+        @include mq(sx) {
+            @include text-base;
+
+            color: $color-light;
+        }
+
+        > strong,
+        a {
+            @include interact(text-decoration, underline);
+            color: $color-base;
+            font-weight: 400;
+        }
+
+        > br {
+            display: none;
+
+            @include mq(md) {
+                display: block;
+            }
+        }
+    }
+}

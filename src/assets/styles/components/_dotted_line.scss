@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+.dotted-line {
+    .offer__all-option-list-item & {
+        @include mq-custom(max, 912px) {
+            padding-top: 1.4rem;
+            padding-bottom: 1.4rem;
+        }
+    }
+
+    &.dotted-line--items-no-margin-bottom {
+        > dl {
+            &:not(:last-child) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &[data-font-size="small"] {
+        @include text-small(400);
+
+        > dl > dt {
+            transform: translateY(.2rem);
+        }
+
+        > dl::after {
+            display: block;
+            position: absolute;
+            top: 1.6rem;
+        }
+
+        > dl > dd[data-sale] {
+            font-size: 1.3rem;
+        }
+    }
+
+    &[data-font-size="medium"] {
+        @include text-offer;
+
+        font-weight: 400;
+
+        > dl > dt {
+            transform: translateY(.2rem);
+        }
+
+        > dl::after {
+            display: block;
+            position: absolute;
+            top: 1.6rem;
+        }
+
+        > dl > dd[data-sale] {
+            font-size: 1.4rem;
+        }
+    }
+
+    > dl {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        &:not(:last-child) {
+            margin-bottom: .8rem;
+        }
+
+        &::after {
+            display: block;
+            position: absolute;
+            top: 2rem;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, $color-lighter 1px, transparent 1px, transparent 7px);
+            -moz-background-size: 7px 1px;
+            background-size: 7px 1px;
+            background-repeat: repeat-x;
+            background-position: center bottom;
+            content: '';
+        }
+
+        > dt,
+        > dd {
+            position: relative;
+            z-index: 2;
+            background: #fff;
+            font-weight: 400;
+
+            &[data-color="color-lighter"] {
+                color: $color-lighter;
+            }
+        }
+
+        > dt {
+            transform: translateY(.2rem);
+        }
+
+        > dd {
+            text-align: right;
+            line-height: 2.5rem;
+
+            &[data-sale] {
+                @include ellipsis(100%, inline-block);
+
+                font-size: 1.5rem;
+                line-height: 1;
+                padding: .5rem .6rem .4rem;
+                border-radius: $border-radius-min;
+                background: $brand-grapefruit;
+                font-weight: 500;
+                color: #fff;
+            }
+        }
+    }
+}

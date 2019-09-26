@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.calculate-slider {
+    position: relative;
+    padding: map_get($mq-indents, 'sm') / 3;
+    border-radius: $border-radius-min;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.09);
+
+    &__title {
+        @include text-small(400);
+
+        margin-bottom: map_get($mq-indents, 'sm') / 3;
+        line-height: 1.23;
+        color: $color-lighter;
+    }
+
+    &__value-line {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__value-input,
+    &__value-percentage-input {
+        @include text-base(400);
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__value-input {
+        color: $color-cod-gray;
+    }
+
+    &__value-percentage-input {
+        max-width: 6rem;
+        text-align: right;
+        color: $color-lightest;
+    }
+
+    &__interactive-line {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}

@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.contacts-map,
+.dealer-map,
+.model-test-drive-map {
+    position: relative;
+    margin-top: map_get($mq-container-indents, 'sx') / 2;
+    height: 32rem;
+    background: $color-lightest;
+
+    @include mq(sx) {
+        margin-top: map_get($mq-container-indents, 'sx');
+        height: 55.2rem;
+    }
+}

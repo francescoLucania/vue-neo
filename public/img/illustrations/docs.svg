@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="101px" height="94px" viewBox="0 0 101 94" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Illustration/ Credit/ Docs</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="11.-Credit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="11.1.1-Credit-Promo-1440" transform="translate(-336.000000, -579.000000)">
+            <g id="Group-7" transform="translate(298.000000, 544.000000)">
+                <g id="Illustration/-Credit/-Docs" transform="translate(38.000000, 35.000000)">
+                    <g>
+                        <g id="Group-28">
+                            <rect id="Rectangle-8" fill="#BCF2EB" x="0" y="0" width="60" height="80" rx="5"></rect>
+                            <g id="Group-7" transform="translate(18.000000, 28.000000)" fill="#404040">
+                                <rect id="Rectangle-10" x="0" y="0" width="24" height="1"></rect>
+                                <rect id="Rectangle-10" x="0" y="6" width="24" height="1"></rect>
+                                <rect id="Rectangle-10" x="0" y="12" width="24" height="1"></rect>
+                                <rect id="Rectangle-10" x="0" y="18" width="24" height="1"></rect>
+                                <rect id="Rectangle-10" x="0" y="24" width="12" height="1"></rect>
+                            </g>
+                        </g>
+                        <g id="Group-17" transform="translate(28.000000, 14.000000)">
+                            <path d="M5,5.94505022e-17 L44,5.23164419e-16 L60,16 L60,75 C60,77.7614237 57.7614237,80 55,80 L5,80 C2.23857625,80 8.49436746e-13,77.7614237 8.49098569e-13,75 L8.49098569e-13,5 C8.48760392e-13,2.23857625 2.23857625,5.07265313e-16 5,0 Z" id="Rectangle-8" fill="#FFFFFF"></path>
+                            <path d="M44,0 L60,16 L49,16 C46.2385763,16 44,13.7614237 44,11 L44,0 Z" id="Rectangle" fill="#BCF2EB"></path>
+                            <g id="Group-41" transform="translate(18.000000, 28.000000)" fill="#404040">
+                                <rect id="Rectangle-10" x="0" y="0" width="24" height="1"></rect>
+                                <rect id="Rectangle-10" x="0" y="6" width="24" height="1"></rect>
+                                <rect id="Rectangle-10" x="0" y="12" width="24" height="1"></rect>
+                                <rect id="Rectangle-10" x="0" y="18" width="24" height="1"></rect>
+                                <rect id="Rectangle-10" x="0" y="24" width="12" height="1"></rect>
+                            </g>
+                        </g>
+                        <g id="Icon/-20px/-Pencil" transform="translate(69.000000, 53.000000)">
+                            <path d="M2.77296271,13.2270373 L4.09083316,13.2270373 L25.8519101,13.2270373 C26.1280525,13.2270373 26.3519101,13.4508949 26.3519101,13.7270373 L26.3519101,21.1480899 C26.3519101,21.4242323 26.1280525,21.6480899 25.8519101,21.6480899 L4.09083316,21.6480899 L2.77296271,21.6480899 L2.77296271,13.2270373 Z" id="Rectangle-40" fill="#FFBB03" transform="translate(14.562436, 17.437564) rotate(-45.000000) translate(-14.562436, -17.437564) "></path>
+                            <path d="M7.00042004,23.4330875 L7.00042004,31.8541401 L1.67529663,28.0504806 C1.45059033,27.8899761 1.39854449,27.577701 1.55904899,27.3529947 C1.59111882,27.308097 1.63039887,27.2688169 1.67529663,27.2367471 L7.00042004,23.4330875 Z" id="Rectangle-40" fill="#404040" transform="translate(4.356373, 27.643581) rotate(-45.000000) translate(-4.356373, -27.643581) "></path>
+                            <path d="M23.6031822,1.31787045 L28.8400243,1.31787045 C29.392309,1.31787045 29.8400243,1.7655857 29.8400243,2.31787045 L29.8400243,8.73892308 C29.8400243,9.29120783 29.392309,9.73892308 28.8400243,9.73892308 L23.6031822,9.73892308 C23.3270398,9.73892308 23.1031822,9.51506545 23.1031822,9.23892308 L23.1031822,1.81787045 C23.1031822,1.54172807 23.3270398,1.31787045 23.6031822,1.31787045 Z" id="Rectangle-41" fill="#BCF2EB" transform="translate(26.471603, 5.528397) rotate(-45.000000) translate(-26.471603, -5.528397) "></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

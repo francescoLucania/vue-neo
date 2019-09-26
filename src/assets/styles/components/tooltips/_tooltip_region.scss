@@ -1,0 +1,289 @@
+@charset "UTF-8";
+
+.tooltip-menu-body,
+.tooltip-regions-body {
+    padding: 0 map_get($mq-indents, 'sm') map_get($mq-indents, 'sm');
+    border-radius: $border-radius-min;
+    background: #fff;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.11);
+    max-height: 100vh;
+    text-align: left;
+    overflow: auto;
+
+    &--min-height-medium {
+        min-height: 35.6rem;
+    }
+
+    @include mq(sm) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    @include mq(sx) {
+        padding: map_get($mq-container-indents, 'sx') / 2;
+        min-width: 35.6rem;
+        max-width: 35.6rem;
+        max-height: 35.6rem;
+    }
+
+    &--no-max-height {
+        @include mq(sx) {
+            max-height: none;
+        }
+    }
+
+    > .tabs--column,
+    > .tooltip-regions-body__content > .tabs--column {
+        display: flex;
+        margin-left: -.9rem;
+        margin-right: -.9rem;
+
+        > .tabs__item {
+            &:not(:last-child) {
+                margin-bottom: .8rem;
+            }
+        }
+    }
+
+    &__header {
+        position: relative;
+        display: none;
+        margin-left: -1 * map_get($mq-container-indents, 'sx') / 2;
+        margin-right: -1 * map_get($mq-container-indents, 'sx') / 2;
+        margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+        padding: 1.2rem map_get($mq-container-indents, 'sx') / 2 calc(1.2rem - 1px);
+        border-bottom: 1px solid $color-lightest-minimal;
+        font-weight: 400;
+
+        @include mq(sm) {
+            display: block;
+            margin-left: -1 * map_get($mq-indents, 'sm');
+            margin-right: -1 * map_get($mq-indents, 'sm');
+            text-align: center;
+        }
+    }
+
+    &__back-link {
+        @include size(4.8rem);
+        @include interact(fill, $brand-turquoise, 'hover .icon');
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+
+        > .icon {
+            @include size(1.2rem, 2rem);
+
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) rotate(180deg);
+            fill: $color-base
+        }
+    }
+
+
+    // TODO (Козлов) Нужно переписать(дублирование)
+    &__content {
+        > .tabs--column,
+        > .tooltip-regions-body__content > .tabs--column {
+            display: flex;
+            margin-left: -.9rem;
+            margin-right: -.9rem;
+
+            > .tabs__item {
+                &:not(:last-child) {
+                    margin-bottom: .8rem;
+                }
+            }
+        }
+    }
+
+    &__footer {
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        @include mq(sm) {
+            position: fixed;
+        }
+
+        @include mq(sx) {
+            position: absolute;
+            padding: calc(#{map_get($mq-container-indents, 'sx')} / 2 - 1px) map_get($mq-container-indents, 'sx') / 2 map_get($mq-container-indents, 'sx') / 2;
+            border-top: 1px solid $color-lightest-minimal;
+        }
+    }
+
+    &--absolute-footer {
+        padding-bottom: 12rem;
+    }
+
+    &--scroll-y {
+        overflow: hidden;
+
+        @include mq(sx) {
+            max-height: 35.6rem;
+        }
+
+        .tooltip-regions-body__content {
+            margin-bottom: -1 * map_get($mq-container-indents, 'sx') / 2;
+        }
+    }
+}
+
+.tooltip-menu-body {
+    @include mq(sx) {
+        padding: map_get($mq-container-indents, 'sx') / 2;
+        min-width: 29.2rem;
+        max-width: 29.2rem;
+        max-height: 32rem;
+    }
+}
+
+.tooltip-region-search {
+    > .input {
+        margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+    }
+
+    &__items-box {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: -.8rem;
+
+        &:empty {
+            display: none;
+        }
+    }
+
+    &__recommender-item,
+    &__item {
+        @include font(1.3rem, 1.6rem);
+
+        margin-bottom: .8rem;
+        padding: calc(.8rem - 1px) calc(1.2rem - 1px);
+        border-radius: 1.6rem;
+        border: 1px solid;
+        transition: all $transition-duration-base-min;
+
+        &:not(:last-child) {
+            margin-right: .8rem;
+        }
+    }
+
+    &__item {
+        @include interact(border-color, $brand-blue-green);
+        @include interact(background-color, $brand-blue-green);
+
+        position: relative;
+        padding-right: 3rem;
+        border-color: $brand-turquoise;
+        background-color: $brand-turquoise;
+        font-weight: 400;
+        color: #fff;
+        cursor: default;
+
+        > a {
+            @include size(1.5rem);
+
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: .8rem;
+            font-size: 0;
+
+            &::before,
+            &::after {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 1rem;
+                height: 1px;
+                background: #fff;
+                content: "";
+            }
+
+            &::before {
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+            &::after {
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+        }
+    }
+
+    &__recommender-item {
+        @include interact(background-color, rgba(0, 0, 0, 0.05));
+
+        border-color: $color-light;
+        color: $color-light;
+    }
+
+}
+
+.tooltip-region-search-slider {
+    margin-left: -1 * map_get($mq-indents, 'sm');
+    margin-right: -1 * map_get($mq-indents, 'sm');
+    padding: calc(#{map_get($mq-indents, 'sm')} - 1px) map_get($mq-indents, 'sm') 0;
+
+    &:not(:first-child) {
+        margin-top: map_get($mq-container-indents, 'sx') / 4;
+    }
+
+    @include mq(sm) {
+        padding-bottom: calc(#{map_get($mq-indents, 'sm')} - 1px);
+        border-bottom: 1px solid $color-lightest-minimal;
+    }
+
+    @include mq(sx) {
+        margin-left: -1 * map_get($mq-container-indents, 'sx') / 2;
+        margin-right: -1 * map_get($mq-container-indents, 'sx') / 2;
+        padding: calc(#{map_get($mq-container-indents, 'sx')} / 2 - 1px) map_get($mq-container-indents, 'sx') / 2 0;
+        border-top: 1px solid $color-lightest-minimal;
+    }
+
+    &__title {
+        @include text-small(400);
+
+        margin-bottom: 1.4rem;
+    }
+
+    &__dial {
+        margin-bottom: 1.4rem;
+    }
+
+    &__dial-information {
+        display: flex;
+        justify-content: space-between;
+
+        > span {
+            @include text-small(400);
+
+            min-width: 2rem;
+        }
+    }
+
+    // overrides
+    .ui-slider-horizontal {
+        height: .4rem;
+    }
+
+    .ui-slider .ui-slider-range {
+        height: .4rem;
+        border-radius: .4rem;
+    }
+
+    .ui-slider .ui-slider-handle {
+        @include size(1.2rem);
+
+        top: -.4rem;
+        margin-left: -.6rem;
+        background-color: $brand-turquoise;
+        box-shadow: none;
+    }
+}

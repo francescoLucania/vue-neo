@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.main-option-list {
+    &__line {
+        &:not(:last-child) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 8;
+
+            @include mq(sx) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+    }
+}

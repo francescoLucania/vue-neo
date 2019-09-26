@@ -1,0 +1,191 @@
+.promo-slider {
+    margin: map-get($mq-container-indents, 'sx') / 4 calc(-1 * #{map_get($mq-container-indents, 'sm')}) 0;
+
+    @include mq(sx) {
+        margin: calc(#{map_get($mq-container-indents, 'sx')} / 2) calc(-1 * #{map_get($mq-container-indents, 'sx')}) 0;
+        overflow-x: scroll;
+    }
+
+    @include mq(md) {
+        overflow: visible;
+    }
+
+    &__container {
+        @include mq(sx) {
+            min-width: 100%;
+            overflow: visible;
+        }
+    }
+
+    &__grid {
+        display: flex;
+
+        @include mq(sm) {
+            flex-direction: column;
+        }
+
+        @include mq(sx) {
+            margin: 0 map_get($mq-container-indents, 'sx');
+        }
+
+        @include mq(md) {
+            justify-content: center;
+            margin: 0;
+        }
+    }
+
+    &__grid-col {
+        @include mq(sx) {
+            display: flex;
+            flex-direction: column;
+            width: 29.2rem;
+
+            &:not(:last-child) {
+                margin-right: .8rem;
+            }
+        }
+    }
+
+    &__item {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        padding: map-get($mq-container-indents, 'sx') / 4;
+        min-width: 27.2rem;
+        border-radius: $border-radius-min;
+        background-color: #ffffff;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.35);
+        color: $color-base;
+        transition: all $transition-duration-base-min;
+
+        @include mq(sx) {
+            min-width: 29.2rem;
+        }
+
+        .mod_no-touchevents & {
+            &:hover {
+                box-shadow: 0 .6rem .8rem 0 rgba(0, 0, 0, 0.11), 0 0 0 .1rem rgba(0, 0, 0, 0.11);
+            }
+        }
+
+        &:focus {
+            text-decoration: none;
+            box-shadow: 0 .6rem .8rem 0 rgba(0, 0, 0, 0.11), 0 0 0 .1rem rgba(0, 0, 0, 0.11);
+        }
+
+        &--column {
+            flex-grow: 1;
+            @include mq(sx) {
+                flex-direction: column;
+
+                .promo-slider__description {
+                    margin-top: map_get($mq-container-indents, 'sx') / 4;
+                    margin-left: 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &__item-circle {
+        @include size(4.8rem);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 4.8rem;
+        border-radius: 50%;
+        overflow: hidden;
+
+
+        &--color-lightest-minimal {
+            background: $color-lightest-minimal;
+
+            > .icon {
+                @include size(3.2rem, 3.1rem)
+            }
+        }
+
+        &--key {
+            > img {
+                width: 3.8rem;
+                vertical-align: top;
+            }
+        }
+
+        &--auto {
+            > img {
+                width: 4rem;
+                vertical-align: top;
+            }
+        }
+
+        &--wallet {
+            > img {
+                width: 4rem;
+                vertical-align: top;
+            }
+        }
+
+        &--warranty {
+            background: $brand-turquoise;
+
+            > .icon {
+                @include size(2.1rem, 2rem)
+            }
+        }
+
+        &--credit {
+            background: $color-amber;
+
+            > .icon {
+                @include size(2.4rem, 1.7rem)
+            }
+        }
+
+        &--service {
+            background: $brand-bluish;
+
+            > .icon {
+                @include size(1.6rem, 1.8rem)
+            }
+        }
+    }
+
+    &__description {
+        margin-left: map-get($mq-container-indents, 'sx') / 4;
+
+        @include mq(sm) {
+            text-align: left;
+        }
+
+        &[data-font-size-sx='header-model-settings-h3'] {
+            @include mq(sx) {
+                @include header-model-settings-h3;
+
+                font-weight: 300;
+            }
+        }
+    }
+
+    // slick overrides
+
+    .slick-slide {
+        margin: 0 map_get($mq-container-indents, 'sm');
+    }
+
+    .slick-arrow.slick-prev,
+    .slick-arrow.slick-next {
+        @include mq-custom(max, 912px) {
+            top: 30px;
+            transform: translateY(0);
+        }
+    }
+
+    .slick-arrow.slick-prev {
+        left: 0;
+    }
+    .slick-arrow.slick-next {
+        right: 0;
+    }
+}

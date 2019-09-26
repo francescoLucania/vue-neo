@@ -1,0 +1,196 @@
+@charset "UTF-8";
+
+.n-feedback-final-grade {
+    .n-feedback-preview & {
+        @include mq(sm) {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            z-index: 10;
+        }
+    }
+
+    > label {
+        display: none;
+
+        @include mq(md) {
+            @include text-base(300);
+
+            display: block;
+            margin-bottom: map_get($mq-container-indents, 'sx') / 8;
+            text-align: center;
+        }
+    }
+
+    &__circle {
+        @include size(5.2rem);
+
+        position: relative;
+
+        .n-feedback-preview & {
+            @include size(4rem);
+
+            > span {
+                @include font(1.6, 1.6rem);
+
+                font-weight: 400;
+            }
+        }
+
+        @include mq(sx) {
+            @include size(10.3rem);
+        }
+
+        border-radius: 50%;
+        overflow: hidden;
+
+        @include mq(lg) {
+            @include size(13.8rem);
+        }
+
+        > canvas {
+            transform: rotate(90deg);
+        }
+
+        > span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+            font-size: 1.8rem;
+            line-height: 1;
+
+            .n-feedback-preview & {
+                @include mq(sm) {
+                    @include font(1.6rem, 1.6rem);
+                    color: #fff;
+                }
+            }
+
+            @include mq(sm) {
+                font-weight: 400;
+            }
+
+            @include mq(sx) {
+                font-size: 4rem;
+            }
+
+            @include mq(lg) {
+                font-size: 4.4rem;
+            }
+        }
+
+        &[data-size="small"] {
+            @include mq(sx) {
+                @include size(5.2rem);
+            }
+
+            @include mq(lg) {
+                @include size(5.2rem);
+            }
+
+            > span {
+                @include mq(sx) {
+                    font-size: 1.8rem;
+                    line-height: 1;
+                    font-weight: 400;
+                }
+                @include mq(md) {
+                    font-size: 1.8rem;
+                    line-height: 1;
+                }
+                @include mq(lg) {
+                    font-size: 1.8rem;
+                    line-height: 1;
+                }
+            }
+        }
+
+
+        &[data-size="big"] {
+            @include mq(sx) {
+                @include size(10.3rem);
+            }
+
+            @include mq(lg) {
+                @include size(43rem);
+            }
+
+            > span {
+                @include mq(sx) {
+                    font-size: 1.8rem;
+                    line-height: 1;
+                    font-weight: 400;
+                }
+
+                @include mq(md) {
+                    font-size: 4rem;
+                    line-height: 1;
+                }
+
+                @include mq(lg) {
+                    font-size: 4rem;
+                    line-height: 1;
+                }
+            }
+        }
+
+
+    }
+
+    &__circle-line {
+        position: absolute;
+        background: #fff;
+        z-index: 10;
+
+        .n-feedback-preview & {
+            @include mq(sm) {
+                display: none;
+            }
+        }
+
+        &:nth-child(1) {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 50%;
+        }
+
+        &:nth-child(2) {
+            top: 43%;
+            left: 45%;
+            -webkit-transform: rotate(-20deg);
+            transform: rotate(-19deg);
+            width: 55%;
+            height: 1px;
+        }
+
+        &:nth-child(3) {
+            top: 43%;
+            right: 45%;
+            transform: rotate(20deg);
+            width: 55%;
+            height: 1px;
+        }
+
+        &:nth-child(4) {
+            top: 78%;
+            left: 2%;
+            -webkit-transform: rotate(-41deg);
+            transform: rotate(-51deg);
+            width: 55%;
+            height: 1px;
+        }
+
+        &:nth-child(5) {
+            top: 78%;
+            right: 2%;
+            transform: rotate(51deg);
+            width: 55%;
+            height: 1px;
+        }
+
+    }
+}

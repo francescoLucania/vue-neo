@@ -1,0 +1,326 @@
+@charset "UTF-8";
+
+@mixin header-h1-lg($font-weight: $font-weight-title) {
+    @include h;
+
+    @include font(2.8rem, 3.2rem);
+
+    font-weight: $font-weight;
+
+    @include mq(md) {
+        @include font(4rem, 4.4rem)
+    }
+
+    @include mq(lg) {
+        @include font(8rem, 8.8rem)
+    }
+}
+
+@mixin header-h1($font-weight: $font-weight-title) {
+    @include h;
+    @include font(4rem, 4.4rem);
+
+    font-weight: $font-weight;
+}
+
+@mixin header-h1-black($font-weight: 900) {
+    @include h;
+    @include font(2.1rem, 3.2rem);
+
+    font-weight: $font-weight;
+
+    @include mq(md) {
+        @include font(3.2rem, 3.6rem);
+    }
+}
+
+@mixin header-h2($font-weight: $font-weight-title) {
+    @include h;
+    @include font(2.1rem, 2.4rem);
+
+    font-weight: $font-weight;
+
+    @include mq(md) {
+        @include font(2.8rem, 3.2rem);
+    }
+}
+
+@mixin header-brand-h3-black($font-weight: 900) {
+    @include h;
+    @include font(2.1rem, 2.4rem);
+
+    font-weight: $font-weight;
+}
+
+@mixin header-model-card-h3($font-weight: 400) {
+    @include h;
+    @include font(1.6rem, 2.4rem);
+
+    font-weight: $font-weight;
+
+    @include mq(lg) {
+        @include font(2.1rem, 3.2rem);
+    }
+}
+
+@mixin header-model-settings-h3($font-weight: 400) {
+    @include h;
+    @include font(2.1rem, 3.2rem);
+
+    font-weight: $font-weight;
+}
+
+@mixin header-offer-h3($font-weight: 400) {
+    @include h;
+    @include font(1.6rem, 2.4rem);
+
+    font-weight: $font-weight;
+
+    @include mq(md) {
+        @include font(2.1rem, 3.2rem);
+    }
+}
+
+@mixin header-equipment-h4($font-weight: 900) {
+    @include h;
+    @include font(2.1rem, 2.4rem);
+
+    font-weight: $font-weight;
+}
+
+@mixin header-offer-h5($font-weight: 700) {
+    @include h;
+    @include font(1.4rem, 2rem);
+
+    font-weight: $font-weight;
+}
+
+@mixin header-comparing-h5($font-weight: 700) {
+    @include h;
+    @include font(1.2rem, 1.6rem);
+
+    font-weight: $font-weight;
+
+    @include mq(md) {
+        @include font(1.4rem,2rem);
+    }
+}
+
+
+// text styles
+
+@mixin text-base($font-weight: $font-weight-text) {
+    @include font(1.6rem, 2.4rem);
+
+    font-weight: $font-weight;
+
+    > a {
+        font-weight: 400;
+    }
+}
+
+@mixin link-base {
+    @include text-base;
+    @include interact(text-decoration, underline);
+
+    font-weight: 400;
+    text-decoration: none;
+}
+
+@mixin text-offer() {
+    @include font(1.4rem, 2rem);
+
+    font-weight: 400;
+}
+
+@mixin link-offer {
+    @include text-offer;
+    @include interact(text-decoration, underline);
+
+    text-decoration: none;
+}
+
+@mixin text-small($font-weight: $font-weight-text) {
+    @include font(1.3rem, 2rem);
+
+    font-weight: $font-weight;
+
+    > a {
+        font-weight: 400;
+    }
+}
+
+@mixin link-small {
+    @include text-small;
+    @include interact(text-decoration, underline);
+
+    font-weight: 400;
+
+    text-decoration: none;
+}
+
+@mixin text-comparing($font-weight: 400) {
+    @include font(1rem, 1.6rem);
+
+    font-weight: $font-weight;
+
+    @include mq(md) {
+        @include font(1.3rem, 2rem);
+        font-weight: 300;
+    }
+}
+
+@mixin link-comparing {
+    @include text-comparing;
+    @include interact(text-decoration, underline);
+
+    text-decoration: none;
+}
+
+@mixin text-minimal($font-weight: 300) {
+    @include font(1.2rem, 1.6rem);
+
+    font-weight: $font-weight;
+
+    > a {
+        font-weight: 400;
+    }
+}
+
+@mixin link-minimal {
+    @include text-minimal;
+    @include interact(text-decoration, underline);
+
+    font-weight: 400;
+
+    text-decoration: none;
+}
+
+// typography class
+
+.header-h1-lg {
+    @include header-h1-lg;
+
+    > a {
+        @include header-h1-lg;
+    }
+}
+
+.header-h1 {
+    @include header-h1;
+
+    > a {
+        @include header-h1;
+    }
+}
+
+.header-h1-black {
+    @include header-h1-black;
+
+    > a {
+        @include header-h1-black;
+    }
+}
+
+.header-h2 {
+    @include header-h2;
+
+    > a {
+        @include header-h2;
+    }
+}
+
+.header-brand-h3-black {
+    @include header-brand-h3-black;
+
+    > a {
+        @include header-brand-h3-black;
+    }
+}
+
+.header-model-card-h3 {
+    @include header-model-card-h3;
+
+    > a {
+        @include header-model-card-h3;
+    }
+}
+
+.header-model-settings-h3 {
+    @include header-model-settings-h3;
+
+    > a {
+        @include header-model-settings-h3;
+    }
+}
+
+.header-offer-h3 {
+    @include header-offer-h3;
+
+    > a {
+        @include header-offer-h3;
+    }
+}
+
+.header-equipment-h4 {
+    @include header-equipment-h4;
+
+    > a {
+        @include header-equipment-h4;
+    }
+}
+
+.header-offer-h5 {
+    @include header-offer-h5;
+
+    > a {
+        @include header-offer-h5;
+    }
+}
+
+.header-comparing-h5 {
+    @include header-comparing-h5;
+
+    > a {
+        @include header-comparing-h5;
+    }
+}
+
+.text-base {
+    @include text-base;
+}
+
+.link-base {
+    @include link-base;
+}
+
+.text-offer {
+    @include text-offer;
+}
+
+.link-offer {
+    @include link-offer;
+}
+
+.text-small {
+    @include text-small;
+}
+
+.link-small {
+    @include link-small;
+}
+
+.text-comparing {
+    @include text-comparing;
+}
+
+.text-minimal {
+    @include text-minimal;
+}
+
+.link-minimal {
+    @include link-minimal;
+}
+
+
+

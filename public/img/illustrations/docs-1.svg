@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="88px" height="94px" viewBox="0 0 88 94" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Illustration/ Credit/ Docs-1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="UI-Set" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01.-Icons" transform="translate(-778.000000, -1663.000000)">
+            <g id="Group-7" transform="translate(740.000000, 1628.000000)">
+                <g id="Illustration/-Credit/-Docs-1" transform="translate(38.000000, 35.000000)">
+                    <g>
+                        <g id="Group-28">
+                            <rect id="Rectangle-8" fill="#BCF2EB" x="0" y="0" width="60" height="80" rx="5"></rect>
+                            <g id="Group-7" transform="translate(18.000000, 28.000000)" fill="#404040">
+                                <rect id="Rectangle-10" x="0" y="0" width="24" height="1"></rect>
+                                <rect id="Rectangle-10" x="0" y="6" width="24" height="1"></rect>
+                                <rect id="Rectangle-10" x="0" y="12" width="24" height="1"></rect>
+                                <rect id="Rectangle-10" x="0" y="18" width="24" height="1"></rect>
+                                <rect id="Rectangle-10" x="0" y="24" width="12" height="1"></rect>
+                            </g>
+                        </g>
+                        <g id="Group-17" transform="translate(28.000000, 14.000000)">
+                            <path d="M5,5.94505022e-17 L44,5.23164419e-16 L60,16 L60,75 C60,77.7614237 57.7614237,80 55,80 L5,80 C2.23857625,80 8.49436746e-13,77.7614237 8.49098569e-13,75 L8.49098569e-13,5 C8.48760392e-13,2.23857625 2.23857625,5.07265313e-16 5,0 Z" id="Rectangle-8" fill="#FFFFFF"></path>
+                            <path d="M44,0 L60,16 L49,16 C46.2385763,16 44,13.7614237 44,11 L44,0 Z" id="Rectangle" fill="#BCF2EB"></path>
+                            <g id="Group-41" transform="translate(18.000000, 28.000000)" fill="#404040">
+                                <rect id="Rectangle-10" x="0" y="0" width="24" height="1"></rect>
+                                <rect id="Rectangle-10" x="0" y="6" width="24" height="1"></rect>
+                                <rect id="Rectangle-10" x="0" y="12" width="24" height="1"></rect>
+                                <rect id="Rectangle-10" x="0" y="18" width="24" height="1"></rect>
+                                <rect id="Rectangle-10" x="0" y="24" width="12" height="1"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

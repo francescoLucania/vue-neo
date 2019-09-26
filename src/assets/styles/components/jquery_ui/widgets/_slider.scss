@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+.ui-slider {
+    position: relative;
+    text-align: left;
+}
+.ui-slider .ui-slider-handle {
+    @include size(1.6rem);
+
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+    -ms-touch-action: none;
+    touch-action: none;
+    border-radius: 50%;
+    border: 1px solid #ffff;
+    background-color: $brand-turquoise;
+    outline: none;
+    transition: box-shadow $transition-duration-base-min;
+
+    &::after {
+        @include size(300%);
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99;
+        background: transparent;
+    }
+}
+
+.mod_no-touchevents {
+    .ui-slider .ui-slider-handle {
+        &:hover {
+            //box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.11);
+        }
+    }
+}
+
+.ui-slider .ui-slider-range {
+    position: absolute;
+    z-index: 1;
+    font-size: .7em;
+    display: block;
+    border-radius: .4rem;
+    border: 0;
+    background-position: 0 0;
+    background: $brand-turquoise;
+}
+
+/* support: IE8 - See #6727 */
+.ui-slider.ui-state-disabled .ui-slider-handle,
+.ui-slider.ui-state-disabled .ui-slider-range {
+    filter: inherit;
+}
+
+.ui-slider-horizontal {
+    height: .2rem;
+    border-radius: .4rem;
+    background: $color-lightest-minimal;
+
+    .calculate-slider & {
+        background: transparent;
+    }
+}
+.ui-slider-horizontal .ui-slider-handle {
+    top: -.7rem;
+    margin-left: -.8rem;
+}
+.ui-slider-horizontal .ui-slider-range {
+    top: 0;
+    height: 100%;
+}
+.ui-slider-horizontal .ui-slider-range-min {
+    left: 0;
+}
+.ui-slider-horizontal .ui-slider-range-max {
+    right: 0;
+}
+
+.ui-slider-vertical {
+    width: .8em;
+    height: 100px;
+}
+.ui-slider-vertical .ui-slider-handle {
+    left: -.3em;
+    margin-left: 0;
+    margin-bottom: -.6em;
+}
+.ui-slider-vertical .ui-slider-range {
+    left: 0;
+    width: 100%;
+}
+.ui-slider-vertical .ui-slider-range-min {
+    bottom: 0;
+}
+.ui-slider-vertical .ui-slider-range-max {
+    top: 0;
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>05 Free service</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="01.-A-B-Home-page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="D-01.1-Home-Page-1440" transform="translate(-1087.000000, -370.000000)" fill-rule="nonzero">
+            <g id="05-Free-service" transform="translate(1084.000000, 367.000000)">
+                <rect id="Rectangle-2" fill-opacity="0" fill="#FFFFFF" x="0" y="0" width="38" height="38"></rect>
+                <g id="Group-5" transform="translate(3.000000, 3.000000)">
+                    <circle id="Oval-5" fill="#2898BC" cx="16" cy="16" r="16"></circle>
+                    <g id="Group-13" transform="translate(13.000000, 7.000000)" fill="#FFFFFF">
+                        <g id="Group-12">
+                            <path d="M3.53304462,10.5010442 C5.17768154,7.34504434 6,4.51136294 6,3 C6,1.34314575 4.65685425,0 3,0 C1.34314575,0 5.53380342e-17,1.34314575 0,3 C0,4.51130341 0.822253676,7.34486049 2.46676103,10.5006713 C2.63581776,10.8250912 3.36404601,10.8253465 3.53304462,10.5010442 Z" id="Oval-4"></path>
+                            <circle id="Oval-2" cx="3" cy="14.5" r="2.5"></circle>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

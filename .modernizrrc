@@ -1,0 +1,15 @@
+module.exports = {
+    "classPrefix": "mod_",
+    "minify": true,
+    "options": [
+      "mq",
+      "setClasses"
+    ],
+    "feature-detects": [
+      "css/flexboxtweener",
+      "css/positionsticky",
+      "css/objectfit",
+      "img/webp",
+      "dom/intersection-observer"
+    ]
+}

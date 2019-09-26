@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+.n-feedback-comment-form {
+    &:not(:last-child) {
+        margin-bottom: map_get($mq-indents, 'sm') / 2;
+
+        @include mq(sx) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+        }
+    }
+
+    > .input-box {
+        > label {
+            display: block;
+
+            @include mq(sm) {
+                display: block;
+            }
+        }
+        > .input {
+            > input {
+                &:focus {
+                    + .icon + button {
+                        background-color: $brand-turquoise;
+                    }
+                }
+
+                + .icon + button {
+                    @include size(3.2rem);
+                    @include interact(background-color, $brand-turquoise);
+
+                    position: absolute;
+                    top: .4rem;
+                    right: 1rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    background: $color-lightest;
+                    transition: background-color $transition-duration-base-min;
+                    cursor: pointer;
+                    outline: none;
+
+                    &::after {
+                        width: 0.97rem;
+                        height: 1.7rem;
+                        background: {
+                            position: 50%;
+                            size: contain;
+                            repeat: no-repeat;
+                            image: url(../img/icons/arrow.svg);
+                        };
+                        content: "";
+                    }
+                }
+            }
+        }
+    }
+}

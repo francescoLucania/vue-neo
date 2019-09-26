@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+.tooltip-models-menu {
+    padding: map_get($mq-indents, 'sm') / 3;
+    background: #fff;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.11);
+
+    @include mq(sx) {
+        padding: map_get($mq-container-indents, 'sx') / 2 map_get($mq-container-indents, 'sx');
+        width: 100%;
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    @include mq(md) {
+        width: 76rem;
+    }
+
+    &__title {
+        @include header-h2;
+
+        margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+        text-align: center;
+
+        @include mq(sm) {
+            display: none;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-areas:
+        'a1 a5'
+        'a2 a6'
+        'a3 a7'
+        'a4 a8';
+
+        .mod_no-flexboxtweener & {
+            @include grid;
+        }
+
+        &--model-type {
+            margin-bottom: -1 * map_get($mq-container-indents, 'sx') / 4;
+
+            .tooltip-models-menu__col {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+    }
+
+    &__col {
+        @include col-size(1/2);
+
+        @for $i from 1 through 8 {
+
+            &:nth-child(#{$i}){
+                grid-area: a#{$i};
+            }
+        }
+
+        .mod_no-flexboxtweener & {
+            @include grid-col-mx(1/2);
+        }
+    }
+}

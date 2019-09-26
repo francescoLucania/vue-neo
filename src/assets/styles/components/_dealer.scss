@@ -1,0 +1,791 @@
+@charset "UTF-8";
+
+.dealers {
+    &__item {
+        position: relative;
+        padding: map_get($mq-container-indents, 'sx') / 2;
+        background-color: #ffffff;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.35);
+
+        &:not(:last-child) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+            box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.11);
+        }
+
+        @include mq(md) {
+            display: flex;
+            padding: map_get($mq-indents, 'sx');
+        }
+
+        > a {
+            @include size(100%);
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9;
+            opacity: 0;
+        }
+    }
+
+    &__item-logo,
+    &__item-information,
+    &__item-actions {
+        &:not(:last-child) {
+            margin-bottom: map_get($mq-indents, 'sm');
+
+            @include mq(md) {
+                margin-right: map_get($mq-indents, 'sx');
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__item-logo {
+        max-width: map_get($mq-container-indents, 'sx');
+
+        @include mq(sm) {
+            &:not(:last-child) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+
+        @include mq(md) {
+            max-width: 20rem;
+            flex: 0 0 12.8rem;
+        }
+
+        > img {
+            width: auto;
+            height: auto;
+            vertical-align: top;
+
+            @include mq(md) {
+                width: 100%;
+            }
+        }
+
+        // bad decision (temporarily)
+        > div {
+            display: inline-block;
+            padding: 2.4rem 1.6rem;
+            background-color: #fff;
+            border: 1px solid #e4e4e4;
+            box-shadow: 0 3px 7px rgba(6,6,6,0.04);
+            vertical-align: middle;
+            text-align: center;
+
+            > i {
+                display:inline-block;
+                width:160px; height:49px;
+                background-image:url(../img/dealer-logo/dealer_logo.png);
+                background-repeat:no-repeat;
+                background-position: 0 100px;
+
+                /* dealer logo */
+                &.ralf-car {background-position:0 0 !important}
+                &.alea {background-position:0 -50px !important}
+                &.autopremium {background-position:0 -100px !important}
+                &.autohermes {background-position:0 -150px !important}
+                &.autoimport {background-position:0 -200px !important}
+                &.bmw-azimutsp {background-position:0 -200px !important}
+                &.chevrolet-autoimport {background-position:0 -200px !important}
+                &.opel-autoimport {background-position:0 -200px !important}
+                &.independence {background-position:0 -250px !important}
+                &.ford-autopassage {background-position:0 -300px !important}
+                &.vw-avtoruss {background-position:0 -350px !important}
+                &.autocenter-pandora {background-position:0 -400px !important}
+                &.ssangyong-autocenter-pandora {background-position:0 -400px !important}
+                &.advance-auto {background-position:0 -450px !important}
+                &.citroen-axis {background-position:0 -500px !important}
+                &.ford-alarm-motors {background-position:0 -550px !important}
+                &.audi-peterburg {background-position:0 -600px !important}
+                &.audi-taganka {background-position:0 -650px !important}
+                &.autoprestus {background-position:0 -700px !important}
+                &.irbis {background-position:0 -750px !important}
+                &.ssangyong-irbis {background-position:0 -750px !important}
+                &.citroen-irbis {background-position:0 -750px !important}
+                &.kiacenter {background-position:0 -800px !important}
+                &.autolight {background-position:0 -850px !important}
+                &.sim {background-position:0 -900px !important}
+                &.renamax {background-position:0 -950px !important}
+                &.bmw-pelican {background-position:0 -1100px !important}
+                &.renault-petrovskiy {background-position:0 -1150px !important}
+                &.bmw-baltauto {background-position:0 -1200px !important}
+                &.raduga-auto {background-position:0 -1250px !important}
+                &.mega-avto {background-position:0 -1300px !important}
+                &.revolt-skoda {background-position:0 -1300px !important}
+                &.vw-rus-lan {background-position:0 -1350px !important}
+                &.stream-auto {background-position:0 -1400px !important}
+                &.toyota-center-levoberezhni {background-position:0 -1450px !important}
+                &.hyundai-rtr {background-position:0 -1500px !important}
+                &.mitsubishi-rtr {background-position:0 -1500px !important}
+                &.kuncevo {background-position:0 -1550px !important}
+                &.vw-varshavka {background-position:0 -1600px !important}
+                &.shuvalovo-motors {background-position:0 -1650px !important}
+                &.usimpex {background-position:0 -1700px !important}
+                &.honda-alea {background-position:0 -1800px !important}
+                &.land-rover-inchcape {background-position:0 -1850px !important}
+                &.toyota-inchcape {background-position:0 -1850px !important}
+                &.volvo-inchcape {background-position:0 -1850px !important}
+                &.kia-motors-krasnoyarsk {background-position:0 -1900px !important}
+                &.renault-rtds {background-position:0 -1950px !important}
+                &.auto-spec {background-position:0 -2000px !important}
+                &.favorit-motors {background-position:0 -2050px !important}
+                &.musa-motors {background-position:0 -2100px !important}
+                &.logo-all {background-position:0 -2150px !important}
+                &.avanta-auto {background-position:0 -2200px !important}
+                &.auto-top {background-position:0 -2250px !important}
+                &.wagner {background-position:0 -2300px !important}
+                &.auto-start {background-position:0 -2350px !important}
+                &.avto-gamma {background-position:0 -2400px !important}
+                &.major {background-position:0 -2450px !important}
+                &.rolf {background-position:0 -2500px !important}
+                &.automir {background-position:0 -2551px !important}
+                &.atlantm {background-position:0 -2600px !important}
+                &.avilon {background-position:0 -2650px !important}
+                &.accent-auto {background-position:0 -2700px !important}
+                &.renault-ovod {background-position:0 -2751px !important}
+                &.audi-ac-ug-zapad {background-position:0 -2800px !important}
+                &.audi-ac-ug {background-position:0 -2850px !important}
+                &.toyota-tc-vnekovo {background-position:0 -2900px !important}
+                &.toyota-tc-sokolniki {background-position:0 -2950px !important}
+                &.audi-ac-city {background-position:0 -3000px !important}
+                &.toyota-tc-city {background-position:0 -3050px !important}
+                &.toyota-tc-shremetevo {background-position:0 -3100px !important}
+                &.toyota-tc-novorizhski {background-position:0 -3150px !important}
+                &.toyota-tc-yasenevo {background-position:0 -3200px !important}
+                &.avtocity {background-position:0 -3250px !important}
+                &.lukojl-centrnefteprodukt {background-position:0 -1600px !important}
+                &.audi-centr-moskva {background-position:0 -1000px !important}
+                &.audi-centr-horoshevskij {background-position:0 -1900px !important}
+                &.audi-centr-vostok {background-position:0 -1450px !important}
+                &.bmw-avtodom {background-position:0 -3550px !important}
+                &.avto-ganza {background-position:0 -3500px !important}
+                &.audi-centr-varshavka {background-position:0 -3450px !important}
+                &.skoda-autorus {background-position:0 -3400px !important}
+                &.avtoport-bmw {background-position:0 -3600px !important}
+                &.borishof-bmw {background-position:0 -3650px !important}
+                &.borishof-mini {background-position:0 -3700px !important}
+                &.mini-avtoport {background-position:0 -3750px !important}
+                &.autocompleks {background-position:0 -3800px !important}
+                &.prevox {background-position:0 -3850px !important}
+                &.autonomy {background-position:0 -3950px !important}
+                &.agalat {background-position:0 -4000px !important}
+                &.arteks {background-position:0 -4050px !important}
+                &.avignon {background-position:0 -3900px !important}
+                &.torgmash{ background-position:0 -4100px !important;}
+                &.techincom{ background-position:0 -4150px !important;}
+                &.avalux{ background-position:0 -4200px !important;}
+                &.aaron{ background-position:0 -4250px !important;}
+                &.fordcentrsever{ background-position:0 -4300px !important;}
+                &.velikan{ background-position:0 -4350px !important;}
+                &.nemecdom{ background-position:0 -4400px !important;}
+                &.natc{ background-position:0 -4450px !important;}
+                &.aurora {background-position:0 -4500px !important;}
+                &.alea-lada {background-position:0 -4550px !important;}
+                &.bc-lexus-kashirskiy {background-position:0 -4600px !important;}
+                &.bc-lexus-levoberegniy {background-position:0 -4650px !important;}
+                &.bc-lexus-losostrov {background-position:0 -4700px !important;}
+                &.bc-lexus-rublevskiy {background-position:0 -4750px !important;}
+                &.bc-toyota-bitsa {background-position:0 -4800px !important;}
+                &.bc-toyota-kashirskiy {background-position:0 -4850px !important;}
+                &.bc-toyota-levoberegniy {background-position:0 -4900px !important;}
+                &.bc-toyota-losostrov {background-position:0 -4950px !important;}
+                &.bc-toyota-rublevskiy{background-position:0 -5000px !important;}
+                &.bc-toyota-serebryanyj {background-position:0 -5050px !important;}
+                &.sportcar {background-position:0 -5100px !important;}
+                &.axel {background-position:0 -5150px !important;}
+                &.eurosib {background-position:0 -5200px !important;}
+                &.centr-taganka-nissan {background-position:0 -5250px !important;}
+                &.centr-lublino-nissan {background-position:0 -5300px !important;}
+                &.abs-auto {background-position:0 -5350px !important;}
+                &.maximum {background-position:0 -5400px !important;}
+                &.infiniti-taganka {background-position:0 -5450px !important;}
+                &.avantime {background-position:0 -5500px !important;}
+                &.audi-sochi {background-position:0 -5550px !important;}
+                &.volvo-m1 {background-position:0 -5600px !important;}
+                &.dacar {background-position:0 -5650px !important;}
+                &.vw-sever {background-position:0 -5700px !important;}
+                &.forsage {background-position:0 -5750px !important;}
+                &.sigma {background-position:0 -5800px !important;}
+                &.nissan-motor-land {background-position:0 -5850px !important;}
+            }
+        }
+        // bad decision (temporarily)
+    }
+
+    &__item-information {
+
+        .auto-options-grid,
+        .auto-options-item-tag {
+            &:not(:last-child) {
+                margin-bottom: map_get($mq-indents, 'sm');
+            }
+        }
+    }
+
+    &__item-title {
+        @include header-model-settings-h3;
+
+        margin-bottom: 2rem;
+    }
+
+    &__item-actions {
+        position: relative;
+        z-index: 10;
+
+        @include mq(md) {
+            max-width: 29.2rem;
+            flex: 0 0 29.2rem;
+            margin-left: auto;
+        }
+    }
+
+    &__item-actions-buttons {
+        > .button {
+            &:not(:last-child) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+    }
+
+    &__item-actions-links {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+        > li {
+            display: block;
+
+            &:not(:last-child) {
+                margin-bottom: map_get($mq-indents, 'sm') / 3;
+            }
+
+            > a {
+                font-weight: 300;
+            }
+        }
+    }
+}
+
+
+.dealer {
+    padding-bottom: map_get($mq-container-indents, 'sx') / 2;
+    border-top: 1px solid $color-lightest-minimal;
+    background: #fff;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.11);
+
+    @include mq(sx) {
+        padding-bottom: map_get($mq-container-indents, 'sx');
+    }
+
+    &__grid {
+        @include mq(sx) {
+            margin-left: -1 * map_get($mq-container-indents, 'sx');
+            margin-right: -1 * map_get($mq-container-indents, 'sx');
+            padding: 0 map_get($mq-container-indents, 'sx');
+        }
+
+        @include mq(md) {
+            display: flex;
+            align-items: flex-start;
+        }
+    }
+
+    &__content-col {
+        padding-top: calc(#{map_get($mq-container-indents, 'sx') / 2} - 1px);
+
+        @include mq(md) {
+            max-width: 63.98%;
+            flex-basis: 63.98%;
+            padding-right: 5.4rem;
+            border-right: 1px solid $color-lightest-minimal;
+        }
+
+        @include mq(lg) {
+            max-width: 65.2%;
+            flex-basis: 65.2%;
+        }
+    }
+
+    &__promo {
+        //display: flex;
+        margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+
+        @include mq(sx) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+        }
+    }
+
+    &__logo {
+        display: flex;
+        margin-top: map_get($mq-container-indents, 'sx') / 4;
+        //margin-left: map_get($mq-container-indents, 'sx') / 2;
+
+        //@include mq(sm) {
+        //    display: none;
+        //}
+
+        .dealer__title {
+            margin-bottom: 0;
+
+            @include mq(md) {
+                margin-left: map_get($mq-container-indents, 'sx') / 2;
+            }
+        }
+
+        > a {
+            display: block;
+        }
+
+        > a > img,
+        > img {
+            width: auto;
+            height: 4rem;
+            vertical-align: top;
+        }
+
+        // bad decision (temporarily)
+        > div {
+            display: none;
+            padding: 2.4rem 1.6rem;
+            background-color: #fff;
+            border: 1px solid #e4e4e4;
+            box-shadow: 0 3px 7px rgba(6,6,6,0.04);
+            vertical-align: middle;
+            text-align: center;
+
+            @include mq(md) {
+                display: inline-block;
+            }
+
+            > i {
+                display:inline-block;
+                width:160px; height:49px;
+                background-image:url(../img/dealer-logo/dealer_logo.png);
+                background-repeat:no-repeat;
+                background-position: 0 100px;
+
+                /* dealer logo */
+                &.ralf-car {background-position:0 0 !important}
+                &.alea {background-position:0 -50px !important}
+                &.autopremium {background-position:0 -100px !important}
+                &.autohermes {background-position:0 -150px !important}
+                &.autoimport {background-position:0 -200px !important}
+                &.bmw-azimutsp {background-position:0 -200px !important}
+                &.chevrolet-autoimport {background-position:0 -200px !important}
+                &.opel-autoimport {background-position:0 -200px !important}
+                &.independence {background-position:0 -250px !important}
+                &.ford-autopassage {background-position:0 -300px !important}
+                &.vw-avtoruss {background-position:0 -350px !important}
+                &.autocenter-pandora {background-position:0 -400px !important}
+                &.ssangyong-autocenter-pandora {background-position:0 -400px !important}
+                &.advance-auto {background-position:0 -450px !important}
+                &.citroen-axis {background-position:0 -500px !important}
+                &.ford-alarm-motors {background-position:0 -550px !important}
+                &.audi-peterburg {background-position:0 -600px !important}
+                &.audi-taganka {background-position:0 -650px !important}
+                &.autoprestus {background-position:0 -700px !important}
+                &.irbis {background-position:0 -750px !important}
+                &.ssangyong-irbis {background-position:0 -750px !important}
+                &.citroen-irbis {background-position:0 -750px !important}
+                &.kiacenter {background-position:0 -800px !important}
+                &.autolight {background-position:0 -850px !important}
+                &.sim {background-position:0 -900px !important}
+                &.renamax {background-position:0 -950px !important}
+                &.bmw-pelican {background-position:0 -1100px !important}
+                &.renault-petrovskiy {background-position:0 -1150px !important}
+                &.bmw-baltauto {background-position:0 -1200px !important}
+                &.raduga-auto {background-position:0 -1250px !important}
+                &.mega-avto {background-position:0 -1300px !important}
+                &.revolt-skoda {background-position:0 -1300px !important}
+                &.vw-rus-lan {background-position:0 -1350px !important}
+                &.stream-auto {background-position:0 -1400px !important}
+                &.toyota-center-levoberezhni {background-position:0 -1450px !important}
+                &.hyundai-rtr {background-position:0 -1500px !important}
+                &.mitsubishi-rtr {background-position:0 -1500px !important}
+                &.kuncevo {background-position:0 -1550px !important}
+                &.vw-varshavka {background-position:0 -1600px !important}
+                &.shuvalovo-motors {background-position:0 -1650px !important}
+                &.usimpex {background-position:0 -1700px !important}
+                &.honda-alea {background-position:0 -1800px !important}
+                &.land-rover-inchcape {background-position:0 -1850px !important}
+                &.toyota-inchcape {background-position:0 -1850px !important}
+                &.volvo-inchcape {background-position:0 -1850px !important}
+                &.kia-motors-krasnoyarsk {background-position:0 -1900px !important}
+                &.renault-rtds {background-position:0 -1950px !important}
+                &.auto-spec {background-position:0 -2000px !important}
+                &.favorit-motors {background-position:0 -2050px !important}
+                &.musa-motors {background-position:0 -2100px !important}
+                &.logo-all {background-position:0 -2150px !important}
+                &.avanta-auto {background-position:0 -2200px !important}
+                &.auto-top {background-position:0 -2250px !important}
+                &.wagner {background-position:0 -2300px !important}
+                &.auto-start {background-position:0 -2350px !important}
+                &.avto-gamma {background-position:0 -2400px !important}
+                &.major {background-position:0 -2450px !important}
+                &.rolf {background-position:0 -2500px !important}
+                &.automir {background-position:0 -2551px !important}
+                &.atlantm {background-position:0 -2600px !important}
+                &.avilon {background-position:0 -2650px !important}
+                &.accent-auto {background-position:0 -2700px !important}
+                &.renault-ovod {background-position:0 -2751px !important}
+                &.audi-ac-ug-zapad {background-position:0 -2800px !important}
+                &.audi-ac-ug {background-position:0 -2850px !important}
+                &.toyota-tc-vnekovo {background-position:0 -2900px !important}
+                &.toyota-tc-sokolniki {background-position:0 -2950px !important}
+                &.audi-ac-city {background-position:0 -3000px !important}
+                &.toyota-tc-city {background-position:0 -3050px !important}
+                &.toyota-tc-shremetevo {background-position:0 -3100px !important}
+                &.toyota-tc-novorizhski {background-position:0 -3150px !important}
+                &.toyota-tc-yasenevo {background-position:0 -3200px !important}
+                &.avtocity {background-position:0 -3250px !important}
+                &.lukojl-centrnefteprodukt {background-position:0 -1600px !important}
+                &.audi-centr-moskva {background-position:0 -1000px !important}
+                &.audi-centr-horoshevskij {background-position:0 -1900px !important}
+                &.audi-centr-vostok {background-position:0 -1450px !important}
+                &.bmw-avtodom {background-position:0 -3550px !important}
+                &.avto-ganza {background-position:0 -3500px !important}
+                &.audi-centr-varshavka {background-position:0 -3450px !important}
+                &.skoda-autorus {background-position:0 -3400px !important}
+                &.avtoport-bmw {background-position:0 -3600px !important}
+                &.borishof-bmw {background-position:0 -3650px !important}
+                &.borishof-mini {background-position:0 -3700px !important}
+                &.mini-avtoport {background-position:0 -3750px !important}
+                &.autocompleks {background-position:0 -3800px !important}
+                &.prevox {background-position:0 -3850px !important}
+                &.autonomy {background-position:0 -3950px !important}
+                &.agalat {background-position:0 -4000px !important}
+                &.arteks {background-position:0 -4050px !important}
+                &.avignon {background-position:0 -3900px !important}
+                &.torgmash{ background-position:0 -4100px !important;}
+                &.techincom{ background-position:0 -4150px !important;}
+                &.avalux{ background-position:0 -4200px !important;}
+                &.aaron{ background-position:0 -4250px !important;}
+                &.fordcentrsever{ background-position:0 -4300px !important;}
+                &.velikan{ background-position:0 -4350px !important;}
+                &.nemecdom{ background-position:0 -4400px !important;}
+                &.natc{ background-position:0 -4450px !important;}
+                &.aurora {background-position:0 -4500px !important;}
+                &.alea-lada {background-position:0 -4550px !important;}
+                &.bc-lexus-kashirskiy {background-position:0 -4600px !important;}
+                &.bc-lexus-levoberegniy {background-position:0 -4650px !important;}
+                &.bc-lexus-losostrov {background-position:0 -4700px !important;}
+                &.bc-lexus-rublevskiy {background-position:0 -4750px !important;}
+                &.bc-toyota-bitsa {background-position:0 -4800px !important;}
+                &.bc-toyota-kashirskiy {background-position:0 -4850px !important;}
+                &.bc-toyota-levoberegniy {background-position:0 -4900px !important;}
+                &.bc-toyota-losostrov {background-position:0 -4950px !important;}
+                &.bc-toyota-rublevskiy{background-position:0 -5000px !important;}
+                &.bc-toyota-serebryanyj {background-position:0 -5050px !important;}
+                &.sportcar {background-position:0 -5100px !important;}
+                &.axel {background-position:0 -5150px !important;}
+                &.eurosib {background-position:0 -5200px !important;}
+                &.centr-taganka-nissan {background-position:0 -5250px !important;}
+                &.centr-lublino-nissan {background-position:0 -5300px !important;}
+                &.abs-auto {background-position:0 -5350px !important;}
+                &.maximum {background-position:0 -5400px !important;}
+                &.infiniti-taganka {background-position:0 -5450px !important;}
+                &.avantime {background-position:0 -5500px !important;}
+                &.audi-sochi {background-position:0 -5550px !important;}
+                &.volvo-m1 {background-position:0 -5600px !important;}
+                &.dacar {background-position:0 -5650px !important;}
+                &.vw-sever {background-position:0 -5700px !important;}
+                &.forsage {background-position:0 -5750px !important;}
+                &.sigma {background-position:0 -5800px !important;}
+                &.nissan-motor-land {background-position:0 -5850px !important;}
+            }
+        }
+        // bad decision (temporarily)
+    }
+
+    &__title {
+        @include header-h1;
+
+        margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+    }
+
+    .auto-options-grid,
+    .auto-options-item-tag {
+        margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+    }
+
+    &__description {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+        max-width: 63.2rem;
+
+        @include mq(sx) {
+            margin-top: map_get($mq-container-indents, 'sx');
+        }
+        &.wysiwyg {
+
+        }
+    }
+
+    .auto-options-grid {
+        margin-bottom: -1 * map_get($mq-container-indents, 'sx') / 4;
+
+        .auto-options-item {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+        }
+    }
+
+    &__actions-col {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+
+        @include mq(md) {
+            position: sticky;
+            top: 0;
+            margin-top: 0;
+            padding-top: calc(#{map_get($mq-container-indents, 'sx')} - 1px);
+            padding-left: map_get($mq-container-indents, 'sx');
+            max-width: 36.02%;
+            flex-basis: 36.02%;
+        }
+
+        @include mq(lg) {
+            max-width: 34.8%;
+            flex-basis: 34.8%;
+        }
+    }
+
+    &__gallery-grid {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+
+        .mod_no-flexboxtweener & {
+            display: grid;
+            grid-template-areas:
+                'a a a b c'
+                'a a a d e'
+                'a a a f g';
+
+            @include mq(sm) {
+                grid-template-areas:
+                    'a a a a a a a a a a'
+                    'a a a a a a a a a a'
+                    'a a a a a a a a a a'
+                    'a a a a a a a a a a'
+                    'a a a a a a a a a a'
+                    'b b c c d d e e f f'
+                    'b b c c d d e e f f';
+            }
+        }
+
+        .mod_flexboxtweener & {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__gallery-item {
+        position: relative;
+        border: 0.05rem solid #fff;
+        background: $color-base;
+        text-align: center;
+
+        > a {
+            display: block;
+            padding-bottom: 75.45%;
+            cursor: zoom-in;
+
+            &:hover {
+                &::before,
+                &::after {
+                    opacity: 1;
+                }
+            }
+
+            &::before,
+            &::after {
+                position: absolute;
+                opacity: 0;
+                transition: opacity $transition-duration-base-min;
+            }
+
+            &::before {
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10;
+                background-color: rgba(0, 0, 0, 0.6);
+                color: #fff;
+                content: attr(data-number);
+            }
+
+            > img {
+                @include size(100%);
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                vertical-align: top;
+                object-fit: cover;
+
+                .mod_flexboxtweener & {
+                    visibility: hidden;
+                }
+            }
+
+            .mod_flexboxtweener & {
+                background: {
+                    position: 100%;
+                    size: cover;
+                    repeat: no-repeat;
+                };
+            }
+        }
+
+        &:nth-child(6) {
+            @include mq(sm) {
+                a::after {
+                    opacity: 0;
+                }
+
+                a::before {
+                    opacity: 1;
+                }
+
+                &:hover {
+                    a::after {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        //
+        //&:nth-child(7) {
+        //    a::after {
+        //        opacity: 0;
+        //    }
+        //
+        //    a::before {
+        //        opacity: 1;
+        //    }
+        //
+        //    &:hover {
+        //        a::after {
+        //            opacity: 1;
+        //        }
+        //    }
+        //}
+
+        .mod_no-flexboxtweener & {
+            //margin: 0.05rem;
+
+            &:nth-child(1) {
+                grid-area: a;
+
+                @include mq(sm) {
+                    margin-bottom: 1.2rem;
+                }
+                > a {
+                    @include mq(sm) {
+                        padding-bottom: 57.45%;
+                    }
+                }
+            }
+
+
+            &:nth-child(2) {
+                grid-area: b;
+
+                @include mq(sm) {
+                    margin-left: 1.2rem;
+                }
+            }
+
+            &:nth-child(3) {
+                grid-area: c;
+            }
+
+            &:nth-child(4) {
+                grid-area: d;
+            }
+
+            &:nth-child(5) {
+                grid-area: e;
+            }
+
+            &:nth-child(6) {
+                grid-area: f;
+
+                @include mq(sm) {
+                    margin-right: map_get($mq-container-indents, 'sx') / 4;
+                }
+            }
+
+            &:nth-child(7) {
+                grid-area: g;
+
+                @include mq(sm) {
+                    display: none;
+                }
+            }
+        }
+
+        .mod_flexboxtweener & {
+            @include col-size(1/3);
+
+            &:nth-child(1) {
+                width: 100%;
+            }
+        }
+    }
+
+    &__actions-buttons {
+        > .button {
+            &:not(:last-child) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+    }
+
+    &__actions-links {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+        > li {
+            display: block;
+
+            &:not(:last-child) {
+                margin-bottom: map_get($mq-indents, 'sm') / 3;
+            }
+
+            > a {
+                font-weight: 300;
+            }
+        }
+    }
+
+    &__contacts {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+        padding: map_get($mq-indents, 'sm');
+        border-radius: 2px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.09);
+
+        > dl {
+            color: $color-light;
+
+            &:not(:last-child) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+            }
+
+            dt {
+                @include text-small(300);
+
+                &:not(:last-child) {
+                    margin-bottom: map_get($mq-indents, 'sm') / 3;
+                }
+            }
+
+            dd {
+                > a {
+                    @include text-base(400);
+                    @include interact(text-decoration, underline);
+                }
+            }
+        }
+    }
+
+}

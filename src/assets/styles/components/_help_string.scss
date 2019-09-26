@@ -1,0 +1,47 @@
+
+.help-string {
+    display: inline-flex;
+    overflow: visible;
+    padding: .2rem; // for box-shadow in ios
+
+    &__trigger {
+        @include interact(text-decoration, underline);
+        cursor: pointer;
+    }
+
+    &__button,
+    &__link {
+        @include size(2rem);
+        @include interact(background, $color-lightest-secondary);
+
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: map_get($mq-indents, 'sm') / 3;
+        border-radius: 50%;
+        text-decoration: none !important;
+        background: #fff;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.09);
+        overflow: visible;
+        transition: background-color $transition-duration-base-min;
+
+        &::after {
+            @include font(1.2rem);
+
+            font-weight: 900;
+            color: $color-base;
+            content: attr(data-help-icon-content);
+        }
+    }
+
+    .tooltip-box {
+        position: static;
+        display: inline-block;
+        margin-left: .6rem;
+
+        @include mq(sx) {
+            position: relative; // for tooltip
+        }
+    }
+}
+

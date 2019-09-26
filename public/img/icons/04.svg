@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="48px" viewBox="0 0 50 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>04</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M26,52 C40.3594035,52 52,40.3594035 52,26 C52,11.6405965 40.3594035,0 26,0 C19.0127822,0 12.4580144,2.77243298 7.61522369,7.61522369 C2.77243298,12.4580144 0,19.0127822 0,26 C0,40.3594035 11.6405965,52 26,52 Z" id="path-1"></path>
+    </defs>
+    <g id="23.-Feedback" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-976.000000, -418.000000)">
+            <g id="04" transform="translate(975.000000, 418.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Path" fill-opacity="0" fill="#02C5AB" fill-rule="nonzero" xlink:href="#path-1"></use>
+                <g id="Group-12" mask="url(#mask-2)" stroke="#FFFFFF" stroke-linecap="square">
+                    <g transform="translate(-19.000000, -20.000000)" id="Line">
+                        <path d="M43.8987716,0 L43.8987716,45"></path>
+                        <path d="M65.2975432,15.5471176 L65.2975432,60.5471176" transform="translate(65.297543, 38.047118) rotate(72.000000) translate(-65.297543, -38.047118) "></path>
+                        <path d="M57.1239398,40.7028824 L57.1239398,85.7028824" transform="translate(57.123940, 63.202882) rotate(144.000000) translate(-57.123940, -63.202882) "></path>
+                        <path d="M30.6736034,40.7028824 L30.6736034,85.7028824" transform="translate(30.673603, 63.202882) rotate(216.000000) translate(-30.673603, -63.202882) "></path>
+                        <path d="M22.5,15.5471176 L22.5,60.5471176" transform="translate(22.500000, 38.047118) rotate(288.000000) translate(-22.500000, -38.047118) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

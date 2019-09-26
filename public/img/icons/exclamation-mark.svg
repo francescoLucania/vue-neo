@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <g id="03.4-Model-Insurance" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03.4.3-Model-Insurance-768" transform="translate(-64.000000, -4307.000000)">
+            <g id="Group-5" transform="translate(64.000000, 4307.000000)">
+                <g id="Group-4">
+                    <path d="M16,0 L16,0 C24.836556,-1.623249e-15 32,7.163444 32,16 L32,16 C32,24.836556 24.836556,32 16,32 L16,32 C7.163444,32 1.082166e-15,24.836556 0,16 L0,16 C-1.082166e-15,7.163444 7.163444,1.623249e-15 16,0 Z" id="Rectangle" fill="#2898BC"></path>
+                    <g id="Group-12" transform="translate(13.000000, 7.500000)" fill="#FFFFFF" fill-rule="nonzero">
+                        <path d="M3.53304462,10.5010442 C3.36404601,10.8253465 2.63581776,10.8250912 2.46676103,10.5006713 C0.822253676,7.34486049 0,4.51130341 0,3 C5.53380342e-17,1.34314575 1.34314575,0 3,0 C4.65685425,0 6,1.34314575 6,3 C6,4.51136294 5.17768154,7.34504434 3.53304462,10.5010442 Z M3,17 C1.61928813,17 0.5,15.8807119 0.5,14.5 C0.5,13.1192881 1.61928813,12 3,12 C4.38071187,12 5.5,13.1192881 5.5,14.5 C5.5,15.8807119 4.38071187,17 3,17 Z" id="Combined-Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

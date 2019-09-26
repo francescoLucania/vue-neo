@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+// Responsive (for example: xs, sm, md, lg, xl)
+$mq-breakpoints: (
+    "sm": 634px,
+    "sx": 635px,
+    "md": 913px,
+    "lg": 1196px,
+    "xl": 1440px
+
+);
+
+$mq-indents: (
+    "sm": 2.4rem,
+    "sx": 4.8rem,
+    "md": 4.8rem,
+    "lg": 4.8rem
+);
+
+$mq-container-widths: (
+    "sm": 100%,
+    "sx": 100%,
+    "md": 100%,
+    "lg": 100%,
+    "xl": 1568px,
+);
+
+$mq-container-indents: (
+    "sm": 24px,
+    "sx": 64px,
+    "md": 64px,
+    "lg": 64px,
+    "xl": 64px
+);
+
+$mq-grid-gutters: (
+    "sm": map-get($mq-indents, "sm"),
+    "sx": map-get($mq-indents, "sm"),
+    "md": map-get($mq-indents, "md"),
+    "lg": map-get($mq-indents, "lg"),
+    "xl": map-get($mq-indents, "lg")
+);
+
+// Not responsive
+$width: 1220px;
+$indent: 2rem;
+
+$container-width: $width;
+$container-indent: $indent;
+
+$grid-gutter: $indent;
+
+// Border radius
+$border-radius-base: .5rem;
+$border-radius-min: .2rem;
+
+// Colors
+$color-base: #1A1A1A;
+$color-cod-gray: #191919;
+
+$color-light: #404040;
+$color-lighter: #666666;
+$color-lighter-secondary: #595959;
+$color-lightest: #cccccc;
+$color-lightest-minimal: #e8e8e8;
+$color-lightest-secondary: #f2f2f2;
+
+// brand colors
+$brand-grapefruit: #ff5f5f;
+$brand-reddish: #c54a4a;
+$brand-greyish: #a8a8a8;
+$brand-gray: #808080;
+
+$brand-turquoise: #02c5ab;
+$brand-blue-green: #136a5e;
+
+$brand-duck-egg-blue: #bcf2eb;
+$brand-bluish: #2898bc;
+
+$color-amber: #ffbb03;
+
+// support colors
+$color-error: $brand-grapefruit;
+$color-warning: #f90;
+$color-success: #390;
+$color-placeholder: #999;
+
+
+// Fonts
+$font-family-text: "Roboto", Arial, Helvetica, sans-serif;
+$font-family-title: $font-family-text;
+
+$font-weight-text: 400;
+$font-weight-title: $font-weight-text;
+
+// Forms
+$checkbox-size: 2rem;
+
+$radio-size: 2rem;
+
+// Links
+$color-link: #369;
+
+// Transitions
+$transition-duration-base: .4s;
+$transition-duration-base-min: .2s;

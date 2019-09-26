@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.filter-list {
+
+    &__line {
+
+        .filter-list__line {
+            padding-left: map_get($mq-container-indents, 'sx') / 2;
+        }
+
+        .label-checkbox {
+            margin-left: -.5rem;
+        }
+
+        &--grid {
+            @include mq(sx) {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .filter-list__line {
+                flex-grow: 1;
+                padding-left: 0;
+                max-width: 50%;
+
+                &:first-child {
+                    margin-right: map_get($mq-container-indents, 'sx') / 4;
+                }
+
+                &:not(:first-child) {
+                    margin-left: map_get($mq-container-indents, 'sx') / 4;
+                }
+            }
+        }
+    }
+
+    &--type-checkbox-label {
+        margin: -.8rem 0 -.8rem -.8rem;
+        padding-left: .8rem;
+    }
+}

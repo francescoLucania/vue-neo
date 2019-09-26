@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="101px" height="90px" viewBox="0 0 101 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Group 23</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="98.4813457%" id="linearGradient-1">
+            <stop stop-color="#F2F2F2" offset="0%"></stop>
+            <stop stop-color="#C4C4C4" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="98.4813457%" id="linearGradient-2">
+            <stop stop-color="#F2F2F2" offset="0%"></stop>
+            <stop stop-color="#C4C4C4" offset="100%"></stop>
+        </linearGradient>
+        <path d="M6,32.5 L8.81711598,31.3262017 C10.8239094,30.4900377 12.3282875,28.7689219 12.8884529,26.6683018 L18.0204337,7.42337349 C19.1877762,3.04583935 23.1522761,6.16131115e-15 27.6827831,5.32907052e-15 L72.3172169,5.32907052e-15 C76.8477239,4.49682989e-15 80.8122238,3.04583935 81.9795663,7.42337349 L86.9846253,26.1923449 C87.6248143,28.5930536 89.3441035,30.5600431 91.6375817,31.5156591 L94,32.5 C97.6333077,34.0138782 100,37.5639167 100,41.5 L100,68 C100,70.7614237 97.7614237,73 95,73 L5,73 C2.23857625,73 3.38176876e-16,70.7614237 0,68 L-1.42108547e-14,41.5 C-1.11969417e-14,37.5639167 2.36669235,34.0138782 6,32.5 Z" id="path-3"></path>
+        <linearGradient x1="84.0282645%" y1="43.2153637%" x2="1.72505803%" y2="57.7594123%" id="linearGradient-5">
+            <stop stop-color="#5E5E5E" offset="0%"></stop>
+            <stop stop-color="#1A1A1A" offset="100%"></stop>
+        </linearGradient>
+        <path d="M11.6081245,-5.32907052e-15 L54.3918755,-5.32907052e-15 C58.2276159,-9.44050638e-15 61.5235575,2.7224991 62.2479271,6.48922085 L66,26 L0,26 L3.75207291,6.48922085 C4.47644248,2.7224991 7.77238415,-1.95992119e-15 11.6081245,-2.66453526e-15 Z" id="path-6"></path>
+    </defs>
+    <g id="UI-Set" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="00.-cars" transform="translate(-369.000000, -1088.000000)">
+            <g id="Group-23" transform="translate(370.000000, 1088.000000)">
+                <path d="M4,73 L18,73 L18,88 C18,89.1045695 17.1045695,90 16,90 L6,90 C4.8954305,90 4,89.1045695 4,88 L4,73 Z" id="Rectangle-20" fill="#1A1A1A"></path>
+                <path d="M82,73 L96,73 L96,88 C96,89.1045695 95.1045695,90 94,90 L84,90 C82.8954305,90 82,89.1045695 82,88 L82,73 Z" id="Rectangle-20" fill="#1A1A1A"></path>
+                <g id="Group-2">
+                    <path d="M1.84247031,26 L10.5,26 C12.4329966,26 14,27.5670034 14,29.5 L14,29.5 C14,31.4329966 12.4329966,33 10.5,33 L4.04478515,33 C2.02013866,33 0.306127378,31.5057379 0.0300680429,29.5 L-0.138851309,28.2726988 C-0.289458698,27.1784451 0.475517796,26.1692858 1.56977151,26.0186784 C1.66013879,26.0062407 1.75125112,26 1.84247031,26 Z" id="Rectangle-23" fill="url(#linearGradient-1)"></path>
+                    <path d="M89.5,26 L97.9995409,26 C99.1041104,26 99.9995409,26.8954305 99.9995409,28 C99.9995409,28.0967252 99.9925241,28.193323 99.9785457,28.2890328 L99.8016845,29.5 C99.5081491,31.5098341 97.7845359,33 95.7533796,33 L89.5,33 C87.5670034,33 86,31.4329966 86,29.5 L86,29.5 C86,27.5670034 87.5670034,26 89.5,26 Z" id="Rectangle-23" fill="url(#linearGradient-1)"></path>
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <use id="Rectangle-6" fill="url(#linearGradient-2)" xlink:href="#path-3"></use>
+                    <rect id="Rectangle-19" fill="#1A1A1A" mask="url(#mask-4)" x="23" y="46" width="2" height="14" rx="1"></rect>
+                    <rect id="Rectangle-19" fill="#1A1A1A" mask="url(#mask-4)" x="19" y="46" width="2" height="14" rx="1"></rect>
+                    <rect id="Rectangle-19" fill="#1A1A1A" mask="url(#mask-4)" x="39" y="46" width="2" height="14" rx="1"></rect>
+                    <rect id="Rectangle-19" fill="#1A1A1A" mask="url(#mask-4)" x="59" y="46" width="2" height="14" rx="1"></rect>
+                    <rect id="Rectangle-19" fill="#1A1A1A" mask="url(#mask-4)" x="31" y="46" width="2" height="14" rx="1"></rect>
+                    <rect id="Rectangle-19" fill="#1A1A1A" mask="url(#mask-4)" x="47" y="46" width="2" height="14" rx="1"></rect>
+                    <rect id="Rectangle-19" fill="#1A1A1A" mask="url(#mask-4)" x="67" y="46" width="2" height="14" rx="1"></rect>
+                    <rect id="Rectangle-19" fill="#1A1A1A" mask="url(#mask-4)" x="75" y="46" width="2" height="14" rx="1"></rect>
+                    <rect id="Rectangle-19" fill="#1A1A1A" mask="url(#mask-4)" x="27" y="46" width="2" height="14" rx="1"></rect>
+                    <rect id="Rectangle-19" fill="#1A1A1A" mask="url(#mask-4)" x="43" y="46" width="2" height="14" rx="1"></rect>
+                    <rect id="Rectangle-19" fill="#1A1A1A" mask="url(#mask-4)" x="63" y="46" width="2" height="14" rx="1"></rect>
+                    <rect id="Rectangle-19" fill="#1A1A1A" mask="url(#mask-4)" x="35" y="46" width="2" height="14" rx="1"></rect>
+                    <rect id="Rectangle-19" fill="#1A1A1A" mask="url(#mask-4)" x="55" y="46" width="2" height="14" rx="1"></rect>
+                    <rect id="Rectangle-19" fill="#1A1A1A" mask="url(#mask-4)" x="51" y="46" width="2" height="14" rx="1"></rect>
+                    <rect id="Rectangle-19" fill="#1A1A1A" mask="url(#mask-4)" x="71" y="46" width="2" height="14" rx="1"></rect>
+                    <rect id="Rectangle-19" fill="#1A1A1A" mask="url(#mask-4)" x="79" y="46" width="2" height="14" rx="1"></rect>
+                    <g id="Group-3" mask="url(#mask-4)">
+                        <g transform="translate(17.000000, 3.000000)">
+                            <mask id="mask-7" fill="white">
+                                <use xlink:href="#path-6"></use>
+                            </mask>
+                            <use id="Rectangle-22" stroke="none" fill="url(#linearGradient-5)" fill-rule="evenodd" xlink:href="#path-6"></use>
+                            <rect id="Rectangle" stroke="none" fill-opacity="0.6" fill="#404040" fill-rule="nonzero" mask="url(#mask-7)" x="28" y="2" width="10" height="4" rx="2"></rect>
+                            <circle id="Oval" stroke="#404040" stroke-width="2" fill-opacity="0" fill="#FFFFFF" fill-rule="evenodd" mask="url(#mask-7)" cx="54" cy="28" r="6"></circle>
+                        </g>
+                    </g>
+                </g>
+                <path d="M0,45 L0,44 C-1.3527075e-16,42.8954305 0.8954305,42 2,42 L14,42 C15.6568542,42 17,43.3431458 17,45 L17,48.8754563 C17,49.4277411 16.5522847,49.8754563 16,49.8754563 C15.9609526,49.8754563 15.9219387,49.8731693 15.8831588,49.8686069 L2.97945181,48.3505237 C1.28044763,48.1506409 2.09502972e-16,46.7107216 0,45 Z" id="Fill-11" fill="#FFEC7D"></path>
+                <path d="M83,45 L83,44 C83,42.8954305 83.8954305,42 85,42 L97,42 C98.6568542,42 100,43.3431458 100,45 L100,48.8754563 C100,49.4277411 99.5522847,49.8754563 99,49.8754563 C98.9609526,49.8754563 98.9219387,49.8731693 98.8831588,49.8686069 L85.9794518,48.3505237 C84.2804476,48.1506409 83,46.7107216 83,45 Z" id="Fill-11" fill="#FFEC7D" transform="translate(91.500000, 45.950118) scale(-1, 1) translate(-91.500000, -45.950118) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

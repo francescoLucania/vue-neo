@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+.question-answer {
+    margin-bottom: calc(-1 * #{map-get($mq-container-indents, 'sx')} / 2);
+
+    @include mq(sx) {
+        margin-bottom: calc(-1 * #{map-get($mq-container-indents, 'sx')});
+    }
+
+    &__item {
+        a {
+            text-decoration: none !important;
+        }
+    }
+
+    &__item-title > a {
+        display: block;
+    }
+
+    &__item-title > a,
+    &__item-content {
+        @include header-offer-h3;
+
+        margin: 0 calc(-1 * #{map-get($mq-container-indents, 'sm')});
+        padding: 1.4rem calc(#{map-get($mq-container-indents, 'sx')} + #{map-get($mq-container-indents, 'sm')}) 1.4rem map-get($mq-container-indents, 'sm');
+        border-top: 1px solid $color-lightest-minimal;
+
+        @include mq(sx) {
+            margin: 0 calc(-1 * #{map-get($mq-container-indents, 'sx')});
+            padding: map-get($mq-indents, 'sx') calc(#{map-get($mq-container-indents, 'sx')} + #{map-get($mq-container-indents, 'sm')}) map-get($mq-indents, 'sx') map-get($mq-container-indents, 'sx');
+        }
+    }
+
+    &__item-title {
+        &.is-active {
+            a::after {
+                transform: translateY(-50%) rotate(180deg);
+            }
+
+            + .question-answer__item-content {
+                border-top: 1px solid $color-lightest-minimal;
+                margin-top: 0;
+                max-height: none;
+            }
+        }
+
+        > a {
+            @include interact(background-color, $color-lightest-secondary);
+
+            position: relative;
+            font-weight: 400;
+            cursor: pointer;
+            transition: background-color $transition-duration-base-min;
+
+            &:not(.is-active) {
+                @include interact(border-color, $color-lightest-secondary, "hover .question-answer__item-content");
+            }
+
+            &::after {
+                position: absolute;
+                top: 50%;
+                right: map-get($mq-container-indents, 'sm');;
+                transform: translateY(-50%);
+                border-top: .6rem solid $color-base;
+                border-right: .5rem solid transparent;
+                border-left: .5rem solid transparent;
+                transition: $transition-duration-base;
+                content: "";
+
+                @include mq(sx) {
+                    right: map-get($mq-container-indents, 'sx');
+                }
+            }
+
+        }
+    }
+
+    &__item-content {
+        padding-top: 0;
+        padding-bottom: 0;
+        max-height: 0;
+        border-top: .1rem solid $color-lightest-minimal;
+        overflow: hidden;
+        font-weight: 300;
+        color: $color-light;
+        border-top: 0;
+
+        @include mq(sx) {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        > article,
+        > div {
+            padding-top: 1.4rem;
+            padding-bottom: 1.4rem;
+            max-width: 97.2rem;
+            opacity: 1;
+
+            @include mq(sx) {
+                padding-top: map-get($mq-indents, 'sx');
+                padding-bottom: map-get($mq-indents, 'sx');
+            }
+        }
+    }
+}

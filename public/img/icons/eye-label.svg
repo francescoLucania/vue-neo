@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="16px" viewBox="0 0 22 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>Group 41</title>
+    <desc>Created with Sketch.</desc>
+    <g id="23.-Feedback" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="23.1.000-UGC-Feedback-1440" transform="translate(-1117.000000, -80.000000)">
+            <g id="Group-45" transform="translate(1101.000000, 32.000000)">
+                <g id="Group-43" transform="translate(16.000000, 44.000000)">
+                    <g id="Group-41" transform="translate(0.000000, 4.000000)">
+                        <g id="Group-39">
+                            <path d="M21.4111744,8 C18.2538218,2.9764939 14.7844964,0.5 11,0.5 C7.21550356,0.5 3.74617817,2.9764939 0.588825624,8 C3.74617817,13.0235061 7.21550356,15.5 11,15.5 C14.7844964,15.5 18.2538218,13.0235061 21.4111744,8 Z" id="Oval" stroke="#999999" fill="#FFFFFF" fill-rule="nonzero"></path>
+                            <circle id="Oval" fill="#2898BC" cx="11" cy="8" r="4"></circle>
+                            <circle id="Oval" fill="#1A1A1A" cx="11" cy="8" r="2"></circle>
+                            <circle id="Oval" fill="#FFFFFF" cx="12.5" cy="5.5" r="1.5"></circle>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

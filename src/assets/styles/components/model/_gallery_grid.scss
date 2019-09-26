@@ -1,0 +1,289 @@
+@charset "UTF-8";
+
+.gallery-grid {
+    margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+
+    @include mq(sx) {
+        margin-bottom: map_get($mq-container-indents, 'sx');
+    }
+
+    @include mq(lg) {
+        margin: 0 auto;
+        max-width: 97.2rem;
+    }
+
+    .mod_no-flexboxtweener & {
+        display: grid;
+        grid-template-areas:
+            'a a a b c'
+            'a a a d e'
+            'a a a f g'
+            'h j m p p'
+            'k l n p p';
+
+        @include mq(sm) {
+            grid-template-areas:
+                'a a a a a a a a a a'
+                'a a a a a a a a a a'
+                'a a a a a a a a a a'
+                'a a a a a a a a a a'
+                'a a a a a a a a a a'
+                'b b c c d d e e f f'
+                'b b c c d d e e f f';
+        }
+    }
+
+    .mod_flexboxtweener & {
+        &::after {
+            display: table;
+            clear: both;
+            content: "";
+        }
+    }
+
+    &__item {
+        position: relative;
+        border: 0.05rem solid #fff;
+        background: $color-base;
+        text-align: center;
+
+        > a {
+            display: block;
+            padding-bottom: 75.45%;
+            cursor: zoom-in;
+
+            @include mq(sm) {
+                border-radius: $border-radius-min;
+                overflow: hidden;
+            }
+
+            &:hover {
+                &::before,
+                &::after {
+                    opacity: 1;
+                }
+            }
+
+            &::before,
+            &::after {
+                position: absolute;
+                opacity: 0;
+                transition: opacity $transition-duration-base-min;
+            }
+
+            &::before {
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10;
+                background-color: rgba(0, 0, 0, 0.6);
+                color: #fff;
+                content: "";
+            }
+
+            > img {
+                @include size(100%);
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                vertical-align: top;
+                object-fit: cover;
+
+                .mod_flexboxtweener & {
+                    visibility: hidden;
+                }
+            }
+
+            .mod_flexboxtweener & {
+                background: {
+                    position: 100%;
+                    size: cover;
+                    repeat: no-repeat;
+                };
+            }
+        }
+
+        &:nth-child(6) {
+            @include mq(sm) {
+                a::after {
+                    opacity: 0;
+                }
+
+                a::before {
+                    opacity: 1;
+                    content: attr(data-number);
+                }
+
+                &:hover {
+                    a::after {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .mod_no-flexboxtweener & {
+            &:nth-child(1) {
+                grid-area: a;
+
+                @include mq(sm) {
+                    margin-bottom: 1.2rem;
+                }
+                > a {
+                    @include mq(sm) {
+                        padding-bottom: 57.45%;
+                    }
+                }
+            }
+
+
+            &:nth-child(2) {
+                grid-area: b;
+
+                @include mq(sm) {
+                    margin-left: 1.2rem;
+                }
+            }
+
+            &:nth-child(3) {
+                grid-area: c;
+            }
+
+            &:nth-child(4) {
+                grid-area: d;
+            }
+
+            &:nth-child(5) {
+                grid-area: e;
+            }
+
+            &:nth-child(6) {
+                grid-area: f;
+
+                @include mq(sm) {
+                    margin-right: map_get($mq-container-indents, 'sx') / 4;
+                }
+            }
+
+            &:nth-child(7) {
+                grid-area: g;
+            }
+
+            &:nth-child(8) {
+                grid-area: h;
+            }
+
+            &:nth-child(9) {
+                grid-area: j;
+            }
+
+            &:nth-child(10) {
+                grid-area: k;
+            }
+
+            &:nth-child(11) {
+                grid-area: l;
+            }
+
+            &:nth-child(12) {
+                grid-area: m;
+            }
+
+            &:nth-child(13) {
+                grid-area: n;
+            }
+
+            &:nth-child(14) {
+                grid-area: p;
+            }
+
+            &:nth-child(7),
+            &:nth-child(8),
+            &:nth-child(9),
+            &:nth-child(10),
+            &:nth-child(11),
+            &:nth-child(12),
+            &:nth-child(13),
+            &:nth-child(14) {
+                @include mq(sm) {
+                    display: none;
+                }
+            }
+
+        }
+
+        .mod_flexboxtweener & {
+            display: block;
+            float: left;
+            line-height: 1;
+
+            &:nth-child(1) {
+                width: 50%;
+            }
+
+
+            &:nth-child(2) {
+                width: 25%;
+            }
+
+
+            &:nth-child(3) {
+                width: 25%;
+            }
+
+
+            &:nth-child(4) {
+                width: 25%;
+            }
+
+
+            &:nth-child(5) {
+                width: 25%;
+            }
+
+            &:nth-child(6) {
+                width: 25%;
+            }
+
+            &:nth-child(7) {
+                width: 25%;
+            }
+
+            &:nth-child(8) {
+                width: 25%;
+            }
+
+            &:nth-child(9) {
+                width: 25%;
+            }
+
+            &:nth-child(10) {
+                width: 50%;
+                float: right;
+            }
+
+            &:nth-child(11) {
+                width: 25%;
+            }
+
+            &:nth-child(12) {
+                width: 25%;
+            }
+
+            &:nth-child(13) {
+                width: 25%;
+            }
+
+            &:nth-child(14) {
+                width: 25%;
+            }
+        }
+    }
+
+}
+

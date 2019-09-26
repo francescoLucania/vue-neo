@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+// animations types
+@keyframes fixed-notification-animation {
+    0% {
+        transform: translateY(.5rem);
+        opacity: 0;
+    }
+
+    100% {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+.fixed-notification {
+    position: fixed;
+    top: map_get($mq-indents, 'sm') / 2;
+    right: map_get($mq-indents, 'sm') / 2;
+    transform: translateY(.5rem);
+    z-index: 10000;
+    display: none;
+    padding: map_get($mq-container-indents, 'sx') / 4;
+    min-width: 306px;
+    border-radius: 2px;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.11);
+    background: #ffffff;
+    opacity: 0;
+    animation: fixed-notification-animation .1s linear .1s 1 alternate forwards;
+
+    &.is-active {
+        display: block;
+    }
+
+    @include mq(sx) {
+        top: map_get($mq-container-indents, 'sx') / 2;
+        right: map_get($mq-container-indents, 'sx') / 2;
+    }
+
+
+    &__title {
+        font-weight: 400;
+
+        &:not(:last-child) {
+            margin-bottom: map_get($mq-indents, 'sm') / 3;
+        }
+    }
+
+    &__feedback-statistics {
+        display: flex;
+        align-items: center;
+        margin-left: map_get($mq-container-indents, 'sx') / 8;
+
+        > a,
+        > div {
+            &:not(:first-child) {
+                margin-left: map_get($mq-container-indents, 'sx') / 4;
+            }
+
+            &.views-indicator {
+                position: relative;
+                top: .05rem;
+            }
+        }
+    }
+
+
+    &__action {
+        margin-top: map_get($mq-container-indents, 'sx') / 4;
+    }
+
+    &__close {
+        @include size(1.6rem);
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(50%, -50%);
+        border-radius: 50%;
+        background: #ffffff;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(0, 0, 0, 0.09);
+        cursor: pointer;
+        outline: none;
+
+        .mod_no-touchevents & {
+            &:hover {
+                &::before,
+                &::after {
+                    background: $brand-turquoise;
+                }
+            }
+        }
+
+        &::before,
+        &::after {
+            position: absolute;
+            top: .3rem;
+            left: 50%;
+            bottom: .3rem;
+            width: 1px;
+            background: $color-base;
+            transition: $transition-duration-base-min;
+            content: "";
+        }
+
+        &::before {
+            transform: translateX(-50%) rotate(-45deg);
+        }
+
+        &::after {
+            transform: translateX(-50%) rotate(45deg);
+        }
+
+    }
+}

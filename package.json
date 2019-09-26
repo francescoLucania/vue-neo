@@ -9,17 +9,33 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "jquery": "^3.4.1",
+    "magnific-popup": "^1.1.0",
+    "modernizr": "^3.7.1",
+    "normalize.css": "^8.0.1",
+    "sass-resources-loader": "^2.0.1",
+    "svg4everybody": "^2.1.9",
+    "underscore": "^1.9.1",
+    "utils": "^0.3.1",
     "vue": "^2.6.10",
+    "vue-router": "^3.1.3",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-eslint": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
+    "media-query-plugin": "^1.3.1",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0",
+    "vue-svg-loader": "^0.12.0",
+    "vue-template-compiler": "^2.6.10",
+    "webp-in-css": "^0.3.0",
+    "webpack-modernizr-loader": "^5.0.0"
   },
   "eslintConfig": {
     "root": true,
@@ -30,14 +46,21 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
   },
   "postcss": {
     "plugins": {
-      "autoprefixer": {}
+      "autoprefixer": {},
+      "webp-in-css/plugin": {
+        "modules": false,
+        "webpClass": "mod_webp",
+        "noWebpClass": "mod_no-webp"
+      }
     }
   },
   "browserslist": [

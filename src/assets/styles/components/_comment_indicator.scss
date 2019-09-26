@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.comment-indicator {
+    @include interact(fill, $brand-turquoise, 'hover .icon');
+
+    display: inline-flex;
+    align-items: center;
+    font-size: 0;
+    outline: none;
+
+    &.comment-indicator--label-type {
+        &::before {
+            @include size(2rem);
+
+            background-position: 50%;
+            background-size: contain;
+            background-image: url(../img/icons/comment-label.svg);
+            background-repeat: no-repeat;
+            content: "";
+        }
+    }
+
+    &.is-active {
+        > .icon {
+            fill: $brand-turquoise;
+        }
+    }
+
+    > .icon {
+        @include size(1.6rem);
+
+        fill: $color-lightest;
+    }
+
+    > span {
+        @include text-small(400);
+
+        margin-left: .5rem;
+        font-weight: 400;
+        color: $color-light;
+    }
+}

@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+.credit-document-information {
+
+    .tabs {
+        display: flex;
+        justify-content: center;
+        margin-top: calc(-1 * #{map-get($mq-container-indents, 'sx')} / 2 / 2);
+
+        @include mq(sx) {
+            margin-top: calc(-1 * #{map-get($mq-container-indents, 'sx')} / 2);
+        }
+    }
+
+    &__navigate {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-top: calc(-1 * #{map-get($mq-container-indents, 'sx')} / 2 / 2);
+
+        @include mq(sx) {
+            margin-top: calc(-1 * #{map-get($mq-container-indents, 'sx')} / 2);
+        }
+
+        > li {
+
+            &.is-caret {
+                position: absolute;
+                top: 0;
+                // left is set from js
+                z-index: -1;
+                // width is set from js
+                height: 100%;
+                margin: 0;
+                border-radius: $border-radius-min;
+                border: 1px solid $color-lighter;
+                pointer-events: none;
+                transition: all $transition-duration-base-min;
+
+                .mod_no-js & {
+                    display: none;
+                }
+            }
+
+            > a {
+                @include interact(text-decoration, none);
+                font-size: 1.3rem;
+                line-height: 1.23;
+                display: block;
+                padding: .4rem .8rem;
+                border-radius: $border-radius-min;
+                border: solid 1px transparent;
+                color: $color-lighter;
+                white-space: nowrap;
+                transition: $transition-duration-base-min;
+            }
+        }
+    }
+
+    &__list {
+        display: none;
+        margin-top: calc(#{map-get($mq-container-indents, 'sx')} / 2 / 2);
+
+        @include mq(sx) {
+            margin: map-get($mq-indents, 'sm') auto 0;
+            width: 34.7rem;
+        }
+
+        &.is-active {
+            display: block;
+        }
+
+        > li {
+            position: relative;
+
+            @include mq(sm) {
+                @include text-small;
+            }
+
+            > a {
+
+            }
+
+            .help-string {
+                .tooltip-box {
+                    position: static;
+                    display: inline-block;
+                    margin-left: .6rem;
+
+                    @include mq(sx) {
+                        position: relative; // for tooltip
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mod_touchevents {
+    .credit-document-information__navigate {
+        > li {
+            &.is-caret {
+                display: none !important;
+            }
+
+            > a {
+                &.is-current {
+                    border: solid 1px $color-lighter;
+                }
+            }
+        }
+    }
+}
+
+

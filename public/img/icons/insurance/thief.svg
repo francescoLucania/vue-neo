@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="22px" viewBox="0 0 16 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 19</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <ellipse id="path-1" cx="8" cy="9" rx="8" ry="9"></ellipse>
+    </defs>
+    <g id="03.4-Model-Insurance" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03.4.3-Model-Insurance-768" transform="translate(-72.000000, -1947.000000)">
+            <g id="Group-21" transform="translate(64.000000, 1943.000000)">
+                <g id="Group-19" transform="translate(8.000000, 4.000000)">
+                    <g id="Group-20" transform="translate(0.000000, 4.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Oval-7" fill="#FFD39E" fill-rule="nonzero" xlink:href="#path-1"></use>
+                        <rect id="Rectangle-12" fill="#404040" fill-rule="nonzero" mask="url(#mask-2)" x="5" y="14" width="6" height="1"></rect>
+                        <rect id="Combined-Shape" fill="#404040" fill-rule="nonzero" mask="url(#mask-2)" x="-1" y="0" width="18" height="10"></rect>
+                        <path d="M11.5,9 C12.4204746,9 13.2538079,8.5 14,7.5 C13.2538079,6.5 12.4204746,6 11.5,6 C10.5795254,6 9.74619208,6.5 9,7.5 C9.74619208,8.5 10.5795254,9 11.5,9 Z" id="Oval-8" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)"></path>
+                        <path d="M4.5,9 C5.42047458,9 6.25380792,8.5 7,7.5 C6.25380792,6.5 5.42047458,6 4.5,6 C3.57952542,6 2.74619208,6.5 2,7.5 C2.74619208,8.5 3.57952542,9 4.5,9 Z" id="Oval-8" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)"></path>
+                        <circle id="Oval-10" fill="#1A1A1A" fill-rule="nonzero" mask="url(#mask-2)" cx="12.25" cy="7.25" r="1"></circle>
+                        <circle id="Oval-10" fill="#1A1A1A" fill-rule="nonzero" mask="url(#mask-2)" cx="5.25" cy="7.25" r="1"></circle>
+                    </g>
+                    <circle id="Oval-11" fill="#404040" fill-rule="nonzero" cx="8" cy="2" r="2"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

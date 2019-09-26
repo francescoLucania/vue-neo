@@ -1,0 +1,84 @@
+.banner-badge {
+    @include size(4.6rem);
+
+    justify-content: center;
+    align-items: center;
+    min-width: 4.6rem;
+    border-radius: 50%;
+    overflow: hidden;
+
+    @include mq(sm) {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1.6rem;
+    }
+
+    &:not(.is-sm) {
+        @include mq(sx) {
+            display: flex;
+        }
+    }
+
+    > img {
+        vertical-align: top;
+    }
+
+    &[data-background-color="color-amber"] {
+        background-color: $color-amber;
+    }
+
+    &[data-background-color="brand-duck-egg-blue"] {
+        background-color: $brand-duck-egg-blue;
+    }
+
+    &[data-image="wallet"] {
+        > img {
+            max-width: 2.1rem;
+
+            .tooltip & {
+                @include mq(sm) {
+                    max-width: 3.7rem;
+                }
+            }
+        }
+    }
+
+    &[data-image="gift"] {
+        > img {
+            max-width: 2.1rem;
+
+            .tooltip & {
+                @include mq(sm) {
+                    max-width: 3.2rem;
+                }
+            }
+        }
+    }
+
+    &[data-image="service"] {
+        > img {
+            max-width: 1.8rem;
+
+            .tooltip & {
+                @include mq(sm) {
+                    max-width: 2.8rem;
+                }
+            }
+        }
+    }
+
+    &[data-image="travel"] {
+        align-items: flex-end;
+
+        > img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    @include mq(sx) {
+        margin-bottom: 0;
+        margin-right: map_get($mq-container-indents, 'sx') / 4;
+    }
+}

@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+.contacts-link {
+    > li {
+        &:not(:last-child) {
+            margin-bottom: 1.6rem;
+        }
+
+        > a {
+            @include interact(text-decoration, none);
+
+            display: flex;
+            align-items: center;
+
+            &[data-phone] {
+                > .icon {
+                    fill: $brand-turquoise
+                }
+            }
+
+            &[data-telegram] {
+                > .icon {
+                    fill: #2898BC;
+                }
+            }
+
+            &[data-mail] {
+                > .icon {
+                    fill: $color-amber;
+                }
+            }
+
+            &[data-mail-color-base] {
+                > .icon {
+                    fill: $color-base;
+                }
+            }
+
+            > .icon,
+            > span {
+                display: block;
+            }
+
+            > .icon {
+                @include size(1.4rem);
+
+                margin-right: .8rem;
+            }
+
+            > span {
+                white-space: nowrap;
+                font-weight: 300;
+            }
+
+            &[data-color-white] {
+                color: #fff;
+            }
+
+            &[data-color-gray] {
+                color: $brand-gray;
+            }
+        }
+    }
+
+    &--grid {
+        @include mq(sx) {
+            display: flex;
+            justify-content: center;
+        }
+
+        > li {
+            @include mq(sx) {
+                &:not(:last-child) {
+                    margin-bottom: 0;
+
+                    margin-right: 4.8rem;
+                }
+            }
+        }
+    }
+
+    &--vertical {
+        border-radius: $border-radius-min;
+        box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.11);
+
+        > li {
+
+            &:not(:last-child) {
+                margin-bottom: 0;
+
+                > a {
+                    padding-bottom: calc(1.2rem - 1px);
+                    border-bottom: 1px solid $color-lightest-minimal;
+                }
+            }
+
+            &:first-child {
+                > a {
+                    border-top-left-radius: $border-radius-min;
+                    border-top-right-radius: $border-radius-min;
+                }
+            }
+
+            &:last-child & {
+                > a {
+                    border-bottom-left-radius: $border-radius-min;
+                    border-bottom-right-radius: $border-radius-min;
+                }
+            }
+
+            > a {
+                @include interact(background-color, $color-lightest-minimal);
+                @include interact(text-decoration, none);
+
+                padding: 1.2rem 2.4rem;
+                background-color: #fff;
+                transition: background-color $transition-duration-base-min;
+
+                > .icon {
+                    margin-right: map_get($mq-container-indents, 'sm');
+                }
+            }
+        }
+    }
+
+    &[data-font-weight="400"] {
+        > li {
+            > a {
+                > span {
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+    &[data-link-hover-underline] {
+        > li {
+            > a {
+                @include interact(text-decoration, underline);
+            }
+        }
+    }
+
+    &[data-link-hover-color] {
+        > li {
+            > a {
+                @include interact(color, $brand-turquoise, 'hover span');
+            }
+        }
+    }
+}

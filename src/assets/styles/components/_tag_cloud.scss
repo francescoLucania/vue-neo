@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+.tag-cloud {
+    @include mq(lg) {
+        padding: 0 map_get($mq-container-indents, 'sx');
+    }
+
+    &--not-all {
+        &:not(.is-sx-visible-all) {
+
+            > .tag-cloud__grid > .tag-cloud__item {
+
+                @include mq(sx) {
+                    @for $i from 16 through 50 {
+
+                        &:nth-child(#{$i}){
+                            @include mq(sx) {
+                                &:not(.tag-cloud__item--still) {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        > .tag-cloud__grid > .tag-cloud__item {
+            @include mq(sm) {
+                @for $i from 10 through 50 {
+
+                    &:nth-child(#{$i}){
+                        @include mq(sm) {
+                            &:not(.tag-cloud__item--still) {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: -1 * map-get($mq-indents, 'sm') / 3;
+
+        &--justify-content-center {
+            justify-content: center;
+        }
+    }
+
+    &__item {
+        @include text-small(400);
+        @include interact(border-color, $color-cod-gray);
+
+        margin-bottom: map_get($mq-indents, 'sm') / 3;
+        padding: .5rem 1.1rem;
+        border-radius: 1.6rem;
+        border: 1px solid $color-lightest;
+        white-space: nowrap;
+        color: $color-cod-gray;
+        transition: border-color $transition-duration-base-min;
+
+        &:focus {
+            text-decoration: underline;
+        }
+
+        &:not(:last-child) {
+            margin-right: map_get($mq-indents, 'sm') / 3;
+        }
+
+        > .tag-cloud__grid > .tag-cloud__item {
+            @for $i from 9 through 32 {
+
+                &:nth-child(#{$i}){
+                    @include mq(sm) {
+                        &:not(.tag-cloud__item--still) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        &--still {
+            position: relative;
+            display: none !important;
+            font-size: 0;
+            line-height: 0;
+
+            &.is-visible.is-sm {
+                @include mq(sm) {
+                    display: flex !important;
+                }
+                @include mq(sx) {
+                    display: none !important;
+                }
+            }
+
+            &.is-visible.is-sx {
+                @include mq(sm) {
+                    display: none !important;
+                }
+                @include mq(sx) {
+                    display: flex !important;
+                }
+            }
+
+            > span {
+                @include size(.4rem);
+
+                transform: translateY(20%);
+                border-radius: 50%;
+                background: $color-cod-gray;
+
+                &:not(:last-child) {
+                    margin-right: map_get($mq-indents, 'sm') / 6;
+                }
+            }
+        }
+    }
+}

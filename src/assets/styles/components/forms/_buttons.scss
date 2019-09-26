@@ -1,0 +1,534 @@
+@charset "UTF-8";
+
+@if $enable-buttons == true {
+
+    .button {
+        @include font(1.6rem,1.6rem);
+        @include interact(background, $brand-blue-green);
+        @include button-focus;
+
+        display: inline-block;
+        padding: 1.2rem 2rem;
+        border-radius: $border-radius-min;
+        background: $brand-turquoise;
+        color: #fff !important;
+        font-weight: 700 !important; // Under any circumstances 700
+        text-align: center;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+        transition: $transition-duration-base;
+        white-space: nowrap;
+        text-decoration: none !important;
+        cursor: pointer;
+        outline: none;
+
+        &:focus {
+            background: $brand-blue-green;
+            color: #fff;
+        }
+
+        .mod_no-touchevents & {
+            &:hover {
+                color: #fff;
+            }
+        }
+
+        @at-root a#{&} {
+            text-decoration: none;
+        }
+
+        &:disabled {
+            opacity: .5;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        &:not(.button--secondary) {
+            @include interact(box-shadow, none);
+        }
+
+        &.button--block {
+            display: block;
+            width: 100%;
+        }
+
+        &.button--big {
+            padding-top: 1.6rem;
+            padding-bottom: 1.6rem;
+        }
+
+        &--secondary {
+            @include interact(background, $color-lightest-secondary);
+            @include button-focus-secondary;
+
+            background: #fff;
+            color: $color-base !important;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.09);
+
+            .mod_no-touchevents & {
+                &:hover {
+                    color: $color-base;
+                }
+            }
+        }
+
+        &--phone {
+            .icon {
+                @include size(1.6rem);
+
+                margin-right: 1rem;
+                fill: #fff;
+            }
+        }
+
+        &--back {
+            position: relative;
+            padding-left: 4rem;
+
+            @include mq(sm) {
+                @include interact(background, transparent);
+                @include interact(color, $brand-turquoise);
+                @include text-minimal(400);
+
+                padding: 0;
+                padding-left: 2rem;
+                line-height: 1;
+                box-shadow: none;
+            }
+
+            &::before {
+                @include size(1.15rem, 2rem);
+                position: absolute;
+                top: 50%;
+                left: 2rem;
+                transform: translateY(-50%) rotate(-180deg);
+                background: {
+                    position: 50%;
+                    size: contain;
+                    image: url(../img/icons/arrow-black.svg);
+                    repeat: no-repeat;
+                };
+                content: "";
+
+                @include mq(sm) {
+                    left: 0;
+                }
+            }
+        }
+
+        &--ellipsis {
+            @include ellipsis();
+        }
+
+        &[data-size-sm] {
+            @include font(1.3rem, 1.6rem);
+
+            padding: .8rem 3.6rem;
+        }
+
+        &[data-size-md-large] {
+            @include mq(md) {
+                font-size: 1.8rem;
+                line-height: 1.33;
+            }
+        }
+
+        &[data-circle] {
+            border-radius: 2.4rem;
+        }
+
+        &[data-size-xl] {
+            padding: 1.6rem 2rem;
+        }
+
+        &[data-promo] {
+            @include font(1.8rem, 2.4rem);
+
+            padding: 1.2rem 6.4rem;
+            min-width: 22.4rem;
+            border-radius: 2.4rem;
+            font-weight: 900;
+        }
+
+        &[data-callback] {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+
+            > .icon {
+                @include size(1.6rem);
+
+                margin-right: .8rem;
+                fill: #fff;
+            }
+        }
+
+        &[data-sm-fixed] {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            transform: rotateZ(0);
+            display: none;
+            border-radius: 0;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+
+            &.is-active {
+                display: block;
+            }
+
+            @include mq(sx) {
+                display: none !important; // overrides js
+            }
+        }
+    }
+
+    .button-old {
+        display: inline-block;
+        border: 1px solid #0a9b87;
+        box-shadow: inset 0 1px 0 #3ccfad;
+        color: #fff;
+        height: 44px;
+        line-height: 43px;
+        padding: 0 20px;
+        font-size: 14px;
+        font-weight: 700;
+        text-shadow: 0 1px 0 #12a985;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        background-color: #3dd0bc;
+        background-image: -webkit-linear-gradient(top, #3dd0bc, #00bfa5);
+        background-image: linear-gradient(to bottom, #3dd0bc, #00bfa5);
+
+        &:hover {
+            border-color: #087768;
+            opacity: 1;
+            background-color: #04c6ab;
+            background-image: -webkit-linear-gradient(top, #04c6ab, #0a9b87);
+            background-image: linear-gradient(to bottom, #04c6ab, #0a9b87);
+        }
+    }
+
+    .close-button {
+        @include size(2rem);
+        @include interact(fill, $brand-turquoise, 'hover .icon');
+
+        position: absolute;
+        top: 1.6rem;
+        right: 1.6rem;
+        font-size: 0;
+        cursor: pointer;
+        outline: none;
+
+        @include mq(md) {
+            top: 3.2rem;
+            right: 3.2rem;
+        }
+
+        > .icon {
+            @include size(100%);
+
+            fill: $color-base
+        }
+    }
+
+    .back-button {
+        @include interact(text-decoration, none);
+        @include interact(background-color, rgba(0, 0, 0, 0.05));
+        @include interact(border-color, rgba(0, 0, 0, 0.04));
+
+        position: absolute;
+        top: 1.2rem;
+        left: .8rem;
+        display: flex !important;
+        align-items: center;
+        padding: .4rem .8rem;
+        border-radius: $border-radius-min;
+        border: 1px solid transparent;
+        cursor: pointer;
+        outline: none;
+        transition: all $transition-duration-base-min;
+
+        @include mq(md) {
+            top: 2.8rem;
+            left: 2.4rem;
+        }
+
+        .icon {
+            @include size(1.5rem, 2rem);
+
+            margin-right: .8rem;
+            transform: rotate(180deg);
+            fill: $color-base;
+        }
+
+        > span {
+            @include text-small(400);
+        }
+
+        &--clear {
+            .icon {
+                @include size(.88rem);
+
+                margin-left: .8rem;
+            }
+        }
+
+        &.not-mobile {
+            @include mq(sm) {
+                display: none !important;
+            }
+        }
+    }
+
+    @keyframes rotate-download-close {
+        from {
+            transform: rotate(0);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .icon-link-list {
+        .tooltip & {
+            &:not(:first-child) {
+                margin-top: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+
+        > li {
+            line-height: 0;
+
+            &:not(:last-child) {
+                margin-bottom: .8rem;
+            }
+
+
+            > .icon-link {
+                > .load-close,
+                > .icon {
+                    margin-right: .8rem;
+                }
+
+                .load-close {
+                    margin: 0 auto;
+
+                    @include mq(md) {
+                        margin-right: 1.2rem;
+                    }
+                }
+
+                > span,
+                &::after {
+                    display: block;
+                }
+
+                &[data-report]{
+                    padding-left: 0;
+
+                    > .icon {
+                        position: relative;
+                        padding-left: 0;
+                        top: 0;
+                    }
+                }
+            }
+
+            &.is-mobile {
+                display: none;
+
+                @include mq-custom(max, 912px) {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .icon-link {
+        @include interact(text-decoration, underline, 'hover span');
+
+        display: inline-flex;
+        align-items: center;
+        line-height: 1.5;
+
+        &:not(:last-child) {
+            margin-right: map-get($mq-container-indents, 'sx') / 4;
+        }
+
+        > .icon,
+        > span {
+            display: block;
+        }
+
+        > .icon {
+            margin-right: .8rem;
+        }
+
+        > span,
+        &::after {
+            @include text-base(400);
+        }
+
+        &[data-download] {
+            position: relative;
+
+            > .icon {
+                @include size(1.3rem, 1.2rem);
+
+                fill: $color-light;
+
+                &.is-load {
+                    display: none;
+                }
+            }
+
+            > .load-icon,
+            > .load-close {
+                display: none;
+            }
+
+            > .load-icon {
+                @include size(2.4rem);
+
+                position: absolute;
+                top: 50%;
+                left: -.55rem;
+
+                @include mq(md) {
+                    left: -.74rem;
+                    transform: translateY(-50%);
+                }
+            }
+
+            > .load-close {
+                @include size(.9rem);
+
+                margin-right: 1.2rem;
+            }
+
+            &[data-content] {
+                &::after {
+                    content: attr(data-content);
+                }
+            }
+
+            &.is-load {
+                > .icon {
+                    display: none;
+                }
+
+                > .load-icon,
+                > .load-close {
+                    display: block;
+                }
+
+                > .load-icon {
+                    animation: rotate 1s linear infinite;
+                }
+
+                &::after {
+                    content: 'Отменить';
+                }
+            }
+        }
+
+        &[data-add-to-favourites] {
+            > .icon {
+                @include size(1.24rem, 1.2rem);
+
+                fill: $brand-grapefruit;
+            }
+
+            &.is-active {
+                > .icon {
+                    fill: $brand-reddish;
+                }
+            }
+        }
+
+        &[data-add] {
+            > .icon {
+                @include size(1.2rem);
+
+                fill: $color-light;
+            }
+        }
+
+        &[data-report] {
+            position: relative;
+            padding-left: 1.8rem;
+
+            > .icon {
+                @include size(1rem, 1.2rem);
+
+                position: absolute;
+                top: .6rem;
+                left: 0;
+            }
+        }
+
+        &[data-share] {
+            > .icon {
+                @include size(1.1rem, 1.2rem);
+
+                fill: $color-base
+            }
+        }
+    }
+
+    .open-still {
+        @include size(4.6rem, 3.2rem);
+
+        position: relative;
+        padding: .3rem .8rem;
+        border-radius: $border-radius-min;
+        border: 1px solid transparent;
+
+        &.is-active,
+        &:hover {
+            border-color: $color-lightest-minimal;
+        }
+
+        &.is-current {
+            color: $color-base;
+            border-color: $color-base;
+            pointer-events: none;
+        }
+
+        > span {
+            @include size(.4rem);
+
+            position: absolute;
+            display: block;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 50%;
+            background: $color-base;
+
+            &::before,
+            &::after {
+                @include size(100%);
+
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 0;
+                border-radius: 50%;
+                background: $color-base;
+                content: "";
+            }
+
+            &::before {
+                transform: translateX(-200%);
+            }
+
+            &::after {
+                transform: translateX(200%);
+            }
+        }
+    }
+}

@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: map_get($mq-container-indents, 'sx') / 2;
+
+    &.not-sm {
+        @include mq(sm) {
+            display: none !important;
+        }
+        @include mq(sx) {
+            display: flex !important; // override helpers
+        }
+    }
+
+    > li {
+        display: block;
+
+        &:not(:last-child) {
+            margin-right: map_get($mq-indents, 'sm');
+        }
+
+        > a {
+            @include interact(fill, $color-base);
+            @include text-base(400);
+
+            display: block;
+
+            &.is-arrow-prev,
+            &.is-arrow-next {
+                @include size(2rem, 1.6rem);
+                @include interact(fill, $color-light, 'hover .icon');
+
+                > .icon {
+                    @include size(2rem, 1.6rem);
+
+                    fill: $color-lightest;
+                }
+            }
+
+            &.is-arrow-prev {
+                margin-right: .2rem;
+                transform: rotate(-180deg);
+            }
+
+            &.is-arrow-next {
+                margin-left: .2rem;
+            }
+
+            &.is-current {
+                text-decoration: underline;
+                color: $color-light;
+            }
+        }
+    }
+}

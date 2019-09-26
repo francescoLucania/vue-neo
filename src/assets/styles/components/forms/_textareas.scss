@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+@if $enable-textareas == true {
+    .textarea {
+        > textarea {
+            @include text-base;
+
+            display: block;
+            padding: .8rem 1rem;
+            width: 100%;
+            min-height: 14rem;
+            line-height: 1.5;
+            color: $color-base;
+            border-radius: 2px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.09);
+            outline: none;
+            transition: box-shadow $transition-duration-base;
+
+            &::placeholder {
+                color: $color-placeholder;
+            }
+
+            &:hover,
+            &:focus {
+                box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.11);
+            }
+
+            &:disabled {
+                opacity: .5;
+            }
+
+            @if $enable-jquery-ui-datepicker == true {
+                &.hasDatepicker {
+                    &.hasDatepickerFocus {
+                        // Styles
+                    }
+                }
+            }
+        }
+
+        &[data-icon="pencil"] {
+            position: relative;
+
+            > textarea {
+                padding-left: 4rem;
+            }
+
+            > .icon {
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+            }
+
+        }
+
+        &.textarea--invalid {
+            > textarea {
+                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px $color-error;
+
+                &:hover,
+                &:focus {
+                    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px $color-error;
+                }
+            }
+        }
+    }
+}

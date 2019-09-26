@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+.rating {
+    display: flex;
+
+    &[data-rating='1'],
+    &[data-rating='1.5'] {
+        > li {
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(4),
+            &:nth-child(5) {
+                display: none;
+            }
+        }
+    }
+
+    &[data-rating='2'],
+    &[data-rating='2.5'] {
+        > li {
+            &:nth-child(3),
+            &:nth-child(4),
+            &:nth-child(5) {
+                display: none;
+            }
+        }
+    }
+
+    &[data-rating='3'],
+    &[data-rating='3.5'] {
+        > li {
+            &:nth-child(4),
+            &:nth-child(5) {
+                display: none;
+            }
+        }
+    }
+
+    &[data-rating='4'] {
+        > li {
+            &:nth-child(5) {
+                display: none;
+            }
+        }
+    }
+
+    > li {
+        @include size(2.4rem);
+
+        display: block;
+        background: {
+            position: 50%;
+            size: contain;
+            image: url(../img/icons/star.svg);
+            repeat: no-repeat;
+        };
+
+        &:not(:last-child) {
+            margin-right: .4rem;
+        }
+
+        &:nth-child(1) {
+            opacity: .2;
+        }
+
+        &:nth-child(2) {
+            opacity: .4;
+        }
+
+        &:nth-child(3) {
+            opacity: .6;
+        }
+
+        &:nth-child(4) {
+            opacity: .8;
+        }
+    }
+}

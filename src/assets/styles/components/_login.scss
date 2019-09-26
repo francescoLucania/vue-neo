@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+.login-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: auto;
+    background: {
+        position: 50%;
+        size: cover;
+        repeat: no-repeat;
+        image: url(../img/background-login.jpg);
+    };
+
+    .mod_webp & {
+        background-image: url(../img/background-login.webp);
+    }
+
+    &::before {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0.25);
+        content: "";
+    }
+
+    &__logo,
+    &__copyright {
+        position: relative;
+        z-index: 10;
+    }
+
+    &__logo {
+        margin: map_get($mq-container-indents, 'sx') / 2 0 0;
+        max-width: 12rem;
+
+        > img {
+            width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+
+        @include mq(md) {
+            margin: map_get($mq-container-indents, 'sx') 0 0;
+        }
+    }
+
+    &__copyright {
+        margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+        text-align: center;
+        font-weight: 400;
+        color: #fff;
+    }
+}
+
+.login-form {
+    position: relative;
+    z-index: 10;
+    padding: map_get($mq-container-indents, 'sx') / 2;
+    border-radius: $border-radius-min;
+    background-color: #ffffff;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+
+    @include mq(sm) {
+        margin: map_get($mq-container-indents, 'sx') / 4;
+    }
+
+    @include mq(sx) {
+        padding: map_get($mq-container-indents, 'sx') / 2 map_get($mq-container-indents, 'sx') map_get($mq-container-indents, 'sx') map_get($mq-container-indents, 'sx');
+        width: 420px;
+
+        @include mq(md) {
+            margin: map_get($mq-container-indents, 'sx') 0;
+        }
+    }
+
+    &__title {
+        @include header-h2;
+
+        margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+        text-align: center;
+    }
+
+    &__row {
+        &:not(:first-child) {
+            margin-top: map_get($mq-indents, 'sm');
+        }
+    }
+
+    &__warning,
+    &__actions {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+    }
+
+    &__actions {
+        > .button {
+            display: block;
+        }
+    }
+
+    &__warning {
+        @include text-minimal(300);
+
+        text-align: center;
+
+        > a {
+           font-weight: 400;
+        }
+    }
+}

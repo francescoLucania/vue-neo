@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="490px" height="490px" viewBox="0 0 490 490" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>drop-r</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M245,0 L490,0 L490,245 C490,380.309764 380.309764,490 245,490 L245,490 C109.690236,490 1.65706669e-14,380.309764 0,245 L0,245 C-1.65706669e-14,109.690236 109.690236,2.48560004e-14 245,0 Z" id="drop-r" fill="#FF5F5F" fill-rule="nonzero" transform="translate(245.000000, 245.000000) scale(-1, 1) translate(-245.000000, -245.000000) "></path>
+    </g>
+</svg>

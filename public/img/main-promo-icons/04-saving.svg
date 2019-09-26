@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="65px" viewBox="0 0 64 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="32" cy="32" r="32"></circle>
+        <filter x="-0.8%" y="-0.8%" width="101.6%" height="103.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.25 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="01.-A-B-Home-page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="C-01.1-Home-Page-1440" transform="translate(-1084.000000, -392.000000)">
+            <g id="Group-8" transform="translate(1084.000000, 392.000000)">
+                <g id="Group">
+                    <g id="Oval-3">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <g id="Illustration/-Credit/-Wallet" transform="translate(14.000000, 6.000000)">
+                        <g>
+                            <rect id="Rectangle-11" fill="#136A5E" x="0" y="15.275" width="34.8235294" height="28.2" rx="8"></rect>
+                            <ellipse id="Oval-6" fill="#FFBB03" cx="15.5073529" cy="16.15625" rx="5.16911765" ry="5.58125"></ellipse>
+                            <rect id="Rectangle-11" fill="#02C5AB" x="0" y="18.8" width="34.8235294" height="28.2" rx="8"></rect>
+                            <path d="M27.5529412,28.2 L35,28.2 C36.1045695,28.2 37,29.0954305 37,30.2 L37,35.6 C37,36.7045695 36.1045695,37.6 35,37.6 L27.5529412,37.6 C24.9572029,37.6 22.8529412,35.4957383 22.8529412,32.9 L22.8529412,32.9 C22.8529412,30.3042617 24.9572029,28.2 27.5529412,28.2 Z" id="Rectangle-12" fill="#2898BC"></path>
+                            <ellipse id="Oval-5" fill="#FFFFFF" cx="27.75" cy="32.9" rx="2.17647059" ry="2.35"></ellipse>
+                            <ellipse id="Oval-6" fill="#FFBB03" cx="24.2132353" cy="5.58125" rx="5.16911765" ry="5.58125"></ellipse>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

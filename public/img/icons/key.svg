@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="38px" viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 8</title>
+    <desc>Created with Sketch.</desc>
+    <g id="03.3-Model-Test-drive" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03.3.5-Model-Test-drive-768" transform="translate(-85.000000, -964.000000)" fill-rule="nonzero">
+            <g id="icon/-keys" transform="translate(85.000000, 964.000000)">
+                <g id="Group-8" transform="translate(0.000000, -2.000000)">
+                    <path d="M8,18.31 C11.4849168,18.31 14.31,15.4849168 14.31,12 C14.31,8.51508323 11.4849168,5.69 8,5.69 C4.51508323,5.69 1.69,8.51508323 1.69,12 C1.69,15.4849168 4.51508323,18.31 8,18.31 Z M8,20 C3.581722,20 0,16.418278 0,12 C0,7.581722 3.581722,4 8,4 C12.418278,4 16,7.581722 16,12 C16,16.418278 12.418278,20 8,20 Z" id="Oval-8" fill="#0C1A30"></path>
+                    <g id="Group-4" transform="translate(3.000000, 16.000000)">
+                        <ellipse id="Combined-Shape" fill="#136A5E" cx="7" cy="12" rx="7" ry="12"></ellipse>
+                        <circle id="Oval-7" fill="#FFFFFF" cx="7" cy="17" r="3"></circle>
+                        <circle id="Oval-7" fill="#FF5F5F" cx="7" cy="7" r="3"></circle>
+                    </g>
+                    <g id="Group-24" transform="translate(26.000000, 16.970563) rotate(45.000000) translate(-26.000000, -16.970563) translate(10.000000, 8.970563)">
+                        <path d="M16,6 L30,6 C31.1045695,6 32,6.8954305 32,8 L32,8 C32,9.1045695 31.1045695,10 30,10 L16,10 L16,6 Z" id="Rectangle-7" fill="#CCCCCC"></path>
+                        <path d="M6,0 L10,0 C13.3137085,-6.08718376e-16 16,2.6862915 16,6 L16,10 C16,13.3137085 13.3137085,16 10,16 L6,16 C2.6862915,16 4.05812251e-16,13.3137085 0,10 L0,6 C-4.05812251e-16,2.6862915 2.6862915,6.08718376e-16 6,0 Z M4.5,4 C3.67157288,4 3,4.67157288 3,5.5 L3,10.5 C3,11.3284271 3.67157288,12 4.5,12 C5.32842712,12 6,11.3284271 6,10.5 L6,5.5 C6,4.67157288 5.32842712,4 4.5,4 Z" id="Combined-Shape" fill="#0C1A30"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+.model-page-filter-actions {
+
+}
+
+.model-filter {
+    @include mq(lg) {
+        @include grid(x, center);
+    }
+
+    &__grid-container {
+        @include mq(lg) {
+            @include grid-col-mx(6/8);
+        }
+    }
+
+    &__grid {
+        @include mq(md) {
+            @include grid;
+
+            margin-top: map_get($mq-container-indents, 'sx') / 2;
+        }
+    }
+
+    &__grid-col {
+        @include mq(sm) {
+            //&:not(:first-child) {
+            //    .options-list-block:first-child {
+            //        > dt > a {
+            //            border-top: 0;
+            //        }
+            //    }
+            //}
+        }
+        @include mq(md) {
+            @include grid-col-mx(1/3);
+        }
+    }
+
+    &__button-block {
+        display: flex;
+        justify-content: center;
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+
+        .button {
+            @include mq(lg) {
+                @include col-size(4/6);
+            }
+        }
+    }
+}

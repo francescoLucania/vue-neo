@@ -1,0 +1,485 @@
+@charset "UTF-8";
+
+.credit-comparing-card {
+    position: relative;
+    border-radius: $border-radius-min;
+    background: $color-lightest-minimal;
+
+    &:not(:last-child) {
+        margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+    }
+
+    &__link {
+        @include size(100%);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        @include mq(md) {
+            display: none;
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: flex-start;
+        padding: map_get($mq-container-indents, 'sx') / 4 map_get($mq-container-indents, 'sx') / 4 calc(#{map_get($mq-container-indents, 'sx') / 4} - 1px);
+        border-bottom: 1px solid rgba(168, 168, 168, 0.2);
+
+        @include mq(md) {
+            padding: map_get($mq-indents, 'sm') map_get($mq-indents, 'sm') calc(#{map_get($mq-indents, 'sm')} - 1px);
+        }
+
+        a {
+            @include interact(text-decoration, none);
+
+            color: inherit;
+        }
+    }
+
+    &__header-logo {
+        @include size(3.2rem);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: map_get($mq-container-indents, 'sx') / 4;
+        min-width: 3.2rem;
+        border-radius: 50%;
+        overflow: hidden;
+
+        @include mq(md) {
+            @include size(4.4rem);
+
+            margin-right: map_get($mq-indents, 'sm');
+            min-width: 4.4rem;
+        }
+
+        > img {
+            max-width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+    }
+
+    &__header-bank-information {
+
+    }
+
+    &__header-bank-subtitle,
+    &__header-bank-title {
+        font-size: 1.3rem;
+        line-height: 1.23;
+        font-weight: 400;
+    }
+
+    &__header-bank-subtitle {
+        color: $color-light;
+    }
+
+    &__header-bank-title {
+        color: $color-base;
+
+        @include mq(md) {
+            font-size: 2.1rem;
+            line-height: 1.14;
+            margin-top: .4rem;
+        }
+    }
+
+    &__content {
+        padding: map_get($mq-container-indents, 'sx') / 4;
+
+        @include mq(md) {
+            padding: map_get($mq-indents, 'sm');
+        }
+
+        .information-badge-grid {
+            &:not(:last-child) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+    }
+
+    &__footer {
+        margin-top: map_get($mq-indents, 'sx') / 4;
+
+        @include mq(md) {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: map_get($mq-indents, 'sm');
+        }
+    }
+
+    &__footer-content {
+        display: flex;
+        align-items: stretch;
+        margin-bottom: -1 * map_get($mq-indents, 'sm') / 3;
+
+        @include mq(sm) {
+            flex-wrap: wrap;
+        }
+
+        @include mq(md) {
+            justify-content: space-between;
+        }
+    }
+
+    &__footer-content-item {
+        position: relative;
+        z-index: 99;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: map_get($mq-indents, 'sm') / 3;
+
+        &:not(:last-child) {
+            margin-right: map_get($mq-container-indents, 'sx') / 4;
+        }
+
+        > dt,
+        > dd {
+            font-weight: 400;
+
+            .help-string {
+                display: flex;
+                align-items: center;
+
+                &:focus {
+                    color: inherit;
+                }
+            }
+
+            .help-string__link {
+                position: relative;
+                top: -.2rem;
+                display: inline-flex;
+                margin-left: map_get($mq-indents, 'sm') / 3;
+                color: $color-base;
+            }
+        }
+
+        > dt {
+            display: block;
+            margin-bottom: .4rem;
+            font-size: 1.3rem;
+            line-height: 1.23;
+            color: rgba(64, 64, 64, 0.6);
+        }
+
+        > dd {
+            font-size: 2.1rem;
+            line-height: 1.14;
+            white-space: nowrap;
+        }
+    }
+
+    &__more {
+        @include interact(background, rgba(0, 0, 0, 0.09));
+        @include interact(border-color, transparent);
+
+        display: none;
+        padding: .8rem 1.8rem;
+        border-radius: $border-radius-min;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        font-size: 1.3rem;
+        line-height: 1.23;
+        font-weight: 400;
+        color: $color-light;
+        transition: all $transition-duration-base-min;
+
+        @include mq(md) {
+            display: inline-block;
+        }
+    }
+
+    &[data-color-type='Московский Кредитный Банк'],
+    &[data-color-type='Сбербанк'],
+    &[data-color-type='Сбербанк России'],
+    &[data-color-type='Московский Областной Банк'],
+    &[data-color-type='ЮниКредит Банк'],
+    &[data-color-type='Русфинанс Банк'],
+    &[data-color-type='Альфа-Банк'],
+    &[data-color-type='Альфабанк'],
+    &[data-color-type='Промсвязьбанк'],
+    &[data-color-type='РН Банк'],
+    &[data-color-type='Россельхозбанк'],
+    &[data-color-type='Национальный Банк «Траст»'],
+    &[data-color-type='Ак Барс'],
+    &[data-color-type='Ак Барс Банк'],
+    &[data-color-type='ВТБ'],
+    &[data-color-type='Газпромбанк'],
+    &[data-color-type='ЛОКО-Банк'],
+    &[data-color-type='Локобанк'],
+    &[data-color-type='Ситибанк'],
+    &[data-color-type='Банк «ФК Открытие»'],
+    &[data-color-type='Банк РНКБ'],
+    &[data-color-type='РНКБ'],
+    &[data-color-type='Сетелем Банк'],
+    &[data-color-type='Ситибанк'],
+    &[data-color-type='Банк Уралсиб'],
+    &[data-color-type='Кредит ЕвропаБанк'],
+    &[data-color-type='Кредит Европа Банк'],
+    &[data-color-type='Ситибанк'],
+    &[data-color-type='Банк «ФК Открытие»'],
+    &[data-color-type='Совкомбанк'] {
+        box-shadow: none;
+
+        .credit-comparing-card__header {
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .credit-comparing-card__header-bank-subtitle,
+        .credit-comparing-card__header-bank-title,
+        .credit-comparing-card__footer-content-item > dd {
+            color: #fff;
+        }
+
+        .credit-comparing-card__footer-content-item > dt {
+            color: rgba(255,255,255,0.6);
+        }
+    }
+
+    &[data-color-type='Совкомбанк'] {
+        background: #005395;
+    }
+
+    &[data-color-type='Кредит ЕвропаБанк'],
+    &[data-color-type='Кредит Европа Банк'] {
+        background: #0053ac;
+    }
+
+    &[data-color-type='Банк Уралсиб'] {
+        background: #3c5186;
+    }
+
+    &[data-color-type='Ак Барс Банк'],
+    &[data-color-type='Ак Барс'] {
+        background: #10002b;
+    }
+
+    &[data-color-type='Национальный Банк «Траст»'] {
+        background: #231f20;
+    }
+
+    &[data-color-type='Банк «ФК Открытие»'] {
+        background: #09ccff;
+    }
+
+    &[data-color-type='Ситибанк'] {
+        background: #00bbee;
+    }
+
+    &[data-color-type='Совкомбанк'] {
+        background: #005395;
+    }
+
+    &[data-color-type='Тинькофф Банк'],
+    &[data-color-type='Тинькоф'] {
+        background: #ffdd2d;
+    }
+
+    &[data-color-type='РН Банк'] {
+        background: #f68c28;
+    }
+
+    &[data-color-type='Промсвязьбанк'] {
+        background: #e15d29;
+    }
+
+    &[data-color-type='Альфа-Банк'],
+    &[data-color-type='Альфабанк'] {
+        background: #ef3124;
+    }
+
+    &[data-color-type='Русфинанс Банк'] {
+        background: #ee3a45;
+    }
+
+    &[data-color-type='ЮниКредит Банк'] {
+        background: #e2011a;
+    }
+
+    &[data-color-type='Московский Кредитный Банк'] {
+        background: #9a0028;
+    }
+
+    &[data-color-type='Россельхозбанк'] {
+        background: #19502e;
+    }
+
+    &[data-color-type='Сбербанк'] {
+        background: #2c9906;
+    }
+
+    &[data-color-type='Сетелем Банк'] {
+        background: #22b25c;
+    }
+
+    &[data-color-type='ВТБ'] {
+        background: #00a3da;
+    }
+
+    &[data-color-type='Газпромбанк'] {
+        background: #03467d;
+    }
+
+    &[data-color-type='Локобанк'],
+    &[data-color-type='ЛОКО-Банк'] {
+        background: #00aae7;
+    }
+
+    &[data-color-type='Ситибанк'] {
+        background: #00bbee;
+    }
+
+    &[data-color-type='Банк «ФК Открытие»'] {
+        background: #09ccff
+    }
+
+    &[data-color-type='Банк РНКБ'],
+    &[data-color-type='РНКБ'] {
+        background: #02abca;
+    }
+
+    &[data-color-type='Тинькофф Банк'],
+    &[data-color-type='Тинькоф'],
+    &[data-color-type='Райффайзенбанк'] {
+
+        .credit-comparing-card__header {
+            border-bottom-color: rgba(168, 168, 168, 0.2);
+        }
+
+        .credit-comparing-card__header-bank-subtitle {
+            color: $color-light
+        }
+
+        .credit-comparing-card__header-bank-title,
+        .credit-comparing-card__footer-content-item > dd {
+            color: $color-base;
+        }
+
+        .credit-comparing-card__footer-content-item > dt {
+            color: $brand-greyish;
+        }
+    }
+
+    &[data-color-type='Райффайзенбанк'] {
+        background: #fff200;
+        box-shadow: none;
+    }
+
+
+    // cart text styles
+    &[data-color-type='Московский Кредитный Банк'],
+    &[data-color-type='Московский Областной Банк'],
+    &[data-color-type='ЮниКредит Банк'],
+    &[data-color-type='Русфинанс Банк'],
+    &[data-color-type='Альфабанк'],
+    &[data-color-type='Альфа-Банк'],
+    &[data-color-type='Промсвязьбанк'],
+    &[data-color-type='РН Банк'],
+    &[data-color-type='Сбербанк России'],
+    &[data-color-type='Сбербанк'],
+    &[data-color-type='Сетелем Банк'],
+    &[data-color-type='Россельхозбанк'],
+    &[data-color-type='Национальный Банк «Траст»'],
+    &[data-color-type='Ак Барс Банк'],
+    &[data-color-type='Ак Барс'],
+    &[data-color-type='Банк Уралсиб'],
+    &[data-color-type='Кредит ЕвропаБанк'],
+    &[data-color-type='Кредит Европа Банк'],
+    &[data-color-type='Совкомбанк'],
+    &[data-color-type='ВТБ'],
+    &[data-color-type='Локобанк'],
+    &[data-color-type='ЛОКО-Банк'],
+    &[data-color-type='Ситибанк'],
+    &[data-color-type='Банк «ФК Открытие»'],
+    &[data-color-type='Банк РНКБ'],
+    &[data-color-type='РНКБ'],
+    &[data-color-type='Ситибанк'],
+    &[data-color-type='Банк «ФК Открытие»'] {
+        .credit-comparing-card__footer-content-item > dt {
+            color: rgba(255,255,255,0.4);
+        }
+    }
+
+    &[data-color-type='Тинькофф Банк'],
+    &[data-color-type='Тинькоф'],
+    &[data-color-type='Райффайзенбанк']{
+        .credit-comparing-card__footer-content-item > dt {
+            color: rgba(64, 64, 64, 0.6);
+        }
+    }
+
+
+    // more button style
+    &[data-color-type='Московский Кредитный Банк'],
+    &[data-color-type='Московский Областной Банк'],
+    &[data-color-type='ЮниКредит Банк'],
+    &[data-color-type='Русфинанс Банк'],
+    &[data-color-type='Альфабанк'],
+    &[data-color-type='Альфа-Банк'],
+    &[data-color-type='Промсвязьбанк'],
+    &[data-color-type='Сетелем Банк'],
+    &[data-color-type='РН Банк'] {
+        .credit-comparing-card__more {
+            @include interact(background, rgba(255, 255, 255, 0.3));
+            @include interact(border-color, transparent);
+
+            border-color: rgba(255, 255, 255, 0.4);
+            color: #fff;
+        }
+    }
+
+    &[data-color-type='Тинькофф Банк'],
+    &[data-color-type='Тинькоф'],
+    &[data-color-type='Райффайзенбанк']{
+        .credit-comparing-card__more {
+            @include interact(background, rgba(0, 0, 0, 0.09));
+            @include interact(border-color, transparent);
+
+            border-color: rgba(0, 0, 0, 0.2);
+            color: $color-light;
+        }
+    }
+
+    &[data-color-type='Сбербанк России'],
+    &[data-color-type='Сбербанк'],
+    &[data-color-type='Россельхозбанк'],
+    &[data-color-type='Национальный Банк «Траст»'],
+    &[data-color-type='Ак Барс'],
+    &[data-color-type='Ак Барс Банк'],
+    &[data-color-type='Банк Уралсиб'],
+    &[data-color-type='Кредит ЕвропаБанк'],
+    &[data-color-type='Кредит Европа Банк'],
+    &[data-color-type='Совкомбанк'],
+    &[data-color-type='ВТБ'],
+    &[data-color-type='Газпромбанк'],
+    &[data-color-type='Локобанк'],
+    &[data-color-type='ЛОКО-Банк'],
+    &[data-color-type='Ситибанк'],
+    &[data-color-type='Банк «ФК Открытие»'],
+    &[data-color-type='Банк РНКБ'],
+    &[data-color-type='РНКБ'],
+    &[data-color-type='Ситибанк'],
+    &[data-color-type='Банк «ФК Открытие»'] {
+        .credit-comparing-card__more {
+            @include interact(background, rgba(255, 255, 255, 0.3));
+            @include interact(border-color, transparent);
+
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+    }
+
+    @for $i from 1 through 30 {
+
+        &:nth-child(#{$i}){
+            z-index: 30 - $i;
+        }
+    }
+}

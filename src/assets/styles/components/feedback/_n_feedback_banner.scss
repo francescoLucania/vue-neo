@@ -1,0 +1,326 @@
+@charset "UTF-8";
+
+.n-feedback-banner {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 20.8rem;
+    background: $brand-bluish;
+    overflow: hidden;
+
+    &:not(:first-child) {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+    }
+
+    @include mq(sm) {
+        display: block;
+        height: auto;
+        padding: map_get($mq-container-indents, 'sm');
+
+        &::after {
+            display: none;
+        }
+
+        &::before {
+            display: none;
+        }
+    }
+
+    @include mq(sx) {
+        justify-content: space-between;
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+        padding: map_get($mq-container-indents, 'sx') / 2;
+    }
+
+    @include mq(lg) {
+        margin-top: 0;
+        padding: map_get($mq-container-indents, 'sx') / 2 map_get($mq-container-indents, 'sx') / 4;
+    }
+
+    &::after {
+        @include size(29.2rem, 29.2rem);
+        position: absolute;
+        bottom: -18.1rem;
+        right: 3rem;
+        border-radius: 50%;
+        background: $color-amber;
+        content: '';
+    }
+
+    &::before {
+        @include size(12.8rem, 12.8rem);
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 12.8rem;
+        height: 12.8rem;
+        border-radius: 50%;
+        background: $brand-grapefruit;
+        content: '';
+    }
+
+    &--message-type {
+        flex-direction: column;
+        height: auto;
+        background: $brand-turquoise;
+
+        .n-feedback-banner__image {
+            @include size(auto, auto);
+
+            margin-right: 0;
+        }
+
+        .n-feedback-banner__content {
+            > p {
+                width: auto;
+                line-height: 1.33;
+
+                @include mq(sx) {
+                    text-align: left;
+                }
+                @include mq(lg) {
+                    text-align: center;
+                }
+            }
+        }
+
+        &.not-lg {
+            .n-feedback-banner__image {
+                @include size(auto, auto);
+                margin-right: 0;
+                &--carcas {
+                    @include mq(sm) {
+                        max-width: 25rem;
+                        margin: 0 auto map_get($mq-container-indents, 'sx') / 4;
+                    }
+                    max-width: 30rem;
+                }
+            }
+        }
+
+        &::after {
+            display: none;
+        }
+
+        &::before {
+            display: none;
+        }
+    }
+
+    &__image {
+        @include mq(sm) {
+            margin: 0 auto map_get($mq-container-indents, 'sx') / 4;
+
+            > img {
+                display: block;
+            }
+        }
+
+        @include mq(sx) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @include mq(lg) {
+
+            margin-right: map_get($mq-container-indents, 'sx') / 4;
+            padding: map_get($mq-container-indents, 'sx') / 4;
+            max-width: 26rem;
+        }
+
+        > img {
+            max-width: 100%;
+            margin: 0 auto;
+            vertical-align: top;
+        }
+
+        &--carcas {
+            max-width: 25rem;
+
+            @include mq(lg) {
+                max-width: 31rem;
+            }
+        }
+
+        &--logo {
+            @include brand-logo;
+
+            min-width: 9.6rem;
+
+            @include mq(lg) {
+                transform: translateY(-10px);
+            }
+
+            &::before {
+                @include size(9.6rem, 9.6rem);
+
+                display: block;
+                margin: 0 auto;
+            }
+
+            > img {
+                display: none;
+            }
+        }
+    }
+
+    &__content {
+        z-index: 1;
+
+        @include mq(sx) {
+            flex-grow: 1;
+            margin-left: map_get($mq-container-indents, 'sx') / 2;
+        }
+
+        @include mq(md) {
+            @include mq-custom(max, 1195px) {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        @include mq(lg) {
+            margin-left: 0;
+        }
+
+        > p {
+            font-size: 1.8rem;
+            line-height: 1.33;
+            font-weight: 400;
+            color: #fff;
+
+            @include mq(sm) {
+                text-align: center;
+            }
+
+            @include mq(md) {
+                @include mq-custom(max, 1195px) {
+                    margin-right: map_get($mq-container-indents, 'sx') / 2;
+                }
+            }
+
+            @include mq(lg) {
+                width: 55%;
+                font-size: 2.1rem;
+            }
+
+            > a {
+                @include interact(text-decotation, none);
+            }
+        }
+
+        > .button {
+            @include mq(sm) {
+                display: block;
+                margin-top: map_get($mq-container-indents, 'sx') / 4;
+            }
+
+            @include mq(sx) {
+                max-width: 29.2rem;
+                margin-top: map_get($mq-container-indents, 'sx') / 4;
+            }
+
+            @include mq(md) {
+                @include mq-custom(max, 1195px) {
+                    margin-top: 0;
+                    margin-left: auto;
+                }
+            }
+
+            @include mq(lg) {
+                margin-top: map_get($mq-container-indents, 'sx') / 2;
+                display: block;
+            }
+        }
+    }
+}
+
+.n-feedback-banner.n-feedback-banner--message-type.not-lg {
+    @include mq(sx) {
+        flex-direction: row;
+        margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+    }
+}
+
+.n-feedback-help-banner {
+    display: block;
+    padding: map_get($mq-container-indents, 'sx') map_get($mq-container-indents, 'sx') / 2 map_get($mq-container-indents, 'sx') / 2;
+    min-height: 48.4rem;
+    background: $color-lightest-minimal;
+
+    &__image {
+        margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+
+        > img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    &__content {
+        text-align: center;
+        font-weight: 300;
+    }
+
+    &__title {
+        margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+        font-size: 2.1rem;
+        line-height: 1.14;
+        font-weight: 400;
+    }
+
+    &__description {
+
+    }
+}
+
+.n-feedback-in-catalog-banner {
+    background: $brand-bluish;
+
+    &:not(:first-child) {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+    }
+
+    @include mq(sx) {
+        display: flex;
+        align-items: flex-start;
+        padding: map_get($mq-container-indents, 'sx') / 2;
+    }
+
+    &__logo {
+        @include mq(md) {
+            @include size(9.6rem);
+
+            min-width: 9.6rem;
+            margin-right: map_get($mq-container-indents, 'sx') / 2;
+        }
+
+        > img {
+            width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+    }
+
+    &__information {
+        @include mq(md) {
+            max-width: 60rem;
+        }
+    }
+
+    &__description {
+        font-size: 2.1rem;
+        line-height: 1.52;
+        font-weight: 400;
+        color: #fff;
+    }
+
+    &__action {
+        @include mq(sx) {
+            margin-top: map_get($mq-container-indents, 'sx') / 2;
+            width: 29.2rem;
+        }
+    }
+}

@@ -1,0 +1,204 @@
+@keyframes arrowSpanFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.slick-slide {
+    outline: none !important;
+
+    a {
+        &:focus {
+            outline: none;
+        }
+
+        &:active {
+            outline: none;
+        }
+    }
+}
+
+.slick-prev,
+.slick-next {
+    @include size(4rem, 12.2rem);
+    @include interact(width, 12.2rem);
+    @include interact(max-width, 12.2rem);
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.47rem;
+    width: 4rem;
+    max-width: 4rem;
+    background: $color-base;
+    outline: none !important;
+    transition: all $transition-duration-base-min;
+    overflow: hidden;
+    z-index: 99;
+
+    @include mq(sm) {
+        display: none !important;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        &::before {
+            opacity: .85;
+        }
+    }
+
+    &::before {
+        @include size(1.2rem, 2rem);
+
+        display: block;
+        background: {
+            size: contain;
+            position: 50% 50%;
+            repeat: no-repeat;
+            image: url(../img/icons/arrow.svg);
+        };
+        transition: opacity $transition-duration-base-min;
+        content: "";
+    }
+
+    > span {
+        @include ellipsis;
+    }
+
+
+    &[data-prev-content],
+    &[data-next-content] {
+        @include interact(display, inline-block, 'hover span');
+        @include interact(width, 12.6rem);
+
+        display: flex;
+        justify-content: flex-start;
+        //max-width: 4rem;
+        width: 4rem;
+
+        span {
+            @include text-small(400);
+
+            display: none;
+            max-width: 0;
+            color: #fff;
+            opacity: 0;
+            animation: arrowSpanFadeIn .1s linear .1s 1 alternate forwards;
+
+            .mod_flexboxtweener & {
+                opacity: 1;
+                animation: none;
+            }
+        }
+
+        .mod_no-touchevents & {
+            &:hover {
+                > span {
+                    display: inline-block;
+                    max-width: 8rem;
+                }
+            }
+        }
+    }
+
+    &[data-prev-content],
+    &[data-next-content] {
+        &::before,
+        &::after {
+            min-width: 1.2rem;
+        }
+    }
+
+    &[data-prev-content] {
+        flex-direction: row;
+    }
+
+    &[data-next-content] {
+        justify-content: flex-end;
+    }
+
+}
+
+.slick-prev {
+    left: calc(-1 * #{map-get($mq-container-indents, 'sx')});
+    border-top-right-radius: 1.4rem;
+    border-bottom-right-radius: 1.4rem;
+
+    &::before {
+        transform: rotate(180deg);
+    }
+}
+
+.slick-next {
+    right: calc(-1 * #{map-get($mq-container-indents, 'sx')});
+    border-top-left-radius: 1.4rem;
+    border-bottom-left-radius: 1.4rem;
+
+
+    &[data-next-content] {
+        &::before {
+            display: none;
+        }
+
+        &::after {
+            @include size(1.2rem, 2rem);
+
+            display: block;
+            background: {
+                size: contain;
+                position: 50% 50%;
+                repeat: no-repeat;
+                image: url(../img/icons/arrow.svg);
+            };
+            transition: opacity $transition-duration-base-min;
+            content: "";
+        }
+    }
+}
+
+.slick-dots {
+    display: flex !important;
+    justify-content: center;
+    margin-top: map-get($mq-container-indents, 'sx') / 4;
+
+    > li {
+        @include size(.6rem);
+
+        font-size: 0;
+        border-radius: 50%;
+        background-color: $color-lighter;
+
+        &:not(:last-child) {
+            margin-right: 1.2rem;
+        }
+
+        &.slick-active {
+            background: $brand-turquoise;
+        }
+    }
+}
+
+
+.custom-slider-actions__prev,
+.slick-arrow.slick-prev {
+
+    > span {
+        margin-left: map-get($mq-container-indents, 'sx') / 4;
+    }
+}
+
+.custom-slider-actions__next,
+.slick-arrow.slick-next {
+
+    > span {
+        margin-right: map-get($mq-container-indents, 'sx') / 4;
+    }
+}

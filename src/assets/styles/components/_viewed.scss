@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+.viewed {
+
+    &__container {
+        position: relative;
+    }
+
+    &__grid {
+        @include mq(sm) {
+            display: flex;
+        }
+    }
+
+    &__col {
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
+    }
+}

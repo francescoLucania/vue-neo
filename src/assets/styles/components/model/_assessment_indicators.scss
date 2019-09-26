@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+.assessment-indicators {
+    @include mq(sx) {
+        @include grid(x,space-between);
+    }
+
+    &__col {
+        &:not(:last-child) {
+            margin-bottom: 1.2rem;
+        }
+
+        @include mq(sx) {
+            @include  grid-col-mx(1/4);
+        }
+    }
+}
+
+.assessment-container {
+    @include mq(sm) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    @include mq(sx) {
+        text-align: center;
+    }
+
+    &__title {
+        @include mq(sm) {
+            margin-right: map_get($mq-container-indents, 'sx') / 4;
+        }
+
+        @include mq(sx) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+        }
+    }
+
+    &__circle {
+        @include size(3.6rem);
+
+        position: relative;
+
+        @include mq(sx) {
+            @include size(11.2rem);
+
+            margin: 0 auto;
+        }
+
+        > canvas {
+            display: block;
+        }
+
+        > span {
+            @include font(1.6rem, 1.6rem);
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            @include mq(sx) {
+                @include font(4rem, 4rem);
+            }
+        }
+    }
+}

@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+.main-option {
+    display: flex;
+    align-items: flex-start;
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        margin-right: map_get($mq-indents, 'sm') / 2;
+        padding-top: .4rem;
+
+        > i,
+        > .icon {
+            @include size(1.2rem);
+
+            @include mq(sx) {
+                @include size(2.4rem);
+            }
+
+            fill: $color-base;
+        }
+
+        > i {
+            border-radius: 50%;
+        }
+
+        @include mq(sx) {
+            margin-right: map_get($mq-container-indents, 'sx') / 4;
+            padding-top: .7rem;
+            min-width: 2.4rem;
+        }
+
+        &[data-value='engine'] {
+            > .icon {
+                @include size(1.2rem);
+
+                @include mq(sx) {
+                    @include size(2.4rem);
+                }
+            }
+        }
+
+        &[data-value='transmission'] {
+
+        }
+
+        &[data-value='drive'] {
+
+        }
+
+        &[data-value='expense'] {
+            > .icon {
+                width: 1.6rem;
+                margin-left: -.3rem;
+
+                @include mq(sx) {
+                    margin-left: -.6rem;
+                    width: 3rem;
+                }
+            }
+        }
+
+        &[data-value='speed'] {
+
+        }
+
+        &[data-value='calender'] {
+
+        }
+
+        &[data-value='color'] {
+
+        }
+    }
+
+    &__information {
+        flex-grow: 1;
+    }
+
+    &__title {
+        @include text-small(400);
+
+        color: $color-lighter;
+
+        @include mq(sm) {
+            display: none;
+        }
+    }
+
+    &__value {
+        font-weight: 400;
+
+        @include mq(sm) {
+            @include text-small(400);
+        }
+    }
+}

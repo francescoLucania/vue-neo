@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.model-popup-sm-fixed-menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    display: none;
+
+    @include mq(sx) {
+        display: none !important;
+    }
+
+    &.is-open {
+        display: block;
+    }
+
+    &__body {
+        width: 100%;
+        padding: 2.4rem 32px;
+        border-radius: .2rem;
+        background: #fff;
+        box-shadow: 0 6px 8px 0 rgba(0,0,0,.11), 0 0 0 1px rgba(0,0,0,.11);
+    }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="136px" height="128px" viewBox="0 0 136 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>02</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M69,138 C107.107648,138 138,107.107648 138,69 C138,30.8923523 107.107648,0 69,0 C50.4569988,0 33.0616536,7.3576106 20.2096321,20.2096321 C7.3576106,33.0616536 0,50.4569988 0,69 C0,107.107648 30.8923523,138 69,138 Z" id="path-1"></path>
+    </defs>
+    <g id="23.-Feedback" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-639.000000, -376.000000)">
+            <g id="02" transform="translate(638.000000, 376.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Path" fill-opacity="0" fill="#02C5AB" fill-rule="nonzero" xlink:href="#path-1"></use>
+                <g id="Group-32" mask="url(#mask-2)" stroke="#FFFFFF" stroke-linecap="square">
+                    <g transform="translate(-2.500000, 0.000000)" id="Line">
+                        <path d="M72.5,0 L72.5,76"></path>
+                        <path d="M108.54827,26.2616545 L108.6113,101.799376" transform="translate(108.579785, 64.030515) rotate(72.000000) translate(-108.579785, -64.030515) "></path>
+                        <path d="M94.9141556,68.5370209 L94.812171,144.194632" transform="translate(94.863163, 106.365826) rotate(144.000000) translate(-94.863163, -106.365826) "></path>
+                        <path d="M50.4242502,68.5370209 L50.5262349,144.194632" transform="translate(50.475243, 106.365826) rotate(216.000000) translate(-50.475243, -106.365826) "></path>
+                        <path d="M36.7901357,26.2616545 L36.7271057,101.799376" transform="translate(36.758621, 64.030515) rotate(288.000000) translate(-36.758621, -64.030515) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

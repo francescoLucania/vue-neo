@@ -1,0 +1,396 @@
+@charset "UTF-8";
+
+.model-insurance,
+.model-trade-in,
+.model-feedback {
+
+    .tooltip-box {
+        margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+
+        @include mq(sx) {
+            display: flex;
+            justify-content: center;
+        }
+
+        &.not-md {
+            @include mq(sx) {
+                display: flex !important;
+            }
+
+            @include mq(md) {
+                display: none !important;
+            }
+        }
+    }
+
+    &__grid {
+        @include mq(md) {
+            @include grid(x, center, flex-start);
+        }
+    }
+
+    &__col-aside,
+    &__col-auto {
+        @include mq(md) {
+            @include grid-col-mx(2/6);
+
+            position: sticky;
+            top: map_get($mq-container-indents, 'sx') / 2;
+        }
+
+        @include mq(lg) {
+            @include grid-col-mx(3/12);
+        }
+
+        &--min-top-gutter {
+
+            .model-trade-in__auto-image {
+                @include mq(md) {
+                    margin-top: 0;
+                }
+            }
+
+            .model-trade-in__auto-description {
+                @include mq(md) {
+                    margin-top: map_get($mq-container-indents, 'sx') / 4;
+                }
+            }
+
+            .model-trade-in__action {
+                @include mq(sx) {
+                    margin-top: map_get($mq-indents, 'sx') / 2;
+                }
+            }
+        }
+    }
+
+    &__col-auto-sticky {
+        @include mq(lg) {
+            position: sticky;
+            top: 0;
+            margin-top: -1 * map_get($mq-container-indents, 'sx') / 2;
+            padding-top: map_get($mq-container-indents, 'sx') / 2;
+        }
+    }
+
+    &__col-content {
+        @include mq(md) {
+            @include grid-col-mx(4/6)
+        }
+
+        @include mq(lg) {
+            @include grid-col-mx(6/12)
+        }
+
+        &.wysiwyg {
+            > h1,
+            > h2,
+            > h3,
+            > h4,
+            > h5,
+            > h6 {
+                + p {
+                    margin-top: 0;
+                }
+            }
+
+            > h3 {
+                @include text-base(400);
+
+                @include mq(sx) {
+                    @include header-model-settings-h3;
+                }
+            }
+        }
+    }
+
+    &__rating {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        > i {
+            @include size(4.4rem);
+
+            position: relative;
+            top: -.1rem;
+            margin-right: .6rem;
+            background: {
+                position: 50%;
+                size: contain;
+                image: url(../img/icons/star.svg);
+                repeat: no-repeat;
+            }
+        }
+
+        > div {
+            @include header-h1;
+        }
+
+        &.is-sm {
+            @include mq(sm) {
+                display: flex !important;
+            }
+        }
+
+        &.not-sm {
+            @include mq(sx) {
+                display: flex !important;
+            }
+        }
+
+    }
+
+    &__auto-image {
+        margin-top: map_get($mq-container-indents, 'sx') / 4;
+    }
+
+    &__auto-description {
+        text-align: center;
+        margin-top: map_get($mq-container-indents, 'sx') / 4;
+    }
+
+    &__action {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+
+        @include mq(sx) {
+            margin-top:  map_get($mq-container-indents, 'sx') / 2;
+        }
+
+        > .button {
+            display: block;
+            width: 100%;
+        }
+
+        &--align-center {
+            text-align: center;
+
+            > .button {
+                @include mq(sx) {
+                    display: inline-block;
+                    width: auto;
+                }
+            }
+        }
+    }
+
+    &__auto-sm-sx-grid {
+        @include mq(sx) {
+            @include grid(x, flex-start, stretch);
+        }
+    }
+
+    &__auto-sm-sx-grid-col {
+        @include mq(sx) {
+            @include grid-col-mx(1/2);
+
+            .model-trade-in__action {
+                margin-top: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+    }
+
+    &__footer {
+        padding-top: calc(#{map_get($mq-container-indents, 'sx') / 2} - 1px);
+        border-top: 1px solid $color-lightest-secondary;
+    }
+
+    &__paragraph {
+        &:not(:last-child) {
+            margin-bottom: map_get($mq-container-indents, 'sx');
+            padding-bottom: calc(#{map_get($mq-container-indents, 'sx') / 2} - 1px);
+            border-bottom: 1px solid rgba(0,0,0, .09);
+        }
+    }
+
+    &__load {
+        margin-top: map_get($mq-container-indents, 'sx') / 2;
+
+        > .button {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &__elips-title {
+        @include ellipsis;
+        @include size(8rem);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: map_get($mq-container-indents, 'sx') / 2;
+        border-radius: 50%;
+        text-align: center;
+        font-weight: 400;
+        color: $color-light;
+
+        &[data-background='color-amber'] {
+            background: $color-amber;
+        }
+
+        &[data-background='brand-turquoise'] {
+            background: $brand-turquoise;
+        }
+    }
+}
+
+
+.insurance-company-table {
+
+    &__header {
+        display: flex;
+        border-top-left-radius: $border-radius-min;
+        border-top-right-radius: $border-radius-min;
+        background: $color-light;
+        color: #fff;
+
+        @include mq(sm) {
+            display: none;
+        }
+    }
+
+    &__header-col {
+        padding: map_get($mq-container-indents, 'sm') map_get($mq-container-indents, 'sx') / 2;
+        font-weight: 400;
+
+        &:last-child {
+            margin-left: auto;
+            padding-left: calc(#{map_get($mq-container-indents, 'sx') / 2} - 1px);
+            border-left: 1px solid $color-lighter-secondary;
+        }
+    }
+
+    &__lines {
+        @include mq(sx) {
+            border-bottom-left-radius: $border-radius-min;
+            border-bottom-right-radius: $border-radius-min;
+            border-left: 1px solid $color-lightest-minimal;
+            border-right: 1px solid $color-lightest-minimal;
+            border-bottom: 1px solid $color-lightest-minimal;
+            counter-reset: li;
+        }
+    }
+
+    &__line {
+        display: flex;
+        align-items: flex-start;
+
+        @include mq(sm) {
+            padding-bottom: calc(#{map_get($mq-container-indents, 'sx') / 4} - 1px);
+        }
+
+        @include mq(sx) {
+            align-items: center;
+            padding: map_get($mq-container-indents, 'sx') / 2;
+        }
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $color-lightest-minimal;
+
+            @include mq(sm) {
+                margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+            }
+        }
+
+        &::before {
+            @include mq(sx) {
+                @include text-minimal(300);
+
+                margin-right: map_get($mq-container-indents, 'sx') / 2;
+                content: counter(li) '';
+                counter-increment: li;
+                color: $color-light;
+            }
+        }
+    }
+
+    &__logo-col {
+        margin-right: 1rem;
+
+        @include mq(sx) {
+            margin-right: map_get($mq-container-indents, 'sx') / 2;
+        }
+    }
+
+    &__logo {
+        @include size(11.2rem, 5.6rem);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include mq(lg) {
+            @include size(12.8rem, 6.4rem);
+        }
+
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.11), 0 0 0 1px rgba(0, 0, 0, 0.09);
+    }
+
+    &__information-col {
+        flex-grow: 1;
+    }
+
+    &__information-grid {
+        @include mq(sx) {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__title {
+
+    }
+
+    &__rating {
+        @include header-model-settings-h3;
+
+        @include mq(sm) {
+            margin-top: map_get($mq-container-indents, 'sm') / 3;
+        }
+
+        @include mq(sx) {
+            margin-left: auto;
+        }
+
+        &[data-color='brand-blue-green'] {
+            color: $brand-blue-green;
+        }
+
+        &[data-color='brand-turquoise'] {
+            color: $brand-turquoise;
+        }
+    }
+}
+
+.tooltip-insurance-rating {
+    @include mq(sx) {
+        position: sticky;
+        top: 0;
+        padding-top: 2rem;
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: map_get($mq-container-indents, 'sx') / 4;
+        }
+    }
+
+    &__title {
+        @include header-model-settings-h3;
+
+        margin-bottom: map_get($mq-container-indents, 'sm') / 3;
+
+        &[data-color='brand-blue-green'] {
+            color: $brand-blue-green;
+        }
+
+        &[data-color='brand-turquoise'] {
+            color: $brand-turquoise;
+        }
+    }
+
+    &__description {
+        color: $color-light;
+    }
+}

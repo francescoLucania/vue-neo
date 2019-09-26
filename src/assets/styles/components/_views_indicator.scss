@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.views-indicator {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0;
+    outline: none;
+
+    &.views-indicator--label-type {
+        &::before {
+            @include size(2.2rem, 1.6rem);
+
+            background-position: 50%;
+            background-size: contain;
+            background-image: url(../img/icons/eye-label.svg);
+            background-repeat: no-repeat;
+            content: "";
+        }
+    }
+
+    &.is-active {
+        > .icon {
+            fill: $brand-turquoise;
+        }
+    }
+
+    > .icon {
+        @include size(1.8rem, 1.2rem);
+
+        fill: $color-lightest;
+    }
+
+    > span {
+        @include text-small(400);
+
+        margin-left: .5rem;
+        font-weight: 400;
+        color: $color-light;
+    }
+}
